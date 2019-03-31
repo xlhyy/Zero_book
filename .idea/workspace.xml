@@ -2,22 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ea5b91b-b6b9-4553-ab8c-0faae295e38a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conf/nginx_conf.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/supervisor_conf.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/vim_conf.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mysql.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/redis.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interface/annotate.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interface/environ.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interface/knowledge.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interface/linux.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/vbs.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/deploy_script.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/git.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/nginx.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/vim.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Zero_book.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Zero_book.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SUMMARY.md" beforeDir="false" afterPath="$PROJECT_DIR$/SUMMARY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book.json" beforeDir="false" afterPath="$PROJECT_DIR$/book.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/nginx_conf.md" beforeDir="false" afterPath="$PROJECT_DIR$/conf/nginx_conf.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/supervisor_conf.md" beforeDir="false" afterPath="$PROJECT_DIR$/conf/supervisor_conf.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/vim_conf.md" beforeDir="false" afterPath="$PROJECT_DIR$/conf/vim_conf.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/database/mysql.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/database/redis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/haha.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/haha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/annotate.md" beforeDir="false" afterPath="$PROJECT_DIR$/interface/annotate.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/environ.md" beforeDir="false" afterPath="$PROJECT_DIR$/interface/environ.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/knowledge.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/linux.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/test.md" beforeDir="false" afterPath="$PROJECT_DIR$/interface/test.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/vbs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_script/trans_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_script/trans_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/deploy_script.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/deploy_script.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/git.md" beforeDir="false" afterPath="$PROJECT_DIR$/tools/git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/nginx.md" beforeDir="false" afterPath="$PROJECT_DIR$/tools/nginx.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/vim.md" beforeDir="false" afterPath="$PROJECT_DIR$/tools/vim.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,23 +38,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interface/linux.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1695">
-                <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SUMMARY.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="480">
-                <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="179">
+                <caret line="71" column="48" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="48" />
               </first_editor>
               <second_editor />
             </state>
@@ -52,7 +50,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/git.md">
+        <entry file="file://$PROJECT_DIR$/program/python/protocol/http.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="99">
+                <caret line="31" selection-start-line="31" selection-end-line="31" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program/python/crawler/beautifulsoup_crawler.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1320">
+                <caret line="88" selection-start-line="88" selection-end-line="88" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program/python/crawler/practice_crawler.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="477">
+                <caret line="967" selection-start-line="967" selection-end-line="967" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program/python/crawler/scrapy_crawler.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="507">
+                <caret line="218" selection-start-line="218" selection-end-line="218" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program/python/crawler/xpath_crawler.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="507">
+                <caret line="109" selection-start-line="109" selection-end-line="109" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program/python/crawler/zhengze_crawler.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="492">
+                <caret line="80" selection-start-line="80" selection-end-line="80" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/program/python/database/practice_database.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -62,11 +132,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/program/vbs.md">
+        <entry file="file://$PROJECT_DIR$/program/python/algorithm/practice_algorithm.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2280">
-                <caret line="152" selection-start-line="152" selection-end-line="152" />
+              <first_editor relative-caret-position="492">
+                <caret line="1603" selection-start-line="1603" selection-end-line="1603" />
               </first_editor>
               <second_editor />
             </state>
@@ -74,71 +144,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/nginx_conf.md">
+        <entry file="file://$PROJECT_DIR$/program/python/analysis/practice_analysis.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="495">
-                <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/supervisor_conf.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1665">
-                <caret line="111" selection-start-line="111" selection-end-line="111" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/mysql.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="245">
-                <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/deploy_script.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="30">
-                <caret line="2" selection-start-line="2" selection-end-line="2" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interface/annotate.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="420">
-                <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/redis.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="252">
-                <caret line="663" column="7" selection-start-line="663" selection-start-column="7" selection-end-line="663" selection-end-column="7" />
+              <first_editor relative-caret-position="1669">
+                <caret line="672" selection-start-line="672" selection-end-line="672" />
               </first_editor>
               <second_editor />
             </state>
@@ -147,32 +157,77 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>常用选择器</find>
+      <find>othershell</find>
+      <find>free</find>
+      <find>con</find>
+      <find>co</find>
+      <find>interface</find>
+      <find>linux</find>
+      <find>interface/</find>
+      <find>practice_vb</find>
+      <find>database</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/interface/python.md" />
-        <option value="$PROJECT_DIR$/interface/test.md" />
-        <option value="$PROJECT_DIR$/interface/environment.md" />
-        <option value="$PROJECT_DIR$/interface/mac_environ.md" />
-        <option value="$PROJECT_DIR$/interface/git.md" />
-        <option value="$PROJECT_DIR$/interface/knowledge.md" />
-        <option value="$PROJECT_DIR$/interface/environ.md" />
-        <option value="$PROJECT_DIR$/interface/nginx.md" />
-        <option value="$PROJECT_DIR$/interface/vim.md" />
-        <option value="$PROJECT_DIR$/interface/vim_conf.md" />
-        <option value="$PROJECT_DIR$/interface/supervisor_conf.md" />
-        <option value="$PROJECT_DIR$/interface/nginx_conf.md" />
-        <option value="$PROJECT_DIR$/interface/mysql.md" />
-        <option value="$PROJECT_DIR$/interface/deploy_script.md" />
-        <option value="$PROJECT_DIR$/interface/annotate.md" />
-        <option value="$PROJECT_DIR$/interface/redis.md" />
-        <option value="$PROJECT_DIR$/interface/linux.md" />
-        <option value="$PROJECT_DIR$/interface/vbs.md" />
+        <option value="$PROJECT_DIR$/tools/profile.md" />
+        <option value="$PROJECT_DIR$/tools/rsync.md" />
+        <option value="$PROJECT_DIR$/tools/ssh.md" />
+        <option value="$PROJECT_DIR$/tools/supervisor.md" />
+        <option value="$PROJECT_DIR$/tools/vim.md" />
+        <option value="$PROJECT_DIR$/scripts/python_script.txt" />
+        <option value="$PROJECT_DIR$/scripts/python_script.md" />
+        <option value="$PROJECT_DIR$/scripts/shell_script.txt" />
+        <option value="$PROJECT_DIR$/scripts/脚本用到的知识点.txt" />
+        <option value="$PROJECT_DIR$/scripts/脚本用到的知识点.md" />
+        <option value="$PROJECT_DIR$/python_lib/apscheduler.md" />
+        <option value="$PROJECT_DIR$/python_lib/datetime.md" />
+        <option value="$PROJECT_DIR$/python_lib/global.md" />
+        <option value="$PROJECT_DIR$/python_lib/logging.md" />
+        <option value="$PROJECT_DIR$/python_lib/md5.md" />
+        <option value="$PROJECT_DIR$/python_lib/openpyxl.md" />
+        <option value="$PROJECT_DIR$/python_lib/os_path.md" />
+        <option value="$PROJECT_DIR$/python_lib/time.md" />
+        <option value="$PROJECT_DIR$/python_lib/traceback.md" />
+        <option value="$PROJECT_DIR$/program/web_front/ajax.md" />
+        <option value="$PROJECT_DIR$/program/web_front/animation.md" />
+        <option value="$PROJECT_DIR$/program/web_front/css.md" />
+        <option value="$PROJECT_DIR$/program/web_front/dom.md" />
+        <option value="$PROJECT_DIR$/program/web_front/html.md" />
+        <option value="$PROJECT_DIR$/program/web_front/jquery.md" />
         <option value="$PROJECT_DIR$/SUMMARY.md" />
+        <option value="$PROJECT_DIR$/program/vbs/practice_vbs.md" />
+        <option value="$PROJECT_DIR$/program/web_front/javascript.md" />
+        <option value="$PROJECT_DIR$/program/python/python_1.md" />
+        <option value="$PROJECT_DIR$/program/python/python_2.md" />
+        <option value="$PROJECT_DIR$/program/python/python_web.md" />
+        <option value="$PROJECT_DIR$/program/python/linux_sys.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/alg.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/attr.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/decorator.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/derived.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/generator.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/inherit.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/inner_func.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/iterator.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/special_method.md" />
+        <option value="$PROJECT_DIR$/program/python/useful/param.md" />
+        <option value="$PROJECT_DIR$/program/python/protocol/http.md" />
+        <option value="$PROJECT_DIR$/program/python/database/practice_database.md" />
+        <option value="$PROJECT_DIR$/program/python/crawler/beautifulsoup_crawler.md" />
+        <option value="$PROJECT_DIR$/program/python/crawler/practice_crawler.md" />
+        <option value="$PROJECT_DIR$/program/python/crawler/scrapy_crawler.md" />
+        <option value="$PROJECT_DIR$/program/python/crawler/xpath_crawler.md" />
+        <option value="$PROJECT_DIR$/program/python/crawler/zhengze_crawler.md" />
+        <option value="$PROJECT_DIR$/program/python/analysis/practice_analysis.md" />
+        <option value="$PROJECT_DIR$/program/python/algorithm/practice_algorithm.md" />
       </list>
     </option>
   </component>
@@ -186,7 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,17 +251,12 @@
             <path>
               <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
               <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
               <item name="interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="linux" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
@@ -217,12 +266,68 @@
             <path>
               <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
               <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="crawler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="protocol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="useful" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Zero_book" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zero_book" type="462c0819:PsiDirectoryNode" />
+              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="shell" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,18 +336,19 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\free_style" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\images" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\images\kaiqigu" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\scripts" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\server_doc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\tools" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\program\vbs" />
+      <recent name="C:\Users\Administrator\Desktop\Zero_book\program\python" />
       <recent name="$PROJECT_DIR$/conf" />
       <recent name="$PROJECT_DIR$/scripts" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/program" />
-      <recent name="$PROJECT_DIR$/database" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tools" />
-      <recent name="$PROJECT_DIR$/interface" />
-      <recent name="$PROJECT_DIR$/images" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -274,11 +380,11 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18347895" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18268467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32901135" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -294,61 +400,48 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/interface/active.md" />
-    <entry file="file://$PROJECT_DIR$/images/haha.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/scripts/python_script.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/scripts/shell_script.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="147" column="3" selection-start-line="147" selection-start-column="3" selection-end-line="147" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/脚本用到的知识点.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/supervisor.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
-            <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <first_editor relative-caret-position="645">
+            <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/test.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interface/mac_environ.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="29">
-            <caret line="2" selection-start-line="2" selection-end-line="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interface/environ.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/datetime.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="255">
-            <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <first_editor relative-caret-position="477">
+            <caret line="77" selection-start-line="77" selection-end-line="77" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/git.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="282">
-            <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interface/knowledge.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/global.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="30">
@@ -358,107 +451,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/nginx.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/logging.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
-            <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <first_editor relative-caret-position="3060">
+            <caret line="204" column="3" selection-start-line="204" selection-start-column="3" selection-end-line="204" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/vim.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/md5.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <first_editor relative-caret-position="585">
+            <caret line="39" selection-start-line="39" selection-end-line="39" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/vim_conf.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/openpyxl.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <first_editor relative-caret-position="462">
+            <caret line="263" column="3" selection-start-line="263" selection-start-column="3" selection-end-line="263" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/supervisor_conf.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/os_path.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1665">
-            <caret line="111" selection-start-line="111" selection-end-line="111" />
+          <first_editor relative-caret-position="462">
+            <caret line="78" column="3" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/nginx_conf.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/time.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="495">
-            <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <first_editor relative-caret-position="417">
+            <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/mysql.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/traceback.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="245">
-            <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
+          <first_editor relative-caret-position="462">
+            <caret line="83" column="3" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/deploy_script.md">
+    <entry file="file://$PROJECT_DIR$/python_lib/apscheduler.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <first_editor relative-caret-position="518">
+            <caret line="82" selection-start-line="82" selection-end-line="82" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/annotate.md">
+    <entry file="file://$PROJECT_DIR$/program/web_front/ajax.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="420">
-            <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <first_editor relative-caret-position="1133">
+            <caret line="192" selection-start-line="192" selection-end-line="192" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/redis.md">
+    <entry file="file://$PROJECT_DIR$/program/web_front/animation.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="252">
-            <caret line="663" column="7" selection-start-line="663" selection-start-column="7" selection-end-line="663" selection-end-column="7" />
+          <first_editor relative-caret-position="312">
+            <caret line="971" column="8" selection-start-line="971" selection-start-column="8" selection-end-line="971" selection-end-column="8" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/program/vbs.md">
+    <entry file="file://$PROJECT_DIR$/program/web_front/css.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2280">
-            <caret line="152" selection-start-line="152" selection-end-line="152" />
+          <first_editor relative-caret-position="477">
+            <caret line="1105" selection-start-line="1105" selection-end-line="1105" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/git.md">
+    <entry file="file://$PROJECT_DIR$/program/web_front/dom.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="493" selection-start-line="493" selection-end-line="493" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/web_front/jquery.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="750" selection-start-line="750" selection-end-line="750" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/shell/calculate.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -466,11 +579,213 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/linux.md">
+    <entry file="file://$PROJECT_DIR$/program/shell/get_input.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1695">
-            <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/shell/account.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/java/zhengze.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/vbs/practice_vbs.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linux/zip.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="15">
+            <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/web_front/html.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="27630">
+            <caret line="1842" column="26" lean-forward="true" selection-start-line="1842" selection-start-column="26" selection-end-line="1842" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/vbs/vbs.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1878" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/web_front/javascript.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="15">
+            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/python_1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="1477" selection-start-line="1477" selection-end-line="1477" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/python_2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="1059" selection-start-line="1059" selection-end-line="1059" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/python_web.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="1956" selection-start-line="1956" selection-end-line="1956" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/linux_sys.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="3839" selection-start-line="3839" selection-end-line="3839" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/attr.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="115" selection-start-line="115" selection-end-line="115" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/decorator.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="462">
+            <caret line="187" column="3" selection-start-line="187" selection-start-column="3" selection-end-line="187" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/derived.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="507">
+            <caret line="67" selection-start-line="67" selection-end-line="67" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/generator.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="184" selection-start-line="184" selection-end-line="184" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/inherit.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="2370">
+            <caret line="158" selection-start-line="158" selection-end-line="158" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/inner_func.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="417">
+            <caret line="605" lean-forward="true" selection-start-line="605" selection-end-line="605" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/iterator.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="435">
+            <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/special_method.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="274" selection-start-line="274" selection-end-line="274" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/param.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="103" selection-start-line="103" selection-end-line="103" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/useful/alg.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="155" selection-start-line="155" selection-end-line="155" />
           </first_editor>
           <second_editor />
         </state>
@@ -478,10 +793,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SUMMARY.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="179">
+            <caret line="71" column="48" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="48" />
           </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/crawler/practice_crawler.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="477">
+            <caret line="967" selection-start-line="967" selection-end-line="967" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/protocol/http.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="99">
+            <caret line="31" selection-start-line="31" selection-end-line="31" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/algorithm/practice_algorithm.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="1603" selection-start-line="1603" selection-end-line="1603" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/analysis/practice_analysis.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1669">
+            <caret line="672" selection-start-line="672" selection-end-line="672" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/crawler/beautifulsoup_crawler.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1320">
+            <caret line="88" selection-start-line="88" selection-end-line="88" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/crawler/scrapy_crawler.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="507">
+            <caret line="218" selection-start-line="218" selection-end-line="218" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/crawler/xpath_crawler.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="507">
+            <caret line="109" selection-start-line="109" selection-end-line="109" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/crawler/zhengze_crawler.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="492">
+            <caret line="80" selection-start-line="80" selection-end-line="80" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program/python/database/practice_database.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
           <second_editor />
         </state>
       </provider>

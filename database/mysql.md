@@ -256,6 +256,7 @@ service mysql start
 
 ```
 
+
 #汇总
 ```
 查看字符编码：
@@ -380,4 +381,10 @@ ERROR 2002 (HY000): Can't content to local MySQL server through socket '/var mys
 解决方法:
 ps -A | grep -i mysql kill 列出来的进程
 service mysql start
+```
+
+
+### flask框架对mysql数据库操作
+```
+https://blog.csdn.net/weixin_42750983/article/details/82431257
 ```
