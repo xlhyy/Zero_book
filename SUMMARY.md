@@ -133,7 +133,7 @@
     * [布代码](scripts/deploy_script.md)
     * [python脚本知识点](scripts/python_script.md)
     * [shell脚本知识点](scripts/shell_script.md)
-    * [脚本用到的一些知识点](scripts/脚本用到的知识点.md)
+    * [脚本用到的一些知识点](scripts/some_note.md)
 
 * 配置
     * [nginx配置](conf/nginx_conf.md)
