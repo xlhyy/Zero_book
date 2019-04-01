@@ -1,6 +1,7 @@
-### 基础
+# 基础
 
 - 1
+
 ```
 package mypackage;
 
@@ -22,6 +23,7 @@ public class Test {
 
 
 - 2
+
 ```
 数据类型	大小位	取值范围	说明
 
@@ -47,6 +49,7 @@ boolean	布尔型	1	true/false	用于存储真值/假值
 
 
 - 3 变量声明及使用
+
 ```
 package mypackage;
 
@@ -92,6 +95,7 @@ public class Test {
 
 
 - 4 数据类型举例
+
 ```
 package mypackage;
 
@@ -118,6 +122,7 @@ public class Test {
 
 
 - 5 变量命名规则
+
 ```
 变量名 = 首字母(1.字母 2.下划线 3.'$'符号) + 其余部分
 (任意多的：1.数字 2.字母 3.下划线 4.'$'符号)

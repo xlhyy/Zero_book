@@ -1,7 +1,8 @@
-### 特殊方法
+# 特殊方法
 
 
 - __str__、__repr__
+
 ```
 # coding=utf-8
 
@@ -49,6 +50,7 @@ class Person2(object):
 
 
 - __cmp__
+
 ```
 - python2
 
@@ -114,6 +116,7 @@ print(sorted(L))
 
 
 - __len__
+
 ```
 # coding=utf-8
 
@@ -138,6 +141,7 @@ print(len(L2))
 
 
 - @property
+
 ```
 # coding=utf-8
 
@@ -168,6 +172,7 @@ s.score = 1000
 
 
 - __slots__
+
 ```
 # coding=utf-8
 
@@ -191,6 +196,7 @@ s.grade = 'S'
 
 
 - __call__
+
 ```
 # coding=utf-8
 
@@ -212,6 +218,7 @@ p()
 
 
 - __init__、__float__
+
 ```
 # coding=utf-8
 
@@ -240,6 +247,7 @@ print(float(Rational(1,3)))
 
 
 - 常用的特殊方法
+
 ```
 
 1.字符串/字节序列表示形式:

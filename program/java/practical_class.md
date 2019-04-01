@@ -1,7 +1,8 @@
-### 实用类
+# 实用类
 
 
 - 1 Java API (Java应用程序编程接口)
+
 ```
 常用Java API:
 java.lang
@@ -12,6 +13,7 @@ java.sql
 ```
 
 - 2 包装类
+
 ```
 1) 包装类把基本类型数据转换为对象。
 2) 每个基本类型在java.lang包中都有一个相应的包装类。
@@ -34,6 +36,7 @@ Object{
 ```
 
 - 3 包装类的构造方法
+
 ```
 1) 所有包装类都可将与之对应的基本数据类型作为参数，来构造它们的实例。
 public Type (type value)
@@ -50,6 +53,7 @@ public Type (String value)
 
 
 - 4 包装类的常用方法
+
 ```
 1) 所有包装类都有如下方法:
 public static Type valueOf(type value)
@@ -84,6 +88,7 @@ boolean bool = Boolean.parseBoolean("false");
 
 
 - 5 装箱和拆箱
+
 ```
 1) 装箱: 基本类型转换为包装类的对象。
 2) 拆箱: 包装类对象转换为基本类型的值。
@@ -94,6 +99,7 @@ int intValue = intObject;
 
 
 - 6 包装类的特点
+
 ```
 1) 所有包装类都是final类型，不能创建它们的子类。
 2) JDK1.5后，允许基本数据类型和包装类型进行混合数学运算。
@@ -103,6 +109,7 @@ int intValue = intObject;
 
 
 - 7 Math类
+
 ```
 java.lang.Math类提供了常用的数学运算方法和两个静态常量E(自然对数的底数)和PI(圆周率)。
 例:
@@ -113,6 +120,7 @@ int random = (int)(Math.random()*10);  //生成一个0-9之间的随机数
 
 
 - 8 Random类
+
 ```
 生成随机数的其他方式: java.util.Random类
 例:
@@ -125,6 +133,7 @@ for(int i=0;i<20;i++){  //随机生成20个随机整数，并显示
 
 
 - 9 操作日期时间
+
 ```
 1) 如何获取当前日期？
 java.util.Date类: 表示日期和时间

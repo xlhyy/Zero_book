@@ -1,7 +1,8 @@
-### 异常
+# 异常
 
 
-- 1 Java的异常处理是通过5个关键字来实现:
+- 1 Java的异常处理是通过5个关键字来实现
+
 ```
 try，catch，finally，throw，throws
 
@@ -27,6 +28,7 @@ public void method(){
 
 
 - 2
+
 ```
 1) 在catch块中处理异常
 加入用户自定义处理信息:
@@ -47,6 +49,7 @@ String getMessage()		返回异常信息描述字符串，是printStackTrace()输
 
 
 - 3 常见的异常类型
+
 ```
 异 常 类 型			说    明
 Exception 			异常层次结构的父类
@@ -61,6 +64,7 @@ NumberFormatException		数字格式转换异常，如把"abc"转换成数字
 
 
 - 4 多重catch块
+
 ```
 public void method(){
     try{
@@ -122,6 +126,7 @@ try-catch- finally块中，finally块唯一不执行的情况是什么? 答:
 
 
 - 5 异常分为Checked异常和运行时异常
+
 ```
 1) Checked异常必须捕获或者声明抛出。(个人理解：所谓检查（Checked）是指编译器要检查这类异常)
 2) 运行时异常不要求必须捕获或者声明抛出。
@@ -129,12 +134,14 @@ try-catch- finally块中，finally块唯一不执行的情况是什么? 答:
 
 
 - 6 throw和throws关键字的区别
+
 ```
 1) throws出现在方法函数头；而throw出现在函数体。
 2) throws表示出现异常的一种可能性，并不一定会发生这些异常；throw则是抛出了异常，执行throw则一定抛出了某种异常对象。
 ```
 
 - 7 抛出异常的三种形式: 系统自动抛出异常，throw，throws
+
 ```
 1) 系统自动抛出异常
 public static void main(String[] args) { 

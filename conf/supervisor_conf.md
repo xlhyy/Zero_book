@@ -1,7 +1,7 @@
 # supervisor配置
 
 
-### /etc/supervisor/supervisord.conf
+## /etc/supervisor/supervisord.conf
 
 
 ```

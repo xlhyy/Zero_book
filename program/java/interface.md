@@ -1,7 +1,8 @@
-### 接口
+# 接口
 
 
-- 1 什么是接口？
+- 1 什么是接口?
+
 ```
 public interface MyInterface{
     public void foo();
@@ -13,6 +14,7 @@ public interface MyInterface{
 
 
 - 2 接口特性
+
 ```
 1) 接口不可以被实例化
 2) 实现类必须实现接口的所有方法
@@ -21,7 +23,8 @@ public interface MyInterface{
 ```
 
 
-- 3 接口编码流程:
+- 3 接口编码流程
+
 ```
 1) 编写接口
 public interface UsbInterface{
@@ -56,6 +59,7 @@ UsbInterface 处若要实现多个接口，要使用","分隔。
 ```
 
 - 4 知识点补充
+
 ```
 1) is-a
 
@@ -70,6 +74,7 @@ has-a代表对象和它的成员的从属关系。同一个类的对象，通过
 ```
 
 - 5 面向接口编程
+
 ```
 程序设计时:
 1) 关心实现类有何能力，而不关心实现细节。
@@ -137,6 +142,7 @@ public class Assembler{
 
 
 - 6 static关键字(可否通过类名直接访问成员变量)
+
 ```
 1) 使用static定义变量:
 class Penguin{
@@ -159,6 +165,7 @@ static final 为静态常量。
 ```
 
 - 7 static修饰与非static修饰的区别
+
 ```
 		static,非private修饰	非static,private修饰
 ------------------------------------------------------------
@@ -195,6 +202,7 @@ public class OrcaleStudent{
 
 
 - 8 总结
+
 ```
 1) Java中的接口
 属性全都是全局静态变量。
@@ -208,6 +216,7 @@ public class OrcaleStudent{
 
 
 - 9 思想总结
+
 ```
 OO基本特征	定义			具体实现方式		优势
 ------------------------------------------------------------------------------------

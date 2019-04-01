@@ -1,7 +1,8 @@
-### Scrapy 爬虫框架
+# Scrapy 爬虫框架
 
 
 - 简介
+
 ```
 Scrapy是Python开发的一个快速，高层次的屏幕抓取和web抓取框架，用于抓取web站点并从页面中提取结构化的数据。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scrapy吸引人的地方在于它是一个框架，任何人都可以根据需求方便的修改。它也提供了多种类型爬虫的基类，我们可以用如下方式查看。
 (base) D:\python_project>scrapy genspider -l
@@ -35,7 +36,8 @@ Scrapy安装：
 	在PyCharm终端中输入pip install scrapy安装或使用PyCharm图形界面安装（Setting->Project Interpreter）
 ```
 
-- Scrapy开发步骤：
+- Scrapy开发步骤
+
 ```
 1.创建项目（糗事百科为例）
 scrapy startproject qiushibaike
@@ -150,6 +152,7 @@ class QiushibaikeItem(scrapy.Item):
 
 
 - scrapy 终端
+
 ```
 Scrapy终端是一个交互终端，供您在未启动spider的情况下尝试及调试您的爬取代码。 其本意是用来测试提取数据的代码，不过您可以将其作为正常的Python终端，在上面测试任何的Python代码。
 该终端是用来测试XPath或CSS表达式，查看他们的工作方式及从爬取的网页中提取的数据。 在编写您的spider时，该终端提供了交互性测试您的表达式代码的功能，免去了每次修改后运行spider的麻烦。

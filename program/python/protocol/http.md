@@ -1,4 +1,4 @@
-### HTTP协议分析
+# HTTP协议分析
 
 
 ```
@@ -22,12 +22,14 @@ OSI（7层）
 
 
 - HTTP协议
+
 ```
 HTTP协议（HyperText Transfer Protocol，超文本传输协议）是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等。
 ```
 
 
-- 典型的HTTP GET请求：
+- 典型的HTTP GET请求
+
 ```
 客户端和服务器端建立TCP连接，客户端封装HTTP协议头，请求类型，HTTP一些版本等信息，并发送的WEB服务器端。WEB服务器解析，并响应客户端。响应头包括：协议版本，状态码，文件内容类型，和内容长度等信息。
 HTTP Request Method共计15种
@@ -51,6 +53,7 @@ HTTP Request Method共计15种
 
 
 - HTTP Request Header 请求头
+
 ```
 Header	解释	示例
 Accept	指定客户端能够接收的内容类型	Accept: text/plain, text/html
@@ -87,6 +90,7 @@ Warning	关于消息实体的警告信息	Warn: 199 Miscellaneous warning
 
 
 - HTTP Responses Header 响应头
+
 ```
 Header	解释	示例
 Accept-Ranges	表明服务器是否支持指定范围请求及哪种类型的分段请求	Accept-Ranges: bytes
@@ -124,6 +128,7 @@ WWW-Authenticate	表明客户端请求实体应该使用的授权方案	WWW-Auth
 
 
 - HTTP状态码对照表
+
 ```
 当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。
 HTTP状态码的英文为HTTP Status Code。 下面是常见的HTTP状态码： 

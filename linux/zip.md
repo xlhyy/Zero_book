@@ -1,9 +1,12 @@
-### 解压缩
+# 解压缩
 
 
-#### 1. 常用命令
+## 常用命令
+
 - 若文件是以 .tar.gz 结尾，则用 tar -xvf 进行解压缩。
+
 - 若文件是以 .gz 结尾，则用 gzip -d 进行解压缩。
+
 ```
 linux下.tar.gz/.gz/.zip解压
 1)
@@ -17,7 +20,8 @@ unzip test.zip
 ```
 
 
-#### 2. 总结
+## 总结
+
 ```
 1) tar(注:tar是打包,不是压缩)
 解包: tar xvf FileName.tar

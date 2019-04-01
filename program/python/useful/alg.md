@@ -1,6 +1,7 @@
-### 算法
+# 算法
 
 - 二分法查找
+
 ```
 # coding=utf-8
 
@@ -27,6 +28,7 @@ if __name__ == '__main__':
 
 
 - 顺序查找
+
 ```
 # coding=utf-8
 
@@ -46,6 +48,7 @@ if __name__ == '__main__':
 
 
 - 冒泡排序
+
 ```
 # coding=utf-8
 
@@ -67,6 +70,7 @@ if __name__ == '__main__':
 
 
 - 插入排序
+
 ```
 # coding=utf-8
 
@@ -94,6 +98,7 @@ if __name__ == '__main__':
 
 
 - 直接选择排序
+
 ```
 # coding=utf-8
 
@@ -121,6 +126,7 @@ if __name__ == '__main__':
 
 
 - 快速排序
+
 ```
 # coding=utf-8
 

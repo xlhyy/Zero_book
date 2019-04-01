@@ -1,7 +1,8 @@
-### 继承
+# 继承
 
 
 - 1 如何使用继承
+
 ```
 1) 编写父类
 class Pet{
@@ -23,6 +24,7 @@ extends为继承关键字。
 ```
 
 - 2 子类访问父类成员
+
 ```
 1) 访问父类构造方法(在子类构造方法中调用且必须是第一句)
 super()
@@ -75,6 +77,7 @@ public class Test {
 
 
 - 3 访问修饰符总结
+
 ```
 访问修饰符	本类	同包	子类	其他
 private		True
@@ -85,6 +88,7 @@ public		True	True	True	True
 
 
 - 4 小结
+
 ```
 1) 构造方法不能被继承，因此不能重写。
 
@@ -100,6 +104,7 @@ public		True	True	True	True
 
 
 - 5 super关键字来访问父类的成员
+
 ```
 super只能出现在子类的方法和构造方法中。
 super调用构造方法时，只能是第一句。
@@ -107,6 +112,7 @@ super不能访问父类的private成员。
 ```
 
 - 6 抽象
+
 ```
 1）抽象类
     使用了关键词abstract声明的类叫作“抽象类”。如果一个类里包含了一个或多个抽象方法，类就必须指定成abstract（抽象）。“抽象方法”,属于一种不完整的方法，只含有一个声明，没有方法主体。
@@ -137,6 +143,7 @@ void a(){
 
 
 - 7 final用法
+
 ```
 1) 类不希望再被其他类继承:
 public final class Penguin extends Pet{
@@ -159,6 +166,7 @@ public class Penguin{
 
 
 - 8 总结
+
 ```
 1) 继承
 符号is-a关系

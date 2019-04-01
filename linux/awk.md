@@ -1,8 +1,10 @@
-### awk
+# awk
 
 
 - AWK是一种处理文本文件的语言，是一个强大的文本分析工具。
+
 - awk '{[pattern] action}' {filenames}
+
 ```
 ⇒  cat log.txt
 2 this is a test

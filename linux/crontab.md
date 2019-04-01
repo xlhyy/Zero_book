@@ -1,7 +1,8 @@
-### crontab
+# crontab
 
 
-- /etc/crontab与crontab -e命令区别:
+- /etc/crontab与crontab -e命令区别
+
 ```
 1)
 crontab -e是某个用户的周期计划任务(配置文件: /var/spool/cron/crontabs/kaiqigu)
@@ -20,6 +21,7 @@ crontab -e这种方法所有用户都可以使用
 
 
 - crontab系统周期任务
+
 ```
 service cron start	//启动服务
 service cron stop	//关闭服务
@@ -30,6 +32,7 @@ service cron status	//查看状态
 
 
 - crontab用户周期任务
+
 ```
 crontab -l	//查看当前用户的定时任务
 crontab -e	//编辑当前用户的定时任务

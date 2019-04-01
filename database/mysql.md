@@ -1,8 +1,10 @@
 # mysql
 
 
-### 1. mysql安装
+## mysql安装
+
 - ubuntu安装mysql
+
 ```
 sudo apt-get install mysql-server
 apt-get install mysql-client
@@ -12,7 +14,9 @@ sudo netstat -tap | grep mysql
 通过上述命令检查之后，如果看到有mysql 的socket处于 listen 状态则表示安装成功。
 登陆mysql数据库可以通过如下命令: mysql -uroot -p 
 ```
+
 - mac安装mysql
+
 ```
 brew install mysql
 brew unlink mysql
@@ -24,19 +28,22 @@ brew link --overwrite mysql
 ```
 
 
-### 2. mysql数据库操作
+## mysql数据库操作
 
 - 创建数据库
+
 ```
 create database python_test_1 charset=utf8;
 ```
 
 - 使用数据库
+
 ```
 use python_test_1;
 ```
 
 - 创建表
+
 ```
 create table students(
 	id int unsigned primary key auto_increment not null,
@@ -48,6 +55,7 @@ create table students(
 ```
 
 - 查询
+
 ```
 select * from students;
 select name,age from students;
@@ -99,6 +107,7 @@ select classes.name,students.* from students inner join classes on students.cls_
 ```
 
 - 运用查询的运算符
+
 ```
 and
 or
@@ -123,7 +132,9 @@ select * from students where(age between 18 and 35) order by age asc;
 ```
 
 - 字符编码
+
     - 修改字符编码
+    
     ```
     alter database 数据库名 character set utf8;
     alter table <表名> character set utf8;
@@ -134,11 +145,13 @@ select * from students where(age between 18 and 35) order by age asc;
     alter table gbook add gbook_owner varchar(30) not null;
     ```
     - 查看字符编码
+    
     ```
     SHOW CREATE DATABASE mofangdata;
     show create TABLE mf_organization_raw;
     ```
     - 报错解决
+    
     ```
     # UnicodeDecodeError: 'ascii' codec can't decode byte 0xe5 in position 30: ordinal not in range(128)
     import sys reload(sys)
@@ -147,27 +160,32 @@ select * from students where(age between 18 and 35) order by age asc;
     form = request.form.get("name")
     ```
 
-- 从sql文件中导入数据:
+- 从sql文件中导入数据
+
 ```
 source 路径/文件名.sql
 ```
 
 - 插入数据
+
 ```
 insert into students(num,name,age,sex) values(1001,"李白",20,"男");
 ```
 
 - 表中增加新字段
+
 ```
 alter table students add cls_id int not null;
 ```
 
 - 更改表中某一个字段的值
+
 ```
 update students set cls_id=1 where name='李白';
 ```
 
 - 聚合函数
+
 ```
 max(age)
 min(age)
@@ -180,12 +198,14 @@ select sex, count(*) from students group by sex;
 ```
 
 - limit
+
 ```
 (limit放在语句最后)
 select * from students limit 0,2; #从第0+1条数据开始,读取2条数据
 ```
 
-- 条件筛选语句:
+- 条件筛选语句
+
 ```
 group by ... having ...
 inner join ... on ...
@@ -195,6 +215,7 @@ select sex, avg(age) from students group by sex having avg(age)>10;
 ```
 
 - 连接查询
+
 ```
 1) inner join ... on
 select students.name,classes.name from students inner join classes on students.cls_id=classes.id;
@@ -208,14 +229,16 @@ select * from students left join classes on students.cls_id=classes.id;
 select * from classes right join students on students.cls_id=classes.id;
 ```
 
-- 子查询:
+- 子查询
+
 ```
 select * from students where age>(select avg(age) from students);
 select * from students where cls_id in (select id from classes);
 ```
 
 
-### python使用mysql
+## python使用mysql
+
 ```
 import MySQLdb
 
@@ -241,13 +264,15 @@ cursor.fetchmany(size)
 ```
 
 
-### mac下忘记mysql密码
+## mac下忘记mysql密码
+
 ```
 Mac下忘记mysql密码: https://baijiahao.baidu.com/s?id=1575944821928606&wfr=spider&for=pc
 ```
 
 
-### 报错
+## 报错
+
 ```
 ERROR 2002 (HY000): Can't content to local MySQL server through socket '/var mysql 启动不了
 解决方法:
@@ -257,7 +282,8 @@ service mysql start
 ```
 
 
-#汇总
+# 汇总
+
 ```
 查看字符编码：
 show create database test;
@@ -384,7 +410,8 @@ service mysql start
 ```
 
 
-### flask框架对mysql数据库操作
+## flask框架对mysql数据库操作
+
 ```
 https://blog.csdn.net/weixin_42750983/article/details/82431257
 ```

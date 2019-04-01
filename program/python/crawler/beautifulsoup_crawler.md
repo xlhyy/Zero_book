@@ -1,12 +1,14 @@
-### BeautifulSoup解析HTML
+# BeautifulSoup解析HTML
 
 
 - BeautifulSoup安装
+
 ```
 pip install beautifulsoup4
 ```
 
 - BeautifulSoup对象类型
+
 ```
 BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构,每个节点都是Python对象,所有对象可以归纳为4种: 
 1)Tag： Tag 对象与XML或HTML原生文档中的标签对应。Tag都有名字和属性，可以通过tag.name和tag.attrs访问，其中tag.attrs是全部属性组成的字典；
@@ -25,6 +27,7 @@ BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构,每个节�
 - BeautifulSoup解析库
 
 - 遍历文档树
+
 ```
 1）获取标签对象：
 # 获取第一个标签对象(head, title, body.b, a)
@@ -59,6 +62,7 @@ soup.head.previous_element # 之前的所有节点，部分层次
 
 
 - 搜索文档树
+
 ```
 find_all( name , attrs , recursive , text , **kwargs )
 	参数：
@@ -85,6 +89,7 @@ find( name , attrs , recursive , text , **kwargs )
 
 
 - 通过CSS选择器查找节点
+
 ```
 	print(soup.select('title')) # 选择title标签
 	print(soup.select('body a')) # 选择body下的所有a标签

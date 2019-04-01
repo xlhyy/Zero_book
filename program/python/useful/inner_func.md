@@ -1,7 +1,8 @@
-### 内置函数
+# 内置函数
 
 
 - func.py
+
 ```
 # coding=utf-8
 
@@ -27,6 +28,7 @@ main()
 
 
 - 内置函数
+
 ```
 30 31 55 57    property   bytearray  compile  memoryview
 

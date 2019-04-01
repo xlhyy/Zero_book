@@ -1,6 +1,7 @@
-### 系统相关命令
+# 系统相关命令
 
 - python包相关
+
 ```
 查看包版本:
 pip freeze | grep tornado
@@ -12,6 +13,7 @@ pip install tornado==4.0.2
 
 
 -  查看系统位数:(linux及mac)
+
 ```
 kaiqigu@bogon:~|⇒  getconf LONG_BIT
 64
@@ -21,7 +23,8 @@ ubuntu@VM-0-16-ubuntu:~/ying.li/t_练习|
 ```
 
 
-- 查看linux版本信息:
+- 查看linux版本信息
+
 ```
 ubuntu@VM-0-16-ubuntu:~/ying.li/t_练习|
 ⇒  lsb_release -a
@@ -33,14 +36,16 @@ Codename:  xenial
 ```
 
 
-- 查看系统是多少位的:
+- 查看系统是多少位的
+
 ```
 => getconf LONG_BIT
 64
 ```
 
 
-- 查看系统版本信息:
+- 查看系统版本信息
+
 ```
 => lsb_release -a
 No LSB modules are available.
@@ -52,6 +57,7 @@ Codename:	artful
 
 
 - 查看内核版本
+
 ```
 ⇒  uname -r
 4.13.0-46-generic

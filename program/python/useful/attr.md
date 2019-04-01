@@ -1,6 +1,7 @@
-## 属性
+# 属性
 
 - 类属性、实例属性
+
 ```
 # coding=utf-8
 
@@ -40,6 +41,7 @@ print('t.b = %d'%t.b)
 
 
 - 私有属性
+
 ```
 # coding=utf-8
 
@@ -77,6 +79,7 @@ print Test3()._Test3__a
 
 
 - 修改类属性
+
 ```
 # coding=utf-8
 

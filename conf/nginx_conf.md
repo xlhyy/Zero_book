@@ -1,7 +1,7 @@
 # nginx配置
 
 
-### /etc/nginx/nginx.conf
+## /etc/nginx/nginx.conf
 
 
 ```

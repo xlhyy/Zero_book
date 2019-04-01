@@ -1,10 +1,13 @@
 # 开发环境
 
 
-### 1. 生成ssh-key
-- 查看是否已经存在ssh秘钥
+## 生成ssh-key
+
+- `查看是否已经存在ssh秘钥`
     - cd ~/.ssh
-- 生成秘钥: 
+
+- `生成秘钥`
+
 ```
     ssh-keygen -t rsa -C 'yourmail@example.com'
 你需要把邮件地址换成你自己的,然后一路回车,之后会在用户目录生成.ssh目录,其中id_rsa.pub 即公钥,可以告诉别人给你加对应机器的权限。
@@ -19,9 +22,12 @@ KqHMg/maBFW5mAwzAFtNQXBmOEJk4TyP8cfj yuwang@yuwang-MS-7817
 ```
 
 
-### 2. 安装brew
-- 命令:
-    - curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
+## 安装brew
+
+- `命令`
+
+curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/usr/local --strip 1
+
 ```
 注: 
     地址可能有变动,如果下载不成功可以网上搜最新的安装命令.
@@ -33,7 +39,8 @@ sudo chown -R `whoami` /usr/local
 ```
 
 
-### 3. 安装wget, pip, redis, mysql
+## 安装wget, pip, redis, mysql
+
 ```
 brew install wget
 sudo easy_install pip
@@ -42,7 +49,8 @@ brew install mysql
 ```
 
 
-### 4. 安装各种项目运行的依赖库
+## 安装各种项目运行的依赖库
+
 ```
 sudo pip install tornado
 sudo pip install ipython(遇到os系统问题)
@@ -54,48 +62,62 @@ sudo pip install M2Crypto (遇到需要swig的版本升级了)
 ```
 
 
-### 5. ipython安装问题处理方案
+## ipython安装问题处理方案
+
 - 新系统sip的机制, 默认下系统启用SIP系统完整性保护机制，无论是对于硬盘还是运行时的进程 限制对系统目录的写操作。 这也是我们安装ipython失败的原因......
+
 http://xiaorui.cc/2016/03/27/%E8%A7%A3%E5%86%B3mac-osx%E4%B8%8Bpip%E5%AE%89%E8%A3%85ipython%E6%9D%83%E9%99%90%E7%9A%84%E9%97%AE%E9%A2%98/
 
 
-### 6. redis配置及服务启动
+## redis配置及服务启动
+
 - https://www.tuicool.com/articles/J7Jf6ff
 
 
-### 7. swig的坑解决方案
+## swig的坑解决方案
+
 - sudo env LDFLAGS="-L$(brew --prefix openssl)/lib" \
 CFLAGS="-I$(brew --prefix openssl)/include" \
 SWIG_FEATURES="-cpperraswarn -includeall -I$(brew --prefix openssl)/include" \
+
 - pip install m2crypto
 
 
-### 8. 怎么将终端工具的背景颜色设置为透明
+## 怎么将终端工具的背景颜色设置为透明
+
 - ubuntu
+
 ```
 终端菜单栏--编辑--配置文件首选项--颜色--更改自己想要的样式
 ```
+
 - mac
+
 ```
 终端--偏好设置--描述文件--更改自己想要的样式
 ```
 
 
-### 9. 怎么将终端工具设置背景图片
+## 怎么将终端工具设置背景图片
+
 - ubuntu
+
 ```
     sudo apt-get install xfce4-terminal
     在应用程序栏顶部搜索xfce4终端并打开
 接着在此终端窗口中:编辑--首选项--外观--背景--背景图片
     注: 关于终端字体颜色: 编辑--首选项--颜色--预设--载入预设--Tango(个人喜好)
 ```
+
 - mac
+
 ```
     终端--偏好设置--描述文件--更改自己想要的样式
 ```
 
 
-### 10. Ubuntu安装mysql
+## Ubuntu安装mysql
+
 ```
 sudo apt-get install mysql-server
 apt-get install mysql-client
@@ -106,10 +128,14 @@ sudo apt-get install libmysqlclient-dev
 ```
 
 
-### 11. Python MySQLdb在Linux下安装
+## Python MySQLdb在Linux下安装
+
 - sudo yum install MySQL-python
+
 - 可能遇到问题：
-    - import MySQLdb
+
+import MySQLdb
+
 ```
 Traceback (most recent call last):
   File "<stdin>", line 1, in ?
@@ -122,11 +148,13 @@ ImportError: this is MySQLdb version (1, 2, 3, 'final', 0), but _mysql is versio
 ```
 
 
-### 12. pycharm出现卡顿
+## pycharm出现卡顿
+
 - help--Find Action--输入VM Options--打开Edit Custom VM Options--改为-Xms1024m -Xmx2048m--重启pycharm
 
 
-### 13. 配置vim
+## 配置vim
+
 ```
 vim ~/.vimrc  编辑配置文件
 注: vim主题文件位置
@@ -138,8 +166,10 @@ darkblue.vim  desert.vim    industry.vim  murphy.vim    ron.vim       torte.vim
 ```
 
 
-### 14. 安装redis
+## 安装redis
+
 - linux安装redis
+
 ```
 -获取redis资源:
 	wget http://download.redis.io/releases/redis-4.0.8.tar.gz
@@ -168,7 +198,9 @@ darkblue.vim  desert.vim    industry.vim  murphy.vim    ron.vim       torte.vim
 		rm -rf /usr/bin/redis-* //删除所有redis相关命令脚本
 		rm -rf /root/download/redis-4.0.4 //删除redis解压文件夹
 ```
+
 - mac安装redis
+
 ```
 	使用home-brew一键安装：brew install redis
 	启动Redis服务：brew services start redis 或 redis-server /usr/local/etc/redis.conf
@@ -178,14 +210,18 @@ darkblue.vim  desert.vim    industry.vim  murphy.vim    ron.vim       torte.vim
 ```
 
 
-### 15. 安装git
+## 安装git
+
 - linux安装git
+
 ```
 ubuntu: sudo apt-get install git
 老一点的debian或ubuntu: sudo apt-get install git-core
 其他linux版本: git官网下载--解压--./config--make--sudo make install
 ```
+
 - mac安装git
+
 ```
 若没有安装homebrew，安装homebrew:  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 -问题:
@@ -198,8 +234,10 @@ ssh-add -k ~/.ssh/id_rsa
 ```
 
 
-### 16. 连接vpn
+## 连接vpn
+
 - mac连接vpn
+
 ```
 方式1: 系统偏好设置--网络--+(左下角)--接口选vpn--填服务器地址及账户名称--点鉴定设置添加相应信息--连接
 方式2: 安装ShadowsocksX--输入本机用户名及密码进入--+(左下角)--填入相应信息--确定
@@ -209,13 +247,16 @@ plugin L2TP.ppp
 l2tpnoipsec
 2)把高级里 通过VPN连接发送所有流量 点选
 ```
+
 - windows连接vpn
+
 ```
 网络--网络和Internet设置--网络和共享中心--设置新的连接或网络--连接到工作区--使用我的Internet连接(VPN)(I)--输入Internet地址(I)--点击桌面右下角的网络图标，选择设置的vpn连接，点击连接--输入用户名和密码--确定
 ```
 
 
-### 17. mac安装gitk
+## mac安装gitk
+
 ```
 brew update
 brew install git
@@ -223,7 +264,8 @@ gitk
 ```
 
 
-### 18. 解决mac下gitk分辨率低的问题
+## 解决mac下gitk分辨率低的问题
+
 ```
 开启高分辨率适配步骤如下：
 1、重启系统，在黑屏界面的时候按住command + r直至出现进度条，进入系统recovery模式
@@ -252,11 +294,13 @@ csrutil enable
 ```
 
 
-### 19. mac安装软件允许任何来源
+## mac安装软件允许任何来源
+
 - https://jingyan.baidu.com/article/6fb756ec538dd0241858fbd5.html
 
 
-### 20. oh-my-zsh主题
+## oh-my-zsh主题
+
 ```
 1)oh-my-zsh安装:
 curl -L http://install.ohmyz.sh | sh

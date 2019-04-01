@@ -1,7 +1,8 @@
 # vbs语言
 
 
-### 1. 错误处理：(两个语句一个对象)
+## 错误处理：(两个语句一个对象)
+
 ```
 1) on error resume next (如果后面的程序出现“运行时错误”，会继续运行，不中断)
 2) on error goto 0 (如果后面的程序出现“运行时错误”，会显示“出错信息”并停止程序的执行)
@@ -18,7 +19,8 @@ Raise:      产生一个运行期错误。
 ```
 
 
-### 2. Dim语句
+## Dim语句
+
 ```
 作用:声明变量并分配存储空间
 语法:Dim varname [As type]
@@ -26,7 +28,8 @@ Raise:      产生一个运行期错误。
 ```
 
 
-### 3. Do...Loop语句
+## Do...Loop语句
+
 ```
 语法:
 1)
@@ -51,7 +54,8 @@ Loop [Until condition]
 ```
 
 
-### 4. For...Next语句
+## For...Next语句
+
 ```
 
 作用:以指定次数来重复执行一组语句
@@ -64,7 +68,8 @@ Next [counter]
 ```
 
 
-### 5. If...Then...Else语句
+## If...Then...Else语句
+
 ```
 If condition Then
 [statements]
@@ -76,7 +81,8 @@ End If
 ```
 
 
-### 6. Select Case语句
+## Select Case语句
+
 ```
 Select Case testexpression
 Case expressionist-n
@@ -87,21 +93,23 @@ End Select
 ```
 
 
-### 7. Set语句
+## Set语句
+
 ```
 赋值语句
 ```
 
 
-### 8. Rem语句
+## Rem语句
+
 ```
 注释，同'
 ```
 
 
-### 9. inputbox语句
-```
+## inputbox语句
 
+```
 inputbox(msg, "title", "啦啦啦")
 第一个参数为显示语句，最大长度为1024；
 第二个参数为框体名称；
@@ -109,9 +117,9 @@ inputbox(msg, "title", "啦啦啦")
 ```
 
 
-### 10. msgbox语句
-```
+## msgbox语句
 
+```
 把两个不同的内容一起输出时用“+”连接
 语法:MsgBox(prompt [,button] [,title] [,helpfile,content])
 1) prompt:
@@ -148,7 +156,8 @@ inputbox(msg, "title", "啦啦啦")
 ```
 
 
-### 11. 创建对象
+## 创建对象
+
 ```
 dim ws = wscript.createobject("wscript.shell")
 ws.run "cmd.exe /c shutdown -a",0,true

@@ -1,7 +1,8 @@
-### 生成器
+# 生成器
 
 
 - 生成器简单举例
+
 ```
 # coding=utf-8
 
@@ -34,6 +35,7 @@ if __name__ == '__main__':
 
 
 - 生成器使用循环
+
 ```
 # coding=utf-8
 
@@ -52,6 +54,7 @@ if __name__ == '__main__':
 
 
 - 生成器概念
+
 ```
 # coding=utf-8
 
@@ -80,6 +83,7 @@ if __name__ == '__main__':
 
 
 - 知识点
+
 ```
 # coding=utf-8
 
@@ -109,6 +113,7 @@ print(b.next())
 
 
 - fibonacci数列
+
 ```
 - fibonacci数列
 
@@ -154,6 +159,7 @@ if __name__ == '__main__':
 
 
 - 生成器实现单线程并发
+
 ```
 # coding=utf-8
 

@@ -1,7 +1,8 @@
-### 获取用户输入
+# 获取用户输入
 
 
 - 以隐藏方式读取用户输入
+
 ```
 #!/bin/bash
 
@@ -12,6 +13,7 @@ echo "Is your password really $pass? "
 
 
 - 读取用户输入
+
 ```
 #!/bin/bash
 

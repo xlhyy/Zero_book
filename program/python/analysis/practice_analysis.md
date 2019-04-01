@@ -1,7 +1,8 @@
-### 数据分析练习题
+# 数据分析练习题
 
 
 - numpy基础知识
+
 ```
 示例代码
 # _*_ coding: utf-8 _*_
@@ -215,6 +216,7 @@ print(np.vstack((a, b)))
 
 		   
 - matplotlib基础知识
+
 ```
 示例代码1(一次函数 正余弦函数)
 # _*_ coding: utf-8 _*_
@@ -513,6 +515,7 @@ plt.show()
 ```
 
 - xlrd基础知识(excel文件读取)
+
 ```
 示例代码
 # _*_ coding: utf-8 _*_

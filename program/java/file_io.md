@@ -1,7 +1,8 @@
-### 文件IO
+# 文件IO
 
 
 - 1 什么是文件
+
 ```
 文件可认为是相关记录或放在一起的数据的集合。
 JAVA API: java.io.File类
@@ -9,6 +10,7 @@ JAVA API: java.io.File类
 
 
 - 2 File类
+
 ```
 1) File file = new File(String pathname);
 
@@ -27,6 +29,7 @@ long length()			返回文件的长度,单位为字节 , 如果文件不存在,�
 
 
 - 3 流
+
 ```
 流是指一连串流动的字符，是以先进先出方式发送信息的通道。
 通过流来读写文件。
@@ -53,6 +56,7 @@ long length()			返回文件的长度,单位为字节 , 如果文件不存在,�
 
 
 - 4 文件的读写
+
 ```
 1) 文本文件的读写:
 	用FileInputStream和FileOutputStream读写文本文件。
@@ -326,6 +330,7 @@ out.close();
 
 
 - 5 总结
+
 ```
 1) File类用于访问文件或目录的属性。
 2) 程序和数据源之间通过流联系:

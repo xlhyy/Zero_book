@@ -1,27 +1,31 @@
 # redis
 
 
-### redis可视化
+## redis可视化
+
 ```
 https://blog.csdn.net/leisure_life/article/details/78460632
 sudo snap install redis-desktop-manager
 ```
 
 
-### 缓存更新的套路
+## 缓存更新的套路
+
 ```
 先更新数据库，再删除缓存。
 (原因: 试想，两个并发操作，一个是更新操作，另一个是查询操作，更新操作删除缓存后，查询操作没有命中缓存，先把老数据读出来后放到缓存中，然后更新操作更新了数据库。于是，在缓存中的数据还是老的数据，导致缓存中的数据是脏的，而且还一直这样脏下去了。)
 ```
 
 
-### 清空数据库
+## 清空数据库
+
 ```
 r.flushall()
 ```
 
 
-### 1. list
+## list
+
 ```
 blpop key [key ...] timeout
 brpop key [key ...] timeout
@@ -126,7 +130,8 @@ Out[192]: '2'
 ```
 
 
-### 2. zset
+## zset
+
 ```
 zadd key score value
 zcard key
@@ -217,7 +222,8 @@ Out[116]: 80.0
 ```
 
 
-### 3. string
+## string
+
 ```
 append key value (追加一个值到key上)
 ****bitcount key [start end] (统计字符串起始位置的字节数)
@@ -339,7 +345,8 @@ Out[152]: ['strk2', 'strk3', 'strk1']
 ```
 
 
-### 4. hash
+## hash
+
 ```
 hdel key field [field ...]
 hexists key field
@@ -437,7 +444,8 @@ Out[88]: 1
 ```
 
 
-### 5. set
+## set
+
 ```
 sadd key member [member ...]
 scard key
@@ -540,7 +548,9 @@ In [37]: r.sunion('sk1','sk2')
 Out[37]: {'2', '3'}
 ```
 
-### 6. keys相关
+
+## keys相关
+
 ```
 del key [key ...]
 ****dump key (导出key的值)
@@ -618,7 +628,7 @@ Out[55]: False
 # python连接redis
 
 
-### 1. python连接数据库
+## python连接数据库
 
 ```
 In [1]: import redis
@@ -630,7 +640,8 @@ Out[3]: Redis<ConnectionPool<Connection<host=127.0.0.1,port=6379,db=0>>>
 ```
 
 
-### 2. redis简单操作
+## redis简单操作
+
 ```
 import redis
 redis_config = {
@@ -643,7 +654,8 @@ print r.get('li')
 ```
 
 
-### 3. redis连接池
+## redis连接池
+
 ```
 import redis
 def get_redis_connect():
@@ -662,7 +674,8 @@ if __name__ == '__main__':
 ```
 
 
-### 4. redis管道
+## redis管道
+
 ```
 #可以一次执行多次redis命令
 #应用管道后速度效率大大提升
@@ -675,7 +688,8 @@ def withpipe(r):
     pipe.execute()
 ```
 
-### 5. 项目实例:
+## 项目实例
+
 ```
 import redis
 def make_redis_client(redis_config):
