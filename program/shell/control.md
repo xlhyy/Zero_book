@@ -1,6 +1,11 @@
-###处理信号
-01-生成信号
+### 控制脚本
 
+
+### 处理信号
+
+
+- 01-生成信号
+```
 #!/bin/bash
 
 # ^C终端进程 生成SIGINT信号
@@ -26,10 +31,11 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 ⇒  kill -9 21963
 [1]  + 21963 killed     sleep 100              
 COMMENT
+```
 
 
-
-02-捕获信号
+- 02-捕获信号
+```
 #!/bin/bash
 
 # trap命令允许你来指定shell脚本要监看并从shell中拦截的Linux信号。
@@ -69,9 +75,11 @@ Loop #9
 Loop #10
 This is the end of the test script
 COMMENT
+```
 
 
-03-捕获脚本退出
+- 03-捕获脚本退出
+```
 #!/bin/bash
 
 # 除了在shell脚本中捕获信号，也可以在shell脚本退出时进行捕获。这是在shell完成任务时执行命令的一种简便方法。
@@ -96,8 +104,10 @@ Loop #4
 Loop #5
 Goodbye...
 COMMENT
+```
 
-04-修改或移除捕获
+- 04-修改或移除捕获
+```
 1
 #!/bin/bash
 
@@ -137,8 +147,10 @@ Second Loop #4
 ^C I modified the trap!
 Second Loop #5
 COMMENT
+```
 
 
+```
 2
 #!/bin/bash
 
@@ -176,9 +188,11 @@ Second Loop #1
 Second Loop #2
 ^C
 COMMENT
+```
 
 
-linux信号:
+- linux信号
+```
 		Linux信号
 信号		值		描述
 1		SIGHUP		挂起进程
@@ -189,9 +203,11 @@ linux信号:
 17		SIGSTOP		无条件停止进程，但不是终止进程
 18		SIGTSTP		停止或暂停进程，但不终止进程
 19		SIGCONT		继续运行停止的进程
+```
 
 
-### 以后台模式运行脚本
+- 以后台模式运行脚本
+```
 #### 1
 #!/bin/bash
 
@@ -209,8 +225,10 @@ done
 ⇒  
 [1]  + 22652 done       ./01-后台运行脚本.sh
 COMMENT
+```
 
 
+```
 #### 2
 #!/bin/bash
 
@@ -256,8 +274,10 @@ Test script is complete
 
 [1]  + 23660 done       ./01-后台运行脚本2.sh
 COMMENT
+```
 
 
+```
 #2)在显示输出的同时，仍然可以运行命令
 <<COMMENT
 ⇒  ./01-后台运行脚本2.sh &
@@ -282,9 +302,11 @@ Test script is complete
 [1]  + 23892 done       ./01-后台运行脚本2.sh
 COMMENT
 # 最好将后台运行脚本的STDOUT和STDERR进行重定向，避免这种杂乱的输出。
+```
 
 
-#### 2运行多个后台作业
+- 运行多个后台作业
+```
 #!/bin/bash
 
 # 每次启动新作业时，Linux系统都会为其分配一个新的作业号和PID。通过ps命令，可以看到所有脚本处于运行状态。
@@ -315,5 +337,4 @@ Loop 9
 Loop 10
 This is the end of the test script
 COMMENT
-
-
+```

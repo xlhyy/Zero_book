@@ -91,10 +91,9 @@
         * [处理选项](program/shell/do_choose.md)
         * [获取用户输入](program/shell/get_input.md)
         * [超时](program/shell/timeout.md)
-        * [隐藏方式读取用户输入](program/shell/hidden_input.md)
         * [从文件中读取](program/shell/read_file.md)
         * [改变颜色](program/shell/color.md)
-        * [呈现数据](program/shell/show_data.md)
+        * [重定向](program/shell/show_data.md)
         * [控制脚本](program/shell/control.md)
 
     * java

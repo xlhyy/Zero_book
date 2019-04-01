@@ -1,29 +1,34 @@
-=================================
+### 知识点补充
 
+```
 char字符ASK码的范围
 （1）数字0到9： 48~57
 （2）字母A到Z：65到90 a到z：97到122
 （3）空格是32
+```
 
 
-
-=================================
-
+```
 乘方运算:
 Math.pow(2,3);
+```
 
 
+```
 开方:
 Math.sqrt(25);
+```
 
 
+```
 数组转字符串:
 Arrays.toString(arrB));
+```
 
 
+```
 把字符串里面的值赋值给一个字符型数组:
 char[]arr=string.toCharArray();
-
 
 long num = scanner.nextLong();  //获取输入
 
@@ -32,28 +37,25 @@ String str = Long.toString(num);  //把数字转化为String类型的
 char[] ch = str.toCharArray();
 
 int n = ch.length;
+```
 
 
-
+```
 字符串包含:
-
 str.contains("a");
+```
 
 
-
-=================================
-
+```
 1) Scanner默认使用的分隔符是空格、回车和tab
-
 
 2) 可以使用useDelimiter改变分隔符:
 
 Scanner scan = new Scanner(System.in).useDelimiter("\\s");
+```
 
 
-
-=================================
-
+```
 Scanner scan = new Scanner(System.in).useDelimiter("\\s");
 
 int[]arrA = newint[50];
@@ -64,11 +66,10 @@ while(scan.hasNextInt()){
 	arrA[m++] =scan.nextInt();
 
 }
+```
 
 
-
-=================================
-
+```
 题目：输入数组，最大的与第一个元素交换，最小的与最后一个元素交换，输出数组。
 
 
@@ -132,11 +133,10 @@ public class Test {
 		scan.close();
 	}
 }
+```
 
 
-
-=================================
-
+```
 Scanner scanner=new Scanner(System.in);
 
 String input=scanner.next();//获取输入的字符串
@@ -146,18 +146,16 @@ System.out.println("你输入的字符串是："+input);
 System.out.println("你输入的字符串长度是："+input.length());
 
 scanner.close();
+```
 
 
-
-=================================
-
+```
 字符串比较: 
 booleanb=string1.compareTo(string2);
+```
 
 
-
-=================================
-
+```
 字符串排序:
 
 public static void main(String[] args){
@@ -178,11 +176,10 @@ public static void main(String[] args){
 
 	}
 }
+```
 
 
-
-=================================
-
+```
 题目：海滩上有一堆桃子，五只猴子来分。第一只猴子把这堆桃子凭据分为五份，多了一个，这只猴子把多的一个扔入海中，拿走了一份。第二只猴子把剩下的桃子又平均分成五份，又多了一个，它同样把多的一个扔入海中，拿走了一份，第三、第四、第五只猴子都是这样做的，问海滩上原来最少有多少个桃子？
 
 
@@ -202,13 +199,10 @@ public class Programme41 {
 }
 
 }
+```
 
 
-
-
-
-=================================
-
+```
 题目：打印出杨辉三角形（要求打印出10行如下图）
 
 package mypackage;
@@ -252,10 +246,10 @@ public class Test {
    1 7 21 35 35 21 7 1 
   1 8 28 56 70 56 28 8 1 
  1 9 36 84 126 126 84 36 9 1 
+```
 
 
-=================================
-
+```
 题目：有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位。
 
 package mypackage;
@@ -299,10 +293,10 @@ public class Test {
 		}
 	}
 }
+```
 
 
-=================================
-
+```
 题目：有五个学生，每个学生有3门课的成绩，从键盘输入以上数据（包括学生号，姓名，三门课成绩），计算出平均成绩，将原有的数据和计算出的平均分数存放在磁盘文件"stu.txt"中。
 
 package mypackage;
@@ -366,4 +360,4 @@ public class Test {
 		 bw.close();
 	}
 }
-
+```

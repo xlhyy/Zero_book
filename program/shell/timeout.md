@@ -1,3 +1,7 @@
+### 超时
+
+
+```
 #!/bin/bash
 
 if read -t 5 -p "Please enter your name: " name
@@ -17,4 +21,4 @@ Hello li, welcome to my script
 Please enter your name: li
 Sorry, too slow! 
 COMMENT
-
+```

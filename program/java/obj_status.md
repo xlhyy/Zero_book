@@ -1,6 +1,8 @@
-============================================
+### 多态
 
-1. 什么是多态
+
+- 1 什么是多态
+```
 简单来说，多态具有表现多种形态的能力的特征。
 同一个实现接口，使用不同的实例而执行不同的操作。
 
@@ -21,14 +23,17 @@ public class HQ1{
 	hq.judge(new OracleDotNetStaff2("赵灵儿","天津中心"));
     }
 }
+```
 
 
-============================================
-2. 实现多态的步骤:
+- 2 实现多态的步骤:
+```
 1) 子类重写父类的方法。
 2) 编写方法时，使用父类定义的方法。
 3) 运行时，根据实际创建的对象类型动态决定使用哪个方法。
+```
 
+```
 例1:
 public class OracleStaff{
     public void giveLesson(){
@@ -58,7 +63,9 @@ public class Test{
 	hq.judge(new OracleDBStaff());
     }
 }
+```
 
+```
 例2:
 class Base{
     public String name;
@@ -86,7 +93,9 @@ public class Sample{
 	c.method();
     }
 }
+```
 
+```
 例3:
 public class OracleStaff{
     public void giveLesson(){
@@ -106,20 +115,24 @@ public class Test{
 	t.giveLesson();
     }
 }
+```
 
 
-============================================
-3. 父类到子类的转换
+- 3 父类到子类的转换
+```
 向下转型(强制类型转换):
 Pet pet = new Dog("雪纳瑞");
 Dog dog = (Dog)pet;
+```
 
 
-============================================
-4. instanceof运算符
+- 4 instanceof运算符
+```
 1) 语法: 对象 instanceof 类或接口。
 2) 经验: instanceof通常和强制类型转换结合使用。
+```
 
+```
 例:
 ---------------------
 mypackage/Pet.java文件
@@ -188,3 +201,4 @@ public class Test {
 		master.play(penguin);
 	}
 }
+```

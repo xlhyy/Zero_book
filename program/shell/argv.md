@@ -1,3 +1,7 @@
+### 获取所有命令行参数
+
+
+```
 #!/bin/bash
 
 <<COMMENT
@@ -26,4 +30,4 @@ do
 	echo "\$@ Parameter #$count = $param"
 	count=$[ $count + 1 ]
 done
-
+```

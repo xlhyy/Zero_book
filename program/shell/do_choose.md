@@ -1,7 +1,12 @@
+### 处理选项
+
+
+```
 #!/bin/bash
 
 # 当参数中有-ab这种形式时会报错。若想正常工作可以使用getopt命令
 
+# -----------------------------------------------------
 # 1.处理简单选项
 <<EXAMPLE1
 echo
@@ -27,6 +32,7 @@ Found the -c option
 COMMENT
 
 
+# -----------------------------------------------------
 # 2.分离参数和选项
 <<COMMENT
 shell用双破折号来表明选项列表结束。在破折号之后，就可以放心地将剩下的命令行参数当作参数。
@@ -75,6 +81,7 @@ Parameter #3: test3
 COMMENT
 
 
+# -----------------------------------------------------
 # 3.处理带值的选项
 echo
 while [ -n "$1" ]
@@ -106,4 +113,4 @@ Found the -a option
 Found the -b option, with parameter value test1
 -d is not an option
 COMMENT
-
+```

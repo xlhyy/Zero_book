@@ -1,3 +1,7 @@
+### 创建多个用户账号
+
+
+```
 #!/bin/bash
 
 # read会自动读取.csv文本文件的下一行内容
@@ -11,4 +15,4 @@ do
 	echo "adding $userid"
 	useradd -c "$name" -m $userid
 done < "$input"
-
+```

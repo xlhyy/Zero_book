@@ -1,3 +1,7 @@
+### 改变颜色
+
+
+```
 #!/bin/bash
 
 # 格式: echo -e "\033[字背景颜色;字体颜色m 字符串\033[0m"
@@ -51,4 +55,4 @@ echo -e "\033[43;37m hello world \033[0m"
 echo -e "\033[44;37m hello world \033[0m"
 echo -e "\033[45;37m hello world \033[0m"
 echo -e "\033[46;37m hello world \033[0m"
-
+```

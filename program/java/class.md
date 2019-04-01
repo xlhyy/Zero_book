@@ -1,7 +1,8 @@
-============================================
+### 类
 
-1. 类
 
+- 1 类
+```
 public class 类名{
 
     //定义属性部分
@@ -18,14 +19,11 @@ public class 类名{
     ...
 
 }
+```
 
 
-
-
-============================================
-
-2. 创建和使用对象
-
+- 2 创建和使用对象
+```
 (1) 创建对象
 
 类名 对象名 = new 类名();
@@ -39,10 +37,9 @@ public class 类名{
 center.name = "沈阳中心";  //给name属性赋值
 
 center.showCenter();  //调用showCenter()方法
+```
 
-
-
--------------------------------
+```
 例1:
 
 mypackage/School.java文件:
@@ -89,9 +86,9 @@ null学员
 ***初始化成员变量后***
 沈阳中心学员
 配备: 10教室 10机房
+```
 
-
--------------------------------
+```
 例2:
 
 mypackage/AutoLion.java文件:
@@ -135,22 +132,21 @@ public class Test {
 这是一个黄色的玩具狮子!
 正在跑
 大声吼叫
+```
 
 
+```
 注释:
 
 1) 方法不能返回多个值(错误举例: return weight, height;)
 
 
 2) 同一个类中的方法之间允许相互调用，不需要知道方法的具体实现，实现重用，提高效率
+```
 
 
-
-
-============================================
-
-3. 成员变量和局部变量的区别
-
+- 3 成员变量和局部变量的区别
+```
 public class AutoLion{
 
     变量1类型 变量1;	//成员变量
@@ -176,14 +172,11 @@ public class AutoLion{
 初始值不同:
  Java会给成员变量一个初始值
 ，Java不会给局部变量赋予初始值
+```
 
 
-
-
-============================================
-
-4. JavaDoc注释
-
+- 4 JavaDoc注释
+```
 使用"/**"开始和"*/"结束，用来注释类，属性和方法等。 
 
 
@@ -230,32 +223,22 @@ public class ScoreCalc{
 
 
 注释: 分别是 类的JavaDoc注释 属性的JavaDoc注释 方法的JavaDoc注释
+```
 
 
-
-
-============================================
-
-5. 生成JavaDoc文档
-
-
+- 5 生成JavaDoc文档
+```
 JavaDoc能够从源代码中抽取类，属性，方法等的注释，形成一个配套的API帮助文档。
 
 
-
 生成JavaDoc文档:
-
 1) 使用命令行方式生成
-
 2) 使用MyEclipse工具生成
+```
 
 
-
-
-============================================
-
-6. 使用带参数的方法
-
+- 6 使用带参数的方法
+```
 例:
 
 //定义带参数的方法
@@ -292,8 +275,10 @@ System.out.println(myJuice);
 2) 调用方法时不能指定实参类型(例: 对象名.addName(String "张三");)
 
 3) 数组，对象都可以作为参数
+```
 
 
+```
 例: 对象作为参数的方法(部分代码)
 
 //学生类
@@ -341,14 +326,11 @@ public void addStudent(Student stu){
 studentsBiz.addStudent(student1);
 
 studentsBiz.addStudent(student2);
+```
 
 
-
-
-============================================
-
-7. 如何创建包
-
+- 7 如何创建包
+```
 package cn.jbit.classandobject;  //声明包
 
 
@@ -364,8 +346,6 @@ public class AccpSchool{
 }
 
 
-
-
 注释:
 
 package cn.jbit.classandobject;  //声明包
@@ -373,15 +353,11 @@ package cn.jbit.classandobject;  //声明包
 1) 用package声明包，以分号结尾
 
 2) 作为Java源代码第一条语句
+```
 
 
-
-
-============================================
-
-8. 包命名规范
-
-
+- 8 包命名规范
+```
 1) 包名由小写字母组成，不能以圆点开头或结尾
 
 package mypackage;
@@ -400,31 +376,26 @@ package net.javagroup.research.powerproject;
 
 
 (research为部门名，powerproject为项目名)
+```
 
 
+- 9 用MyEclipse创建包的两种方法:
 
-
-============================================
-
-9. 用MyEclipse创建包的两种方法:
-
+```
 1) 分别创建包和类
 
 2) 创建类的过程中创建类所在的包
+```
 
 
-
-
-============================================
-
-10. 如何导入包
-
+- 10 如何导入包
+```
 1) 导入java.util包中所有类: import java.util.*;
 
 2) 导入指定包中指定类: import cn.jbit.classandobject.AccpSchool;
+```
 
-
-
+```
 例:
 
 AccpSchool.java位于cn.jbit.classandobject包中,HelloAccp.java位于 demo 包中,下面程序空缺部分需要填入代码吗?如果需要,是什么?
@@ -462,5 +433,4 @@ public class HelloAccp{
     }
 
 }
-
-
+```

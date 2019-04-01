@@ -1,4 +1,8 @@
-01-重定向错误
+### 重定向
+
+
+- 1 重定向错误
+```
 #!/bin/bash
 
 <<COMMENT
@@ -15,10 +19,12 @@ ls: 无法访问'badtest': 没有那个文件或目录
     该命令生成的任何错误信息都会保存在输出文件中。用这种方法，shell会只重定向错误信息，而非普通数据。
     ls命令的正常STDOUT输出仍然会发送到默认的STDOUT文件描述符，也就是显示器。由于该命令将文件描述符2的输出(STDERR)重定向到了一个输出文件，shell会将生成的所有错误信息直接发送到指定的重定向文件中。
 COMMENT
+```
 
 
 
-02-重定向错误和数据
+- 2 重定向错误和数据
+```
 #!/bin/bash
 
 <<COMMENT
@@ -37,93 +43,98 @@ ls: 无法访问'badtest': 没有那个文件或目录
 -rw-r--r-- 1 kaiqigu kaiqigu 231 10月  9 10:43 test2
 -rw-r--r-- 1 kaiqigu kaiqigu   0 10月  9 10:49 test3
 COMMENT
+```
 
 
-03-在脚本中重定向输出
-1.临时重定向
-#!/bin/bash
+- 3 在脚本中重定向输出
+    - 临时重定向
+    ```
+    #!/bin/bash
+    
+    # 如果有意在脚本中生成错误信息，可以将单独的一行输出重定向到STDERR。
+    # 如果需要做的是使用输出重定向符来将输出信息重定向到STDERR文件描述符。
+    # 在重定向到文件描述符时，你必须在文件描述符数字之前加一个&:
+    # echo "This is an error message" >&2
+    
+    echo "THis is an error" >&2
+    echo "This is normal output"
+    
+    <<COMMENT
+    ⇒  ./01-临时重定向.sh 
+    THis is an error
+    This is normal output
+    
+    ⇒  ./01-临时重定向.sh 2> test9
+    This is normal output
+    ⇒  cat test9
+    THis is an error
+    COMMENT
+    ```
 
-# 如果有意在脚本中生成错误信息，可以将单独的一行输出重定向到STDERR。
-# 如果需要做的是使用输出重定向符来将输出信息重定向到STDERR文件描述符。
-# 在重定向到文件描述符时，你必须在文件描述符数字之前加一个&:
-# echo "This is an error message" >&2
-
-echo "THis is an error" >&2
-echo "This is normal output"
-
-<<COMMENT
-⇒  ./01-临时重定向.sh 
-THis is an error
-This is normal output
-
-⇒  ./01-临时重定向.sh 2> test9
-This is normal output
-⇒  cat test9
-THis is an error
-COMMENT
-
-2.永久重定向
-#!/bin/bash
-
-<<COMMENT
-    如果脚本中有大量数据需要重定向，那重定向每个echo语句就会很繁琐。取而代之，你可以用exec命令告诉shell在脚本执行期间重定向某个特定文件描述符。
-COMMENT
-
-<<EXAMPLE1
-exec 1>testout
-echo "This is a test of redirecting all output"
-echo "from a script to another file."
-echo "Without having to redirect every individual line"
-EXAMPLE1
-
-# 脚本中发给STDOUT的所有输出会被重定向到文件。
-<<COMMENT
-⇒  ./02-永久重定向.sh 
-
-⇒  cat testout 
-This is a test of redirecting all output
-from a script to another file.
-Without having to redirect every individual line
-COMMENT
-
-# ------------------------------
-
-exec 2>testerror
-echo "This is the start of the script"
-echo "now redirecting all output to another location"
-
-exec 1>testout
-echo "This output should go to the testout file"
-echo "but this should go to the testerror file" >&2
-
-<<COMMENT
-⇒  ./02-永久重定向.sh 
-This is the start of the script
-now redirecting all output to another location
-
-⇒  cat testout 
-This output should go to the testout file
-
-⇒  cat testerror 
-but this should go to the testerror file
-COMMENT
+    - 永久重定向
+    ```
+    #!/bin/bash
+    
+    <<COMMENT
+        如果脚本中有大量数据需要重定向，那重定向每个echo语句就会很繁琐。取而代之，你可以用exec命令告诉shell在脚本执行期间重定向某个特定文件描述符。
+    COMMENT
+    
+    <<EXAMPLE1
+    exec 1>testout
+    echo "This is a test of redirecting all output"
+    echo "from a script to another file."
+    echo "Without having to redirect every individual line"
+    EXAMPLE1
+    
+    # 脚本中发给STDOUT的所有输出会被重定向到文件。
+    <<COMMENT
+    ⇒  ./02-永久重定向.sh 
+    
+    ⇒  cat testout 
+    This is a test of redirecting all output
+    from a script to another file.
+    Without having to redirect every individual line
+    COMMENT
+    
+    # ------------------------------
+    
+    exec 2>testerror
+    echo "This is the start of the script"
+    echo "now redirecting all output to another location"
+    
+    exec 1>testout
+    echo "This output should go to the testout file"
+    echo "but this should go to the testerror file" >&2
+    
+    <<COMMENT
+    ⇒  ./02-永久重定向.sh 
+    This is the start of the script
+    now redirecting all output to another location
+    
+    ⇒  cat testout 
+    This output should go to the testout file
+    
+    ⇒  cat testerror 
+    but this should go to the testerror file
+    COMMENT
+    
+    
+    04-在脚本中重定向输出
+    #!/bin/bash
+    
+    exec 0< testfile
+    count=1
+    
+    while read line
+    do
+        echo "Line #$count: $line"
+        count=$[ $count + 1 ]
+    done
+    ```
 
 
-04-在脚本中重定向输出
-#!/bin/bash
-
-exec 0< testfile
-count=1
-
-while read line
-do
-	echo "Line #$count: $line"
-	count=$[ $count + 1 ]
-done
-
-
-
-05-创建自己的重定向
+- 5 创建自己的重定向
+```
 1.创建输出文件描述符
 #!/bin/bash
 
@@ -141,8 +152,10 @@ Then this should be back on the monitor
 ⇒  cat test13out 
 and this should be stored in the file
 COMMENT
+```
 
 
+```
 2.向文件描述符
 #!/bin/bash
 
@@ -165,8 +178,10 @@ Now things should be back to normal
 This should store in the output file
 along with this line.
 COMMENT
+```
 
 
+```
 3.创建输入文件描述符
 #!/bin/bash
 
@@ -198,8 +213,10 @@ Line #3: This is the third line.
 Are you done now? y
 Goodbye
 COMMENT
+```
 
 
+```
 4.创建读写文件描述符
 #!/bin/bash
 
@@ -228,8 +245,10 @@ This is a test line
 ine.
 This is the third line.
 COMMENT
+```
 
 
+```
 5.关闭文件描述符1)
 #!/bin/bash
 
@@ -266,8 +285,10 @@ This is a test line of data
 ⇒  cat test17file 
 This'll be bad
 COMMENT
+```
 
 
+```
 6.列出打开的文件描述符
 #!/bin/bash
 
@@ -311,8 +332,10 @@ SIZE		如果有的话，表示文件的大小
 NODE		本地文件的节点号
 NAME		文件名
 COMMENT
+```
 
 
+```
 7.阻止命令输出
 #!/bin/bash
 
@@ -323,9 +346,11 @@ COMMENT
 ls -al > /dev/null
 ls -al badfile test16 2> /dev/null
 COMMENT
+```
 
 
 
+```
 8.创建临时文件
 1)创建本地临时文件
 #!/bin/bash
@@ -453,9 +478,11 @@ This is a test line of data for temp.p6UMgG
 ⇒  cat temp.PHY3MF 
 This is a test line of data for temp.PHY3MF
 COMMENT
+```
 
 
 
+```
 9.记录消息
 #!/bin/bash
 
@@ -499,9 +526,10 @@ This is the end of the test
 COMMENT
 
 # 利用这个方法，既能将数据保存在文件中，也能将数据显示在屏幕上。
+```
 
 
-
+```
 10.实例
 #!/bin/bash
 
@@ -536,4 +564,4 @@ Bresnahan,Timothy,456 Oak Ave.,Columbus,OH,43201
 COMMENT
 
 # Shell中通常将EOF与 << 结合使用，表示后续的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主调Shell。
-
+```

@@ -1,6 +1,7 @@
-============================================
+### 字符串
 
-1. 使用String对象存储字符串
+- 1 使用String对象存储字符串
+```
 例:
 package mypackage;
 
@@ -24,11 +25,10 @@ public class Test {
 }
 
 注释: String类位于java.lang包中，具有丰富的方法。
+```
 
-
-============================================
-2. String对象常用方法
-
+- 2 String对象常用方法
+```
 1）s.length()
 
 2）s.equals()
@@ -63,10 +63,10 @@ public String trim()			返回一个前后不含任何空格的调用字符串的
 8) s.toUpperCase()
 
 9) s.valueOf("aaa")
+```
 
-
-============================================
-3. StringBuffer类
+- 3 StringBuffer类
+```
 1） StringBuffer: String增强版
     对字符串频繁修改(如字符串连接)时，使用StringBuffer类可以大大提高程序执行效率。
 
@@ -81,4 +81,4 @@ sb.insert(1,"*");	//插入字符串
 sb.length();		//获取字符串长度
 sb.indexOf(".");
 sb.valueOf("aaa");
-
+```

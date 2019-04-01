@@ -1,3 +1,7 @@
+### 从文件中读取
+
+
+```
 #!/bin/bash
 
 <<COMMENT
@@ -21,4 +25,4 @@ Line 3: O Romeo, Romeo! wherefore art thou Romeo?
 Line 4: 
 Finished processing the file
 COMMENT
-
+```
