@@ -38,6 +38,7 @@
 * 实用工具
     * [nginx](tools/nginx.md)
     * [git](tools/git.md)
+    * [gitbook](tools/gitbook.md)
     * [vim](tools/vim.md)
     * [rsync](tools/rsync.md)
     * [ssh](tools/ssh.md)
