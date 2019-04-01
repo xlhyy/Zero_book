@@ -1,7 +1,8 @@
-### logging
+# logging
 
 
 - 知识点
+
 ```
 # encoding: utf-8
 
@@ -81,6 +82,7 @@ if __name__ == '__main__':
 
 
 - 练习
+
 ```
 import logging
 

@@ -1,7 +1,8 @@
 # 布代码脚本
 
 
-### deploy and restart
+- deploy and restart
+
 ```
 tag=$release_tag
 

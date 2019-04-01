@@ -1,7 +1,8 @@
 # git
 
 
-### 1. git clone报错
+## git clone报错
+
 ```
 使用git clone操作时，报错Permissions 0644 for ‘/root/.ssh/id_rsa’ are too open:
 如果出现 Permissions 0644 for ‘/root/.ssh/id_rsa’ are too open. 等错误显示了，原来只要把权限降到0600就ok了
@@ -11,7 +12,8 @@ chmod 0600 /root/.ssh/id_rsa
 ```
 
 
-### 2. 添加验证key密码
+## 添加验证key密码
+
 ```
 执行ssh-add时出现Could not open a connection to your authentication agent
 解决方法:
@@ -20,7 +22,8 @@ ssh-add -l 就有新加的rsa了。
 ```
 
 
-### 3. tag相关
+## tag相关
+
 ```
 查看tag:
 git tag
@@ -34,7 +37,8 @@ git tag xxxx
 git tag -d test_tag  //本地删除tag
 ```
 
-### 4. 命令
+## 命令
+
 ```
 git			g
 git status		gst

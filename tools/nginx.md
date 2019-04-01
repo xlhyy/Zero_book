@@ -1,7 +1,8 @@
 # nginx
 
 
-### 1. nginx配置不生效
+## nginx配置不生效
+
 ```
 1)nginx配置不生效，页面一直是默认页面welcome to nginx:
 将nginx.conf文件里
@@ -11,7 +12,8 @@
 ```
 
 
-### 2. nginx命令
+## nginx命令
+
 ```
 常用命令:
 ps -ef | grep 进程名		查看指定进程

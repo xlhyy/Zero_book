@@ -1,7 +1,8 @@
-### os.path
+# os.path
 
 
-- os.path模块主要用于文件的属性获取。
+- os.path模块主要用于文件的属性获取
+
 ```
 1)
 In [2]: os.path.abspath('test.log')

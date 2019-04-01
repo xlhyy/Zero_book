@@ -1,7 +1,8 @@
-### 知识点
+# 知识点
 
 
-- 运行cProfile命令:
+- 运行cProfile命令
+
 ```
 """
 ⇒  python -m cProfile -o test1.out test1.py
@@ -110,6 +111,7 @@ func2()
 
 
 - gprof2dot.py文件
+
 ```
 #!/usr/bin/env python
 #

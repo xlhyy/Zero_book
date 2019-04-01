@@ -1,7 +1,8 @@
-### jQuery
+# jQuery
 
 
 - jQuery简介
+
 ```
 jQuery是一个轻量级的"写的少，做的多"的优秀的Javascript库。 
 它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器，jQuery2.0及后续版本将不再支持IE6/7/8浏览器。 
@@ -11,6 +12,7 @@
 
 
 - jQuery的好处
+
 ```
 jQuery 是一个高效、精简并且功能丰富的 JavaScript 工具库 
 极大的简化了JS的复杂操作与代码
@@ -20,6 +22,7 @@
 
 
 - jQuery环境搭建
+
 ```
 可以通过多种方法在网页中添加 jQuery。 您可以使用以下方法： 
 从 jquery.com 下载 jQuery 库 
@@ -32,6 +35,7 @@
 
 
 - 基本语法
+
 ```
 $()
 jQuery 语法是为 HTML 元素的选取编制的，可以对元素执行某些操作。
@@ -79,6 +83,7 @@
 ```
 
 - jQuery常用选择器
+
 ```
 <img src="../images/jquery_1.png" width="60%" height="40%" alt="" />
 5.1 基本选择器 
@@ -112,6 +117,7 @@
 
 
 - jquery事件
+
 ```
 6.1 常规事件
 <img src="../images/jquery_2.png" width="60%" height="40%" alt="" />
@@ -648,6 +654,7 @@ temp+=$(this).val()
 
 
 - 练习：淘宝二级菜单功能点代码
+
 ```
 菜单示意图：
 

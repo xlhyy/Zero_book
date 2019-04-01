@@ -1,7 +1,8 @@
-### supervisor
+# supervisor
 
 
 - 命令
+
 ```
 sudo service supervisor start 		启动supervisor服务(-c 按照指定配置文件启动)
 sudo service supervisor stop		停止supervisor服务
@@ -21,6 +22,7 @@ supervisorctl tail -f program_name	查看该进程的日志
 
 
 - 常见问题处理
+
 ```
 1.
 unix:///tmp/supervisor.sock refused connection
