@@ -141,3 +141,6 @@
 * 闲的
     * [free_style](interface/free_style.md)
     * [代码注释](interface/annotate.md)
+
+* way
+    * [my way](interface/way.md)
