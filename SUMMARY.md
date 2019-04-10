@@ -65,12 +65,9 @@
         * [web全栈开发](program/python/python_web.md)
         * 协议
             * [http](program/python/protocol/http.md)
-        * 数据分析
-            * [数据分析练习题](program/python/analysis/practice_analysis.md)
-        * 数据结构与算法
-            * [数据结构与算法练习题](program/python/algorithm/practice_algorithm.md)
-        * 数据库开发
-            * [数据库开发练习题](program/python/database/practice_database.md)        
+        * [数据分析练习题](program/python/analysis/practice_analysis.md)
+        * [数据结构与算法](program/python/algorithm/practice_algorithm.md)
+        * [数据库开发](program/python/database/practice_database.md)        
         * 爬虫
             * [正则表达式爬虫](program/python/crawler/zhengze_crawler.md)
             * [xpath爬虫](program/python/crawler/xpath_crawler.md)
@@ -144,3 +141,6 @@
 * 闲的
     * [free_style](interface/free_style.md)
     * [代码注释](interface/annotate.md)
+
+* way
+    * [my way](interface/way.md)

@@ -1,4 +1,4 @@
-### time
+# time
 
 ```
 1. 获得时间戳:
@@ -20,6 +20,7 @@
 
 
 - 实例
+
 ```
 In [1]: import time
 
@@ -50,6 +51,7 @@ Out[9]: 1543305275.0
 
 
 - 利用localtime()转换为时间数组,然后格式化为需要的格式,如
+
 ```
 timeStamp = 1381419600
 timeArray = time.localtime(timeStamp)

@@ -2,6 +2,7 @@
 
 
 - mac安装gitbook
+
 ```
 安装node.js:
 下载地址: https://nodejs.org/en/
@@ -24,6 +25,7 @@ gitbook serve
 ```
 
 - linux安装gitbook
+
 ```
 安装node.js:
 sudo apt-get install nodejs

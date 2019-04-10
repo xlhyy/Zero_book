@@ -1,7 +1,8 @@
-### pycharm
+# pycharm
 
 
 - 快捷键
+
 ```
 1) linux下pycharm快捷键：
 ctrl+shift+n	按文件名查找

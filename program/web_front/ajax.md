@@ -1,7 +1,8 @@
-### ajax
+# ajax
 
 
 - ajax简介
+
 ```
 传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。 
 AJAX 是一种在无需重新加载整个网页的情况下，更新部分网页的技术。
@@ -13,6 +14,7 @@
 
 
 - jquery与ajax
+
 ```
 jQuery 提供多个与 AJAX 有关的方法。
 通过 jQuery AJAX 方法，您能够使用 HTTP Get 和 HTTP Post 从远程服务器上请求文本、HTML、XML 或 JSON - 同时您能够把这些外部数据直接载入网页的被选元素中。
@@ -21,6 +23,7 @@
 
 
 - ajax-get方法
+
 ```
 示例代码：
 test.html
@@ -57,6 +60,7 @@ this is get.
 
 
 - ajax-post方法
+
 ```
 示例代码：
 test.html
@@ -102,6 +106,7 @@ demo_test_post.html
 
 
 - ajax-load方法
+
 ```
 示例代码:
 test.html
@@ -142,6 +147,7 @@ this is load.
 
 
 - ajax-ajax方法
+
 ```
 name值如下：
 名称/值含义如下：
@@ -192,6 +198,7 @@ this is ajax.
 
 
 - 图片轮播
+
 ```
 示例代码：
 turnStyle.css
