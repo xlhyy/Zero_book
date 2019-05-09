@@ -30,6 +30,7 @@
     * [openpyxl](python_lib/openpyxl.md)
     * [os.path](python_lib/os_path.md)
     * [global函数](python_lib/global.md)
+    * [reduce函数](python_lib/reduce.md)
 
 * 数据库
     * [mysql](database/mysql.md)
