@@ -62,3 +62,11 @@ git push origin -delete 分支名	//删除服务器远端的分支
 git branch -d 分支名		//删除本地已经合并了的分支
 git branch -D 分支名		//删除本地未合并的分支
 ```
+
+## 更改git用户名及邮箱
+
+```
+kaiqigu@bogon:/|⇒  git config --list    
+kaiqigu@bogon:/|⇒  git config --global user.name ying.li
+kaiqigu@bogon:/|⇒  git config --global user.email ying.li@kaiqigu.com
+```
