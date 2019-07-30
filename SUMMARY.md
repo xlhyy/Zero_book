@@ -1,4 +1,4 @@
-## My way to study.
+### My way to study.
 
 * 环境搭建
     * [开发环境搭建](interface/environ.md)
