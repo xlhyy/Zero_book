@@ -27,6 +27,54 @@ brew unlink mysql-connector-c
 brew link --overwrite mysql
 ```
 
+```
+(1) 执行mysql报错
+
+ERROR 1045 (28000): Access denied for user 'zhang'@'localhost' (using password: NO) 
+
+1. 解决很简单，执行命令sudo mysql即可 
+2. 或者执行命令，mysql -u root 
+3. 再解决不了，我就不知道了啊，你可以按照下边的方便，卸载了重装。
+
+关闭运行的mysqld
+
+比较暴力的方式： 
+查看mysql是否启动：ps -ef |grep mysql 
+ 
+输入：kill -9 (./mysqld前面第二个数字，这里是627) 然后回车 
+输入：ps -ef |grep mysql 就可以继续查看进程在不在： 
+
+
+
+(2) 删除mysql
+
+删除前请确认是不是已经关闭运行的mysql，看上面
+
+brew remove mysql
+brew cleanup
+sudo rm /usr/local/mysql
+sudo rm -rf /usr/local/var/mysql
+sudo rm -rf /usr/local/mysql*
+sudo rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/PreferencePanes/My*
+launchctl unload -w~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+edit /etc/hostconfig and remove the line MYSQLCOM=-YES-
+rm -rf ~/Library/PreferencePanes/My*
+sudo rm -rf /Library/Receipts/mysql*
+sudo rm -rf /Library/Receipts/MySQL*
+sudo rm -rf /private/var/db/receipts/*mysql*
+
+
+
+(3) 安装
+
+1.执行
+brew install mysql
+
+2.最后启动
+mysql.server start
+```
 
 ## mysql数据库操作
 
