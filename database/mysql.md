@@ -319,6 +319,43 @@ Mac下忘记mysql密码: https://baijiahao.baidu.com/s?id=1575944821928606&wfr=s
 ```
 
 
+## mac下更改密码
+
+```
+
+mysql连数据库的时候报错:
+1251 client does not support authentication protocol requested by server;consider upgrading Mysql client
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+
+
+(1) 先登录mysql
+mysql -u root -p
+输入密码
+
+
+(2)
+mysql> use mysql;
+mysql> select user,host from user;
++------------------+-----------+
+| user             | host      |
++------------------+-----------+
+| root             | %         |
+| admin            | localhost |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| zhangj           | localhost |
++------------------+-----------+
+注意我的root，host是'%'
+
+
+(3) 执行
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
+或
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';
+```
+
+
 ## 报错
 
 ```

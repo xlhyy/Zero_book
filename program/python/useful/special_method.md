@@ -216,6 +216,299 @@ p()
 # My name is li.
 ```
 
+```
+注意: 类可调用与对象可调用的不同(注: 类都是可调用的; 实例对象要看有没有__call__方法;)：
+
+例:
+# coding: utf-8
+
+class WaterMelon(object):
+	def __init__(self):
+		self.price = 0
+		self.price_per_kilogram = 1.0
+	
+	def __call__(self, weight):
+		self.price = self.price_per_kilogram * weight
+		print("The price of the watermelon is:", self.price)
+
+w = WaterMelon()
+
+w(6)
+w.__call__(7)
+WaterMelon()(8)
+
+print "--------------------------"
+
+class Apple(object):
+	def __init__(self):
+		self.price_per_kilo = 2.0
+
+print callable(Apple)
+print callable(WaterMelon)
+w = WaterMelon()
+a = Apple()
+print callable(w)
+print callable(a)
+
+
+运行结果:
+('The price of the watermelon is:', 6.0)
+('The price of the watermelon is:', 7.0)
+('The price of the watermelon is:', 8.0)
+--------------------------
+True
+True
+True
+False
+```
+
+
+
+```
+__call__的另一个用途:
+
+python可以进行元编程(元类(type)，自定义元类(使用__metaclass__))，又一个技巧是，当你不想让用户能够实例化一个类，而只能使用累的静态方法的时候，可以通过结合__call__()函数与元编程来实现:
+
+
+例:
+# coding: utf-8
+
+class NoInstances(type):
+	def __call__(self, *args, **kwargs):
+		raise TypeError("Class is not allowed to be instantiated!")
+
+class Cherry(object):
+	__metaclass__ = NoInstances
+
+	@staticmethod
+	def about():
+		print("我是王者之力，但是你不配拥有！")
+
+Cherry.about()
+print '---------------------------'
+a = Cherry()
+
+
+运行结果：
+我是王者之力，但是你不配拥有！
+---------------------------
+Traceback (most recent call last):
+  File "test__all__2.py", line 16, in <module>
+    a = Cherry()
+  File "test__all__2.py", line 5, in __call__
+    raise TypeError("Class is not allowed to be instantiated!")
+TypeError: Class is not allowed to be instantiated!
+
+```
+
+```
+元类(metaclass)
+
+1) 究竟什么是metaclass？
+metaclass就是Python中用来创建class object的class。我们可以将其看做能够产生class的类工厂。我们可以通过如下例子理解这个关系：
+
+class = metaclass()
+object = class()
+
+
+2) 类的__metaclass__ attribute
+当定义class的时候，我们可以使用__metaclass__ attribute来指定用来初始化当前class的metaclass。如下面的例子所示：
+
+class Foo(object):
+    __metaclass__ = something
+    [other statements...]
+
+如果我们指定了__metaclass__，Python就是使用这个metaclass来生成class Foo。
+当Python试图创建class Foo的时候，Python会首先在class的定义中寻找__metaclass__ attribute。如果存在__metaclass__，Python将会使用指定的__metaclass__来创建class Foo。如果没有指定的话，Python就会使用默认的type作为metaclas创建Foo。
+
+```
+
+- object与type的区别:
+
+```
+1) 个人理解：
+Type 是指类型， 一个class 就是一个Type, 
+object  是指类型的实例， 指代一个具体的对象。
+打个浅显的比方， 所有的同类型的笔是一个 Type（类型）， 但是同一种笔可能有很多个体， 一个个体就是指一个object.
+
+
+2) object和type对象的关系
+
+>>> object.__class__
+<type 'type'>
+
+>>> type.__class__
+<type 'type'>
+
+>>> object.__bases__
+()
+
+>>> type.__bases__
+(<type 'object'>,)
+
+
+这几句语句包含了三个概念1.对象 2.继承 3.类型
+
+__class__属性指的是该对象是什么类型的实例。
+__bases__属性指的是该对象的类型的父类有哪些。
+
+首先，在python中一切都是对象，包括object和type,
+*(object和type对象是系统的原有值，python中本身存在的,我的理解是c创建的一个struct对象)。
+第二，object是一切对象的基类，所有其他类型都是从该类型中继承而来的。
+第三，object作为一个对象它是type类型的一个实例。
+第四，type作为类型它继承自object类型。
+```
+
+- python元类: type (自定义时使用metaclass方式, 本质仍为type)
+
+```
+用type函数创建一个类:
+
+# coding: utf-8
+
+class A(object):
+	pass
+
+# 类名 = type(类名-str, 父类-typle, 属性-dict)
+# 此条命令创建类相当于上个class创建类,效果是一样的
+B = type('B', (object, ), {})
+
+print A
+print B
+
+结果:
+<class '__main__.A'>
+<class '__main__.B'>
+```
+
+```
+定义带有属性的类:
+
+class Foo(object):
+    bar = True
+
+# 相当于
+Foo = type("Foo", (object, ), {'bar': True})
+```
+
+```
+定义带有方法的类:
+
+class Dog(object):
+    def bark(self):
+        print('wang wang ..')
+
+    @classmethod
+    def eat(self):
+        print('i am eating...')
+
+# ----------------------------
+# 上面创建的类可以用type实现，就相当于：
+def bark(self):
+    print('wang wang ..')
+
+# @staticmethod也是这样用
+@classmethod  
+def eat(self):
+    print('i am eating...')
+
+Dog = type('Dog', (object,), {'bark': bark, 'eat': eat})
+
+# -----------------------------
+# 来试验一下：
+dog = Dog()
+dog.eat()
+dog.bark()
+
+结果:
+i am eating...
+wang wang ..
+```
+
+```
+__metaclass__自定义元类:
+
+1) python3中:
+def say_hello(self):
+    print('hello, I am ' + str(self))
+
+def my_type(class_name, class_fathers, class_attr):
+    class_attr['say_hello'] = say_hello  # 给属性列表中加入say_hello
+    return type(class_name, class_fathers, class_attr)
+
+class Foo(object, metaclass=my_type):  # 用指定的元类来创建类(python3中需要这样用metaclass)
+    pass
+
+print(Foo)
+a = Foo()
+print(a)
+a.say_hello()  # Foo对象拥有了say_hello的方法
+
+
+2) python2中：
+def say_hello(self):
+    print('hello, I am ' + str(self))
+
+def my_type(class_name, class_fathers, class_attr):
+    class_attr['say_hello'] = say_hello  # 给属性列表中加入say_hello
+    return type(class_name, class_fathers, class_attr)
+
+class Foo(object):  # 用指定的元类来创建类
+    __metaclass__ = my_type   # (python2中需要这样用metaclass)
+
+print(Foo)
+a = Foo()
+print(a)
+a.say_hello()  # Foo对象拥有了say_hello的方法
+
+```
+
+- 使用 __getitem__ 和 __iter__ 可以使类成为一个迭代器
+
+```
+# coding: utf-8
+
+class Library(object):
+
+	def __init__(self):
+		self.books = {'title': 'a', 'title2': 'b', 'title3': 'c'}
+
+	def __getitem__(self, i):
+		return self.books[i]
+
+	def __iter__(self):
+		# 方法1: 使用生成器
+		for titles in self.books:
+			yield self.books[titles]
+		# 方法2: 使用迭代器
+		# return self.books.itervalues()
+	
+library = Library()
+
+# 1. 普通方法
+print library.books['title']
+print '--------------------'
+
+# 2. 使用__getitem__
+print library['title']
+print '--------------------'
+
+# 3. 迭代器
+for book in library:
+	print book
+print '--------------------'
+
+
+结果:
+a
+--------------------
+a
+--------------------
+b
+c
+a
+--------------------
+```
 
 - __init__、__float__
 
