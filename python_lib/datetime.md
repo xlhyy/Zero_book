@@ -75,3 +75,20 @@ Out[41]: 737025
 In [43]: datetime.datetime.now().timetuple()
 Out[43]: time.struct_time(tm_year=2018, tm_mon=11, tm_mday=27, tm_hour=17, tm_min=5, tm_sec=45, tm_wday=1, tm_yday=331, tm_isdst=-1)
 ```
+
+
+## date 型转 datetime型
+
+```
+import datetime
+
+d = datetime.date(2019,9,5)
+
+datetime.datetime.fromordinal(d.toordinal())
+或
+datetime.datetime(d.year, d.month, d.day)
+或
+datetime.datetime(*d.timetuple()[:-4])
+
+=> datetime.datetime(2019, 9, 5, 0, 0)
+```
