@@ -500,3 +500,44 @@ service mysql start
 ```
 https://blog.csdn.net/weixin_42750983/article/details/82431257
 ```
+
+
+## 遇到的一些问题
+
+```
+kaiqigu@bogon:~|⇒  sudo mysql.server restart
+Shutting down MySQL
+.. SUCCESS! 
+Starting MySQL
+. ERROR! The server quit without updating PID file (/usr/local/var/mysql/bogon.pid).
+kaiqigu@bogon:~|⇒  chmod -R 777 /usr/local/var/mysql/
+kaiqigu@bogon:~|⇒  sudo mysql.server restart         
+ ERROR! MySQL server PID file could not be found!
+Starting MySQL
+. SUCCESS! 
+```
+
+```
+解决MySQL登录ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using passwor)问题
+
+1、首先停掉mysql 数据库 一般是安装在/etc/init,d/mysqld stop 
+
+2、修改mysql的配置文件 /etc/my.cnf   
+最后一行添加 skip-grant-tables 表示可以跳过权限去登录
+
+3、重启 mysql 数据库 /etc/init,d/mysqld start
+
+4、使用 mysql -u root -p
+
+‘’回车“
+
+表示没有密码 直接登录
+
+5、修改 mysql 表里面的用户，为其设置密码。
+
+update user set password=PASSWORD("rootadmin") where user='root';”（修改root的密码）
+
+6、删除 skip-grant-tables 
+
+7.完成
+```
