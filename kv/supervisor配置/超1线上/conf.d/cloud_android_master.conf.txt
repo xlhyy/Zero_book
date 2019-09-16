@@ -1,0 +1,42 @@
+[program:genesis_pub_android_master]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 -O /data/sites/genesis_backend/run.py
+        --port=2500
+        --maxmem=1073741824
+        --env=cloud_android
+        --server_name=1
+        --numprocs=4
+        --logging=debug
+
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_backend/logs/g_master_out.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/genesis_backend/logs/g_master_err.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+loglevel=debug
+
+[program:genesis_pub_android_chat]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 -O /data/sites/genesis_backend/run_chat_server.py cloud_android 1
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_backend/logs/chat_out.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=1
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/genesis_backend/logs/chat_err.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=1
+stderr_capture_maxbytes=1MB
+loglevel=debug

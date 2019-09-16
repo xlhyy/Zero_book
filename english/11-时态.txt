@@ -1,0 +1,72 @@
+一 过去时
+
+1. 一般过去时：主语+动词过去式+其他
+he worked very hard last night.
+
+动词变过去时规则：
+a. 一般直接+ed
+b. 在以e结尾的动词后+d
+c. 以辅音字母+y结尾的动词中，将y改i，加ed。	supply->supplied
+d. 在以重读闭音节结尾且末尾只有一个辅音字母的动词后，双写最后一个辅音字母，加ed。	plan->planned
+
+2.过去进行时: was/were + doing
+they were waiting for you.
+
+
+二 现在时
+
+1. 一般现在时: (主语是单数第三人称时，动词有单三的变化；主语是非第三人称单数时，动词为原型。)
+they often get up at 7:00.
+he often gets up at 7:00.
+
+动词的单三变化规则：
+a. 在动词末尾直接+s	play->plays
+b. 以字母s, x, ch或o结尾的动词+es	guess->guesses
+c. 以辅音字母+y结尾的动词，把y改i，+es	study->studies
+
+一般现在时否定和疑问用do，does帮助构成
+he doesn’t like the car.
+does he like the car?	yes, he does./no, he doesn’t.
+
+
+2. 现在进行时: be + doing
+they are watching TV.
+
+a. 动词以不发音的-e结尾，要去e加ing。	take->taking
+b. 重读闭音节的动词，要双写词尾字母，再加ing。	cut->cutting
+c. 以-ie结尾的动词，变y再加ing。	lie->lying
+
+现在进行时变否定句和疑问句时，将be动词否定或提前。
+they aren’t watching TV.	Are they watching TV?
+Am I watching TV?	yes, you are./no, you aren’t.
+
+
+
+三 将来时
+
+1. 助动词will(主语为什么都可用)或shall(主语是第一人称I和we时常用) + 动词原形
+they will go to Shanghai by ship tomorrow.
+We shall leave for Shanghai next month.
+
+2. be going to + 动词原形. 用来表示近期或事先考虑过的将要发生的动作，以及已有迹象表明必将发生某事，意为“打算，就要”。
+they are going to play football this afternoon.
+she is going to learn French next year.
+
+3. be doing 表示位置转移的动词，如：go, come, leave, start, arrive 可用现在进行时表示将来时。
+they are leaving for Japan.  他们将要离开去日本
+
+
+
+四 完成时
+
+1. 现在完成时 (have + p.p.)
+动作过去发生，已经完成，对现在造成影响或后果，动作可能还会持续。
+可使用的时间状语为 already(已经) 和 yet(还)。
+they have already arrived in Shanghai.
+she has played soccer for 3 hours.
+she hasn’t finished the homework yet.
+
+2. 过去完成时 (had + p.p.) (过去的过去)
+they had arrived in Shanghai.
+had they planned to stay here?  他们已经打算呆在这儿了吗？
+

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#host=192.168.1.63
+host=192.168.1.75
+dest=/data/sites/summoners_dev/
+rsync --progress -alrI --exclude='upload_xls' --exclude='.git' --exclude='.gitignore' --exclude='logs' ./* admin@$host:$dest/
+ssh admin@$host 'supervisorctl -u user -p 123 restart summoners_dev_app:00 summoners_dev_run_timer:00 summoners_dev_chat:00 summoners_dev_celery_battle:00'

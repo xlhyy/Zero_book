@@ -1,0 +1,84 @@
+user  nginx;
+worker_processes  2;
+
+# load_module /usr/lib64/nginx/modules/ndk_http_module.so;
+# load_module /usr/lib64/nginx/modules/ngx_http_lua_module.so;
+
+worker_rlimit_nofile 65535;
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    use epoll;
+    worker_connections  10240;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request"  $request_body '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"'
+                      '$upstream_addr $upstream_response_time $request_time';
+
+    access_log  /data/nginx/logs/access.log  main;
+    error_log  /data/nginx/logs/error.log;
+
+    sendfile        on;
+    tcp_nopush     on;
+    tcp_nodelay off;
+    types_hash_max_size 2048;
+    client_max_body_size 164M;
+    client_body_buffer_size 10M;
+    keepalive_timeout  600;
+    fastcgi_buffers 8 128k;
+    fastcgi_buffer_size 128k;
+    send_timeout 600;
+
+    gzip  on;
+    gzip_disable "msie6";
+    gzip_min_length 1k;
+    gzip_comp_level 7;
+    gzip_http_version 1.1;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript;	
+
+    include /etc/nginx/conf.d/*.conf;
+
+    upstream dancer_cgame_rg {
+        server 192.168.1.44:8500 max_fails=2 fail_timeout=2s weight=9;
+     }
+    upstream ontheway_test {
+        server 192.168.1.44:8400 max_fails=2 fail_timeout=2s weight=9;
+     }
+    upstream websocket_ontheway {
+        server 192.168.1.44:8400 max_fails=2 fail_timeout=2s weight=9;
+     }
+   upstream cjyx_bt_1 {
+	ip_hash;
+	server 192.168.1.44:60201;
+	keepalive 16;
+	}
+   upstream cjyx_bt_2 {
+	ip_hash;
+	server 192.168.1.44:60202;
+	keepalive 16;	
+	}
+
+#  到/etc/nginx/conf.d/dancer_cgame_rg.conf中修改
+#    server {
+#	listen 80;
+#        server_name ~.*;
+#        # 前端热更资源、配置
+#        location /tw_rg_new/lr/ {
+#	    keepalive_timeout 1;
+#            root /data/sites/genesis2_tw_rg_new/logs/lr/;
+#            rewrite ^/tw_rg_new/lr/(.*) /$1 break;
+#            autoindex on;
+#        }
+#    }
+
+
+
+}

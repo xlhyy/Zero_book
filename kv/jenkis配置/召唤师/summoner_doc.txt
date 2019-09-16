@@ -1,0 +1,5 @@
+echo 'begin upload documents' \
+&& echo `date` > version \
+&& gitbook install && gitbook build . \
+&& rsync  -alrI ./_book/* ./python_script/* admin@192.168.1.44:/data/sites/summoners_doc \
+&& echo 'end'

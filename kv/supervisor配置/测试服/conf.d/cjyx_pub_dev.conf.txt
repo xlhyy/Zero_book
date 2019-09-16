@@ -1,0 +1,154 @@
+[program:cjyx_pub_stg_1]
+process_name = %(program_name)s
+directory = /data/sites/genesis_test_android
+command = /usr/local/bin/python2.7 /data/sites/genesis_test_android/run.py
+        --port=60201
+        --env=stg_pub
+        --server_name=1
+        --numprocs=1
+        --logging=debug
+
+
+autorestart = true
+stopwaitsecs = 20
+
+environment = PYTHONUNBUFFERED=1
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_out_1.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_err_1.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+[program:cjyx_pub_stg_2]
+process_name = %(program_name)s
+directory = /data/sites/genesis_test_android
+command = /usr/local/bin/python2.7 /data/sites/genesis_test_android/run.py
+        --port=60202
+        --env=stg_pub
+        --server_name=2
+        --numprocs=1
+        --logging=debug
+
+
+autorestart = true
+stopwaitsecs = 20
+
+environment = PYTHONUNBUFFERED=1
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_out_2.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_err_2.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+[program:cjyx_pub_stg_timer_1]
+process_name = %(program_name)s
+command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_timer.py stg_pub 1
+numprocs = 1
+numprocs_start = 100
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_timer_1_out.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_timer_1_err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+[program:cjyx_pub_stg_timer_2]
+process_name = %(program_name)s
+command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_timer.py stg_pub 2
+numprocs = 1
+numprocs_start = 100
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_timer_2_out.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_timer_2_err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+# [program:cjyx_pub_stg_chat]
+# process_name = %(program_name)s
+# command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_chat_server.py stg_pub 1
+# numprocs = 1
+# numprocs_start = 0
+# autorestart = true
+# 
+# stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_chat_out.log
+# stdout_logfile_maxbytes=10MB
+# stdout_logfile_backups=1
+# stdout_capture_maxbytes=10MB
+# stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_chat_err.log
+# stderr_logfile_maxbytes=10MB
+# stderr_logfile_backups=1
+# stderr_capture_maxbytes=10MB
+# loglevel=debug
+
+[program:cjyx_pub_stg_team_pk]
+process_name = %(program_name)s
+command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_team_pk_timer.py stg_pub 1
+numprocs = 1
+numprocs_start = 110
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_team_pk_timer_out.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_team_pk_timer_err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+[program:cjyx_pub_stg_inter_service_timer]
+process_name = %(program_name)s
+command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_inter_service_timer.py stg_pub 1
+numprocs = 1
+numprocs_start = 120
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_inter_service_timer_out.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_inter_service_timer_err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug
+
+
+[program:cjyx_pub_stg_timer]
+process_name = %(program_name)-%(process_num)02d
+command = /usr/local/bin/python2.7  /data/sites/genesis_test_android/run_escort_timer.py stg_pub 2
+numprocs = 1
+numprocs_start = 120
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_test_android/logs/supervisor_escort_timer_out.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=5
+stdout_capture_maxbytes=10MB
+stderr_logfile=/data/sites/genesis_test_android/logs/supervisor_escort_timer_err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=5
+stderr_capture_maxbytes=10MB
+loglevel=debug

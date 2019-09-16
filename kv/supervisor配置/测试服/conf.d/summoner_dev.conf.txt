@@ -1,0 +1,84 @@
+[program:summoners_dev_app]
+directory = /data/sites/summoners_dev
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 /data/sites/summoners_dev/run.py
+        --port=75%(process_num)02d
+        --maxmem=1073741824
+        --env=dev
+        --server_name=all
+        --numprocs=1
+        --logging=debug
+
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/summoners_dev/logs/out_app.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/summoners_dev/logs/err_app.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+
+loglevel=debug
+
+
+[program:summoners_dev_run_timer]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 /data/sites/summoners_dev/run_timer.py --env=dev
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+stdout_logfile=/data/sites/summoners_dev/logs/run_timer_out.log
+stdout_logfile_maxbytes=100MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+stderr_logfile=/data/sites/summoners_dev/logs/run_timer_err.log
+stderr_logfile_maxbytes=100MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+loglevel=debug
+
+
+[program:summoners_dev_chat]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 /data/sites/summoners_dev/run_chat_server.py dev all
+
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/summoners_dev/logs/out_chat.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=1
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/summoners_dev/logs/err_chat.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=1
+stderr_capture_maxbytes=1MB
+
+loglevel=debug
+
+[program:summoners_dev_celery_battle]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 /data/sites/summoners_dev/run_celery_battle.py  --env=dev --server_name=all
+
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/summoners_dev/logs/out_celery_battle.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=1
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/summoners_dev/logs/err_celery_battle.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=1
+stderr_capture_maxbytes=1MB
+
+loglevel=debug

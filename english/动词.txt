@@ -1,0 +1,15 @@
+实意动词(Notional Verb)
+系动词(Link Verb)
+助动词(Auxiliary Verb)
+情态动词(Model Verb)
+
+he goes to school every day.
+he went to hospital last night.
+
+
+动词原形	play	have	go
+单三	plays	has	goes
+现在分词	playing	having	going
+过去式	played	had	went
+过去分词	played	had	gone
+

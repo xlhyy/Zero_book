@@ -1,0 +1,6 @@
+echo 'begin upload documents' \
+&& cd doc \
+&& echo `date` > version \
+&& gitbook build . \
+&& rsync  -alrI ./_book/* admin@192.168.1.9:/data/sites/genesis_doc \
+&& echo 'end'

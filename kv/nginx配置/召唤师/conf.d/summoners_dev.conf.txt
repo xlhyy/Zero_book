@@ -1,0 +1,60 @@
+upstream summoners_dev_app {
+    server 192.168.1.75:7500 max_fails=2 fail_timeout=2s weight=8;
+}
+
+server {
+    listen 99;
+    server_name 192.168.1.44;
+
+    proxy_read_timeout 300s;
+    proxy_pass_header Server;
+    proxy_redirect off;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Scheme $scheme;
+    proxy_next_upstream error http_502;
+
+    ########### summoners_doc ###########
+    location /summoners_doc/ {
+        root /data/sites/;
+        # rewrite ^/summoners_doc/(.*)$ /$1 break;
+    }
+    ########### summoners_test ###########
+
+    location /summoners_test/static/ {
+        root /data/sites/summoners_dev/;
+        rewrite ^/summoners_test/(.*)$ /$1 break;
+    }
+
+    location /summoners_test/admin/ {
+#        limit_req zone=allips burst=5 nodelay;
+        rewrite "^/summoners_test/(.*)$" /$1 break;
+        proxy_pass http://summoners_dev_app;
+    }
+
+    location /summoners_test/ {
+        rewrite "^/summoners_test/(.*)$" /$1 break;
+        #add_header Content-Type "text/plain;charset=utf-8";
+        proxy_pass http://summoners_dev_app;
+    }
+
+    location /summoners_test/crash/ {
+        add_header Content-Type "text/plain;charset=utf-8";
+        return 200 "ok";
+        access_log  /data/nginx/logs/superHero2_en_dev_crash.log main;
+    }
+
+    location ~ /gtt[\d-]+/ {
+        rewrite ^/[^\/]*/(.*)$ /$1 break;
+        proxy_pass http://summoners_dev_app;
+    }
+
+    location /summoners_test/lr/ {
+        # expires 1d;
+        root /data/sites/summoners_dev/logs/lr/;
+        rewrite ^/summoners_test/lr/(.*)$ /$1 break;
+    }
+########### summoners_test ###########
+
+}

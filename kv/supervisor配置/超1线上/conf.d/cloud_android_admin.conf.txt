@@ -1,0 +1,24 @@
+[program:genesis_pub_android_admin]
+process_name = %(process_num)02d
+command = /usr/local/bin/python2.7 -O /data/sites/genesis_backend/run.py
+        --port=2501
+        --maxmem=1073741824
+        --env=cloud_android
+        --server_name=master
+        --numprocs=2
+        --logging=debug
+
+numprocs = 1
+numprocs_start = 0
+autorestart = true
+
+stdout_logfile=/data/sites/genesis_backend/logs/g_admin_out.log
+stdout_logfile_maxbytes=200MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+
+stderr_logfile=/data/sites/genesis_backend/logs/g_admin_err.log
+stderr_logfile_maxbytes=200MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+loglevel=debug

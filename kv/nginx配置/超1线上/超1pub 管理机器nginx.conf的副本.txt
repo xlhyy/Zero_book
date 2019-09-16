@@ -1,0 +1,163 @@
+
+user  nginx;
+
+worker_processes  8;
+worker_rlimit_nofile 65535;
+
+error_log  /data/nginx/logs/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    #use epoll;
+    worker_connections  10240;
+}
+
+
+http {
+    ### Basic ####
+    sendfile on;
+
+    tcp_nopush on;
+    tcp_nodelay off;
+
+    keepalive_timeout 600;
+
+    types_hash_max_size 2048;
+    client_max_body_size 64M;
+    client_body_buffer_size 1024k;    
+
+    include       /etc/nginx/mime.types;
+
+    default_type  application/octet-stream;
+
+    ### Logging ###
+    log_format  main  '$remote_addr - $remote_user [$time_local] $http_host "$request" $request_body '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for" '
+                      '$upstream_addr $upstream_response_time $request_time';
+
+    access_log /data/nginx/logs/access.log  main;
+    #error_log /data/nginx/logs/error.log warn;
+
+    ### Gzip ###
+    gzip  on;
+    gzip_disable "msie6";
+    gzip_min_length 1k;
+    gzip_comp_level 7;
+    gzip_http_version 1.1;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript;
+
+    proxy_buffer_size 4k;
+    proxy_buffers 64 32k;
+    
+   # allow 119.161.137.199;
+   # allow 101.254.182.2;
+   # deny all;
+
+    # include /etc/nginx/conf.d/*.conf;
+
+    # deal with master python 
+    upstream genesis_pub_android_ios_master {
+        server 127.0.0.1:2500 max_fails=2 fail_timeout=2s weight=8;
+        # 再添加一台 master python 
+        server 10.10.14.70:2500 max_fails=2 fail_timeout=2s weight=1;
+    }
+
+    upstream genesis_pub_android_admin {
+        server 127.0.0.1:2501 max_fails=2 fail_timeout=2s weight=4;
+    }
+
+    # 添加后台admin进程
+    #upstream genesis_pub_ios_admin.app {
+    #    server 10.10.6.168:2501 max_fails=2 fail_timeout=2s weight=9;
+    #}
+
+    server {
+        listen 80;
+        server_name pub.kaiqigu.net localhost 120.132.57.20 10.10.14.8;
+        server_name pub.kaiqigu.cn;
+        server_name genesis_android.kaiqigu.net;
+        server_name genesis_android.kaiqigu.cn;
+
+	if ($arg_channel ~ 'aiyingyong'){return 200 '{"status": "1", "user_status": {}, "_client_cache_update": {}, "all_config_version": "", "msg": "该平台已经停止合作，请选择其他平台登录", "data": {}}';}
+
+        location /favicon.ico {
+            empty_gif;
+            access_log off;
+        }
+
+        location / {
+#            root /usr/share/nginx/html;
+#            index index.html index.htm;
+            return 404;
+        }
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+        # pub admin
+        location /genesisandroidios/admin/ {
+            rewrite ^/genesisandroidios/(.*) /$1 break;
+
+            proxy_pass http://genesis_pub_android_admin;
+        }
+
+        ### genesisandroidios - android enter ######
+
+        location /genesisandroidios/ {
+            rewrite ^/genesisandroidios/(.*) /$1 break;
+
+            proxy_pass http://genesis_pub_android_ios_master;
+
+            proxy_read_timeout 60s;
+            proxy_pass_header Server;
+
+            proxy_redirect off;
+
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Scheme $scheme;
+
+            proxy_next_upstream error http_502;
+        }
+
+        ### Images and static content ###
+        #location /genesisandroidios/lr/ {
+        #    root /opt/sites/genesis_pub_kuaiyong_tongbutui_client/;
+
+        #    rewrite ^/genesisandroidios/lr/(.*) /$1 break;
+
+        #    autoindex off;
+        #    keepalive_timeout 0;
+        #}
+
+        location /genesisandroidios/static/ {
+            root /data/sites/genesis_backend/static/; 
+            rewrite ^/genesisandroidios/static(.*) $1 break;
+            autoindex off;
+        }
+
+        location /genesisandroidios/crash/ {
+            add_header Content-Type "text/plain;charset=utf-8";
+
+            return 200 "ok";
+
+            access_log  /data/nginx/logs/genesis_crash.log main;
+        }
+
+        #location /genesisandroidios/transformer/api/ {
+        #    add_header Content-Type "text/plain;charset=utf-8";
+        #    return 200 "{\"status\": \"ok\"}";
+        #    access_log  /data/logs/nginx/genesis_crash.log main;
+        #}
+
+
+    }
+
+
+}

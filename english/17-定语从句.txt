@@ -1,0 +1,39 @@
+定语从句: 在句中做定语，修饰一个名词或代词，被修饰的名词，叫先行词。其后的从句就是定语从句，由关系词(关系代词或关系副词)引出。
+
+1. 关系代词
+关系代词: 在从句中做一定的成分，代替先行词，起到连接先行词和从句的作用。
+常用关系代词: who, whom, which, that, whose
+
+the girl [whom/that i spoke to] is my cousin.
+
+a. 先行词是人的话用that, who, whom, whose来引导定语从句。
+“whom”在从句中做宾语。
+“who”和”that”在从句中既可做主语又可做宾语。
+
+they are the people [that/who were seen yesterday].
+they are the people [whom/who/that I saw yesterday].
+they are the people [whose wallets were lost yesterday].
+
+
+b. 先行词是动物/事物的话，用which, that, whose来引导定语从句
+which, that在从句中可做主语和宾语，做宾语时可以省略。
+
+he came back for the book [which/that he had forgotten].
+he came back for the book [which/that was on the desk].
+this is the chair [whose legs were broken].
+
+
+
+2. 关系副词
+常用关系副词: when, where, why
+
+why: 用于修饰表示原因的名词
+we don’t know the reason [why he didn’t show up].
+
+when: 修饰表示时间的名词
+we’ll put off the picnic until next week, when the weather may be better.
+
+
+where: 修饰表示地点的名词
+we don’t know the place where he lives.
+

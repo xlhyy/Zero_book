@@ -1,0 +1,16 @@
+1. 名词: 可数名词/不可数名词
+
+
+2. 名词变复数规则：
+a. 一般末尾加上s。	friend->friends
+b. 以s, z, x, ch, sh结尾，加es。	bus->buses
+c. 辅音字母+y结尾，将y改i，加es。	candy->candies
+d. 以o结尾的名词，如果不是外来词或缩写，就加es。	tomato->tomatoes, hippo(河马的缩写)->hippos
+
+
+3.
+a. 可数名词前可加a(an)或量词
+an apple -> apples -> a box of apples
+a tomato -> tomatoes -> a bag of tomatoes
+
+b. 不可数名词前不可加a(an)，无复数，但可以加量词。
