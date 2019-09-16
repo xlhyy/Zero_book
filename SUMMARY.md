@@ -44,6 +44,7 @@
     * [git](tools/git.md)
     * [gitbook](tools/gitbook.md)
     * [vim](tools/vim.md)
+    * [svn](tools/svn.md)
     * [rsync](tools/rsync.md)
     * [ssh](tools/ssh.md)
     * [profile](tools/profile.md)
