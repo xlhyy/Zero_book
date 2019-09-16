@@ -18,7 +18,7 @@ This is a test document.
 
 ### img1
 <div align=center>
-<img src="../images/haha.png" width="60%" height="40%" alt="test说明" />
+<img src="../images/internet/网络示意图.jpg" width="60%" height="40%" alt="test说明" />
  
 ### img2
 <div align=center>

@@ -31,6 +31,9 @@
     * [os.path](python_lib/os_path.md)
     * [global函数](python_lib/global.md)
     * [reduce函数](python_lib/reduce.md)
+    * [base64](python_lib/base64.md)
+    * [常用内建模块](python_lib/collections.md)
+    * [hashlib](python_lib/hashlib.md)
 
 * 数据库
     * [mysql](database/mysql.md)
@@ -128,16 +131,9 @@
         * [javascript](program/web_front/javascript.md)
         * [jquery](program/web_front/jquery.md)
 
-* 脚本
-    * [布代码](scripts/deploy_script.md)
-    * [python脚本知识点](scripts/python_script.md)
-    * [shell脚本知识点](scripts/shell_script.md)
-    * [脚本用到的一些知识点](scripts/some_note.md)
 
 * 配置
-    * [nginx配置](conf/nginx_conf.md)
-    * [supervisor配置](conf/supervisor_conf.md)
-    * [vim配置](conf/vim_conf.md)
+    * [vim配置](tools/vim_conf.md)
 
 * 闲的
     * [free_style](interface/free_style.md)
@@ -145,9 +141,6 @@
 
 * 网站知识点
     * python
-        * [base64](liaoxuefeng/base64.md)
-        * [常用内建模块](liaoxuefeng/collections.md)
-        * [hashlib](liaoxuefeng/hashlib.md)
         * [IO编程](liaoxuefeng/io_programming.md)
         * [基础知识](liaoxuefeng/note.md)
         * [线程和进程](liaoxuefeng/process_and_thread.md)

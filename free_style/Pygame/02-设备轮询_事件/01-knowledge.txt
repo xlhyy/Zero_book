@@ -1,9 +1,0 @@
-事件:
-for event in pygame.event.get():
-	if event.type = 事件名:
-		pass
-
-事件名称举例:
-QUIT,ACTIVEEVENT,KEYDOWN,KEYDOWN,MOUSEMOTION,MOUSEBUTTONUP,MOUSEBUTTONDOWN,JOYAXISMOTION,JOYBALLMOTION,JOYHATMOTION........
-
-
