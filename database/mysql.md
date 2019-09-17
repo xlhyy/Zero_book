@@ -535,9 +535,23 @@ Starting MySQL
 
 5、修改 mysql 表里面的用户，为其设置密码。
 
-update user set password=PASSWORD("rootadmin") where user='root';”（修改root的密码）
+update user set password=PASSWORD("rootadmin") where user='root';（修改root的密码）
 
 6、删除 skip-grant-tables 
 
 7.完成
+```
+
+```
+kaiqigu@bogon:~|⇒  mysql.server restart
+ ERROR! MySQL server PID file could not be found!
+Starting MySQL
+... ERROR! The server quit without updating PID file (/usr/local/var/mysql/bogon.pid).
+
+kaiqigu@bogon:~|⇒  sudo rm /tmp/mysql.sock.lock
+
+kaiqigu@bogon:~|⇒  mysql.server restart        
+ ERROR! MySQL server PID file could not be found!
+Starting MySQL
+.. SUCCESS! 
 ```
