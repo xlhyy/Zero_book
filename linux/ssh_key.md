@@ -14,3 +14,17 @@ ssh-keygen -t rsa
 cat /home/kaiqigu/.ssh/id_rsa
 cat /home/kaiqigu/.ssh/id_rsa.pub
 ```
+
+
+- 将公钥交给远程服务器，实现免密登陆
+
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub admin@192.168.1.44
+```
+
+
+- 各用户公钥在远程服务器的位置
+
+```
+用户会把别人的公钥放在家目录的.ssh/authorized_keys文件中。
+```

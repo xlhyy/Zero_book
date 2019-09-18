@@ -12,6 +12,8 @@
     * [head](linux/head.md)
     * [命令行命令快捷键](linux/command_line.md)
     * [lolcat](linux/lolcat.md)
+    * [正则表达式](linux/reg.md)
+    * [seq](linux/seq.md)
     * [ps](linux/ps.md)
     * [创建软链接](linux/command_line.md)
     * [生成密钥](linux/ssh_key.md)
