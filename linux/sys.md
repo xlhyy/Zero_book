@@ -1,15 +1,4 @@
-# 系统相关命令
-
-- python包相关
-
-```
-查看包版本:
-pip freeze | grep tornado
-卸载包:
-pip uninstall tornado
-指定包版本安装:
-pip install tornado==4.0.2
-```
+# 系统相关
 
 
 -  查看系统位数:(linux及mac)

@@ -1,7 +1,7 @@
 # 算术运算
 
 
-### bc(常用)
+### bc(常用) (支持整数和小数运算)
 
 ```
 支持小数运算
@@ -23,6 +23,10 @@ kaiqigu@bogon:~/test|⇒  echo "8/3" | bc
 2
 kaiqigu@bogon:~/test|⇒  echo "scale=3; 8/3" | bc
 2.666
+
+kaiqigu@bogon:~/dododo/test|⇒  b=`echo "1+3.9" | bc`
+kaiqigu@bogon:~/dododo/test|⇒  echo ${b}
+4.9
 ```
 
 ```
@@ -39,7 +43,7 @@ kaiqigu@bogon:~/test|⇒  sh argv.sh
 ```
 
 
-### $[算数表达式]
+### $[算数表达式] (只支持整数运算)
 
 ```
 kaiqigu@bogon:~/PycharmProjects/Superhero1_server_doc|
@@ -61,7 +65,7 @@ kaiqigu@bogon:~/PycharmProjects/Superhero1_server_doc|
 ```
 
 
-### $((算数表达式))
+### $((算数表达式)) (只支持整数运算)
 
 ```
 kaiqigu@bogon:~/PycharmProjects/Superhero1_server_doc|
@@ -83,4 +87,33 @@ kaiqigu@bogon:~/PycharmProjects/Superhero1_server_doc|
 kaiqigu@bogon:~/PycharmProjects/Superhero1_server_doc|
 ⇒  echo $((${a}*${b}))
 2
+```
+
+
+### let (只支持整数运算)
+
+```
+kaiqigu@bogon:~|⇒  let a=1+2
+kaiqigu@bogon:~|⇒  echo ${a}
+3
+```
+
+
+### expr (只支持整数运算)
+
+```
+kaiqigu@bogon:~|⇒  expr 1+2
+1+2
+kaiqigu@bogon:~|⇒  expr 1 + 2
+3
+kaiqigu@bogon:~|⇒  expr 5 \* 2
+10
+kaiqigu@bogon:~|⇒  expr 5 * 2 
+expr: syntax error
+kaiqigu@bogon:~|⇒  expr 5 / 2
+2
+kaiqigu@bogon:~|⇒  b=`expr 5 / 2`
+kaiqigu@bogon:~|⇒  echo ${b}
+2
+
 ```

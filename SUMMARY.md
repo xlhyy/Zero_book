@@ -4,23 +4,24 @@
     * [开发环境搭建](interface/environ.md)
 
 * linux命令
-    * [crontab](linux/crontab.md)
     * [awk](linux/awk.md)
+    * [命令行命令快捷键](linux/command_line.md)
+    * [crontab](linux/crontab.md)
     * [curl](linux/curl.md)
     * [find](linux/find.md)
     * [grep](linux/grep.md)
     * [head](linux/head.md)
-    * [命令行命令快捷键](linux/command_line.md)
     * [lolcat](linux/lolcat.md)
+    * [ps](linux/ps.md)
     * [正则表达式](linux/reg.md)
     * [seq](linux/seq.md)
-    * [ps](linux/ps.md)
-    * [创建软链接](linux/command_line.md)
-    * [生成密钥](linux/ssh_key.md)
-    * [linux系统相关](linux/sys.md)
+    * [sftp](linux/sftp.md)
+    * [软链接](linux/soft_link.md)
+    * [密钥](linux/ssh_key.md)
+    * [系统相关](linux/sys.md)
     * [查看端口占用情况](linux/watch_port.md)
     * [解压缩](linux/zip.md)
-    * [sftp](linux/sftp.md)
+    * [查看python包版本](linux/pip_version.md)
 
 * python库
     * [apscheduler](python_lib/apscheduler.md)
@@ -42,16 +43,17 @@
     * [redis](database/redis.md)
 
 * 实用工具
-    * [nginx](tools/nginx.md)
     * [git](tools/git.md)
     * [gitbook](tools/gitbook.md)
-    * [vim](tools/vim.md)
-    * [svn](tools/svn.md)
+    * [nginx](tools/nginx.md)
+    * [profile](tools/profile.md)
+    * [pycharm](tools/pycharm.md)
     * [rsync](tools/rsync.md)
     * [ssh](tools/ssh.md)
-    * [profile](tools/profile.md)
-    * [supervisor](tools/supervosor.md)
-    * [pycharm](tools/pycharm.md)
+    * [supervisor](tools/supervisor.md)
+    * [svn](tools/svn.md)
+    * [vim](tools/vim.md)
+    * [xshell](tools/xshell.md)
 
 * 编程语言
     * python
@@ -87,19 +89,23 @@
         * [vbs实例](program/vbs/practice_vbs.md)
 
     * shell
-        * [常用知识点](program/shell/note.md)
-        * [计算的两种方式](program/shell/calculate.md)
-        * [执行命令的三种方式](program/shell/execute.md)
-        * [创建多个用户账号](program/shell/account.md)
-        * [获取所有命令行参数](program/shell/argv.md)
-        * [shift移动变量](program/shell/shift.md)
-        * [处理选项](program/shell/do_choose.md)
-        * [获取用户输入](program/shell/get_input.md)
-        * [超时](program/shell/timeout.md)
-        * [从文件中读取](program/shell/read_file.md)
-        * [改变颜色](program/shell/color.md)
-        * [重定向](program/shell/show_data.md)
-        * [控制脚本](program/shell/control.md)
+        * [变量](program/shell/1_variable.md)
+        * [算术运算](program/shell/2_operate.md)
+        * [逻辑运算符](program/shell/3_logicsign.md)
+        * [改变颜色](program/shell/4_color.md)
+        * [执行命令的三种方式](program/shell/5_execute.md)
+        * [echo](program/shell/6_echo.md)
+        * [执行其他shell脚本](program/shell/7_othershell.md)
+        * [结构](program/shell/8_do_choose.md)
+        * [超时](program/shell/9_timeout.md)
+        * [函数](program/shell/10_func.md)
+        * [常用的变量处理及字符串操作](program/shell/11_var_str_deal.md)
+        * [调试](program/shell/12_debug.md)
+        * [获取用户输入](program/shell/13_get_input.md)
+        * [从文件中读取](program/shell/14_read_file.md)
+        * [shift](program/shell/15_shift.md)
+        * [重定向](program/shell/16_show_data.md)
+        * [后台运行脚本](program/shell/17_control.md)
 
     * java
         * [基础](program/java/base.md)
@@ -136,7 +142,7 @@
 
 
 * 配置
-    * [vim配置](tools/vim_conf.md)
+    * [vim配置](kv/vim配置/vim_conf.txt)
 
 * 闲的
     * [free_style](interface/free_style.md)
