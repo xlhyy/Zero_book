@@ -5,7 +5,7 @@
 
 ```
 sudo pip3 install django-admin
-sudo pip3 install Django==2.2.5
+sudo pip3 install Django==2.1.12
 
 django-admin.py startproject 项目名
 python3 manage.py startapp app名
