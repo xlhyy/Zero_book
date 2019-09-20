@@ -1,7 +1,7 @@
 # 面向对象编程
 
 
-### 属性访问限制
+### 属性访问限制(对私有属性)
 
 ```
     私有属性，只能在类内修改。
@@ -15,7 +15,7 @@ class Student(object):
         else:
             raise ValueError('bad score')
 ```
-            
+
 
 ### 实例属性和类属性
 
@@ -33,8 +33,8 @@ class Student(object):
 编写一个多线程模式的UDP服务，定义如下：
 class MyUDPServer(UDPServer, ThreadingMixIn):
     pass
-
 ```
+
 
 ### 使用@property
 
@@ -43,9 +43,7 @@ class MyUDPServer(UDPServer, ThreadingMixIn):
 s = Student()
 s.score = 9999
 
-
-
-
+---------------------------------------------------------
 这显然不合逻辑。为了限制score的范围，可以通过一个set_score()方法来设置成绩，再通过一个get_score()来获取成绩，这样，在set_score()方法里，就可以检查参数：
 class Student(object):
 
@@ -69,9 +67,7 @@ Traceback (most recent call last):
 ValueError: score must between 0 ~ 100!
 
 
-
-
-
+---------------------------------------------------------
 但是，上面的调用方法又略显复杂，没有直接用属性这么直接简单。
 有没有既能检查参数，又可以用类似属性这样简单的方式来访问类的变量呢？对于追求完美的Python程序员来说，这是必须要做到的！
 还记得装饰器（decorator）可以给函数动态加上功能吗？对于类的方法，装饰器一样起作用。Python内置的@property装饰器就是负责把一个方法变成属性调用的：
@@ -100,8 +96,7 @@ Traceback (most recent call last):
   ...
 ValueError: score must between 0 ~ 100!
 
-
-
+---------------------------------------------------------
 注意到这个神奇的@property，我们在对实例属性操作的时候，就知道该属性很可能不是直接暴露的，而是通过getter和setter方法来实现的。
 还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性：
 

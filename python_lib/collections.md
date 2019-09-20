@@ -3,7 +3,7 @@
 
 ## collections
 
-### namedtuple
+### namedtuple(个人理解为是创建了一个有属性对象)
 
 ```
 看到(1, 2)，很难看出这个tuple是用来表示一个坐标的。
@@ -21,7 +21,7 @@
 Circle = namedtuple('Circle', ['x', 'y', 'r'])
 ```
 
-### deque
+### deque(双向列表，适用于队列和栈)
 
 ```
 使用list存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。
@@ -74,6 +74,12 @@ OrderedDict的Key会按照插入的顺序排列，不是Key本身排序：
 OrderedDict([('a', 1), ('b', 2), ('c', 3)])
 
 注: sorted可用于排序
+In [40]: sorted(dict(od))
+Out[40]: ['x', 'y', 'z']
+
+In [41]: sorted(dict(od).iteritems())
+Out[41]: [('x', 3), ('y', 2), ('z', 1)]
+
 In [38]: d
 Out[38]: {'a': 1, 'b': 2}
 
@@ -113,7 +119,7 @@ o = LastUpdatedOrderedDict(4)
 o['a'] = 1
 ```
 
-### Counter
+### Counter(个人认为，类似一个空字典)
 
 ```
 Counter是一个简单的计数器，例如，统计字符出现的个数：

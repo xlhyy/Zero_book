@@ -150,13 +150,17 @@
 
 * 网站知识点
     * python
-        * [IO编程](liaoxuefeng/io_programming.md)
-        * [基础知识](liaoxuefeng/note.md)
-        * [线程和进程](liaoxuefeng/process_and_thread.md)
-        * [正则表达式](liaoxuefeng/regular_expression.md)
-        * [网络编程](liaoxuefeng/tcp_and_udp.md)
-        * [面向对象](liaoxuefeng/to_object.md)
-        * [异步IO](liaoxuefeng/yibu_io.md)
+        * [基础](liaoxuefeng/0_base.md)
+        * [文件IO](liaoxuefeng/1_file.md)
+        * [OS](liaoxuefeng/2_os.md)
+        * [TCP/UDP](liaoxuefeng/3_tcp_and_udp.md)
+        * [面向对象](liaoxuefeng/4_to_object.md)
+        * [进程/线程](liaoxuefeng/5_process_and_thread.md)
+        * [异步IO](liaoxuefeng/6_yibu_io.md)
+        * [序列化/反序列化](liaoxuefeng/7_dump.md)
+        * [正则表达式](liaoxuefeng/8_regular_expression.md)
+        * [函数](liaoxuefeng/9_func.md)
+        * [生成器/迭代器/装饰器](liaoxuefeng/10_tools.md)
 
 * way
     * [my way](interface/way.md)

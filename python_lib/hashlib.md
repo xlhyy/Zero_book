@@ -31,7 +31,7 @@ def calc_md5(password):
 ```
 
 
-## sha1
+## hashlib.sha1()
 
 ```
 import hashlib
