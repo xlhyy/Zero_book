@@ -23,6 +23,83 @@ sudo snap install redis-desktop-manager
 r.flushall()
 ```
 
+## keys相关
+
+```
+del key [key ...]
+****dump key (导出key的值)
+exists key [key ...]
+expire key seconds
+expireat key timestamp
+pexpire key milliseconds
+pexpireat key milliseconds-timestamp
+
+keys pattern
+****migrate host key destination-db timeout
+move key db
+****object
+persist key (移除key过期时间)
+
+pttl key (获取key的有效毫秒数)
+randomkey (返回一个随机的key)
+rename key newkey
+renamenx key newkey (重命名一个key，新的key必须是不存在的key)
+****restore
+****sort
+ttl key (获取key的有效时间)
+type key (获取key的存储类型)
+****wait
+****scan
+```
+
+```
+In [38]: r.ttl('sk1')
+
+In [39]: r.type('sk1')
+Out[39]: 'set'
+
+In [40]: r.rename('sk1','sk3')
+Out[40]: True
+
+In [41]: r.randomkey()
+Out[41]: 'sk2'
+
+In [42]: r.pttl('sk1')
+
+In [43]: r.persist('sk1')
+Out[43]: False
+
+In [44]: r.move('sk2',1)
+Out[44]: True
+
+In [45]: r.keys()
+Out[45]: ['sk3']
+
+In [47]: r.delete('sk1')
+Out[47]: 0
+
+In [49]: r.smembers('sk1')
+Out[49]: set()
+
+In [50]: r.exists('sk1')
+Out[50]: False
+
+In [51]: r.sadd('sk1',1)
+Out[51]: 1
+
+In [52]: r.exists('sk1')
+Out[52]: True
+
+In [53]: r.expire('sk1',4)
+Out[53]: True
+
+In [54]: r.exists('sk1')
+Out[54]: True
+
+In [55]: r.exists('sk1')
+Out[55]: False
+```
+
 
 ## list
 
@@ -447,8 +524,8 @@ Out[88]: 1
 ## set
 
 ```
-sadd key member [member ...]
-scard key
+sadd key member [member ...]  向key添加元素
+scard key  查看key中有几个成员
 sdiff key [key ...] (获得第一个key中存在，其他key中不存在的元素)
 sdiffstore destination key [key ...] (取第一个key中存在，其他key中不存在的元素，放到destination中)
 sinter key [key ...]    (交集)
@@ -546,82 +623,6 @@ Out[36]: {'2'}
 
 In [37]: r.sunion('sk1','sk2')
 Out[37]: {'2', '3'}
-```
-
-
-## keys相关
-
-```
-del key [key ...]
-****dump key (导出key的值)
-exists key [key ...]
-expire key seconds
-expireat key timestamp
-pexpire key milliseconds
-pexpireat key milliseconds-timestamp
-
-keys pattern
-****migrate host key destination-db timeout
-move key db
-****object
-persist key (移除key过期时间)
-
-pttl key (获取key的有效毫秒数)
-randomkey (返回一个随机的key)
-rename key newkey
-renamenx key newkey (重命名一个key，新的key必须是不存在的key)
-****restore
-****sort
-ttl key (获取key的有效时间)
-type key (获取key的存储类型)
-****wait
-****scan
-
-In [38]: r.ttl('sk1')
-
-In [39]: r.type('sk1')
-Out[39]: 'set'
-
-In [40]: r.rename('sk1','sk3')
-Out[40]: True
-
-In [41]: r.randomkey()
-Out[41]: 'sk2'
-
-In [42]: r.pttl('sk1')
-
-In [43]: r.persist('sk1')
-Out[43]: False
-
-In [44]: r.move('sk2',1)
-Out[44]: True
-
-In [45]: r.keys()
-Out[45]: ['sk3']
-
-In [47]: r.delete('sk1')
-Out[47]: 0
-
-In [49]: r.smembers('sk1')
-Out[49]: set()
-
-In [50]: r.exists('sk1')
-Out[50]: False
-
-In [51]: r.sadd('sk1',1)
-Out[51]: 1
-
-In [52]: r.exists('sk1')
-Out[52]: True
-
-In [53]: r.expire('sk1',4)
-Out[53]: True
-
-In [54]: r.exists('sk1')
-Out[54]: True
-
-In [55]: r.exists('sk1')
-Out[55]: False
 ```
 
 

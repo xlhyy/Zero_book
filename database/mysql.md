@@ -76,6 +76,20 @@ brew install mysql
 mysql.server start
 ```
 
+
+## 查看mysql服务器版本
+
+```
+mysql> select @@version;
++-----------+
+| @@version |
++-----------+
+| 8.0.17    |
++-----------+
+1 row in set (0.00 sec)
+```
+
+
 ## mysql数据库操作
 
 - 创建数据库
@@ -97,12 +111,61 @@ create table students(
 	id int unsigned primary key auto_increment not null,
 	name varchar(20) default '',
 	age int unsigned default 0,
-	gender enum('男','女') default '保密',
-	cls_id int unsigned default 0,
-);
+	gender enum('男','女','保密') default '保密',
+	cls_id int unsigned default 0
+) charset utf8;
+```
+
+```
+注: 枚举字段默认值必须在枚举值中，否则会报错。如默认值是'保密'，则enum()的值中必须要有'保密'。
+```
+
+- 插入数据
+
+```
+insert into students(num,name,age,sex) values(1001,"李白",20,"男");
 ```
 
 - 查询
+
+
+```
+使用旧版本group by报错解决方案:
+报错:ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'work_ad.api_community_pic.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+字面意思理解是sql_model=only_full_group_by限制了，导致在以往MYSQL版本中能正常查询的SQL，在新版本不能用了。
+
+
+注意: 新版本group by注意事项如下:
+在select指定的字段要么就要包含在Group By语句的后面，作为分组的依据；要么就要被包含在聚合函数中。
+
+mysql> select sum(age) from students8 group by sex;
++----------+
+| sum(age) |
++----------+
+|       49 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select sex from students8 group by sex;
++------+
+| sex  |
++------+
+| 男   |
++------+
+1 row in set (0.00 sec)
+
+mysql> select * from students8;
++----+-----------+------+--------+------+
+| id | name      | age  | cls_id | sex  |
++----+-----------+------+--------+------+
+|  1 | 李白      |   25 |      2 | 男   |
+|  2 | 李清微    |   24 |      1 | 男   |
++----+-----------+------+--------+------+
+2 rows in set (0.00 sec)
+
+
+或将新版限制去除，具体操作网上可查。
+```
 
 ```
 select * from students;
@@ -148,10 +211,14 @@ select * from students order by age asc limit 6,2;
 select * from students inner join classes on students.cls_id = classes.id;
 按班级名字从小到大排序。处于同一个班级的学生，按照学生的id进行从小到大排序
 select classes.name,students.* from students inner join classes on students.cls_id = classes.id order by classes.name asc,students.id asc;
-->
-#如果是group by 条件使用having
-#如果是inner join条件使用on
-#其他都用where
+```
+
+```
+分组用    group by 字段 (having 条件)
+连接用    inner join 字段 on 条件,  left join 字段 on 条件,  right join 字段 on 条件
+条件用    where
+排序用    order by 字段名 desc(降序)/asc(升序)
+分页用    limit 显示第几页,每页显示信息几条
 ```
 
 - 运用查询的运算符
@@ -212,12 +279,6 @@ select * from students where(age between 18 and 35) order by age asc;
 
 ```
 source 路径/文件名.sql
-```
-
-- 插入数据
-
-```
-insert into students(num,name,age,sex) values(1001,"李白",20,"男");
 ```
 
 - 表中增加新字段
@@ -364,134 +425,6 @@ ERROR 2002 (HY000): Can't content to local MySQL server through socket '/var mys
 ps -A | grep -i mysql kill 列出来的进程
 service mysql start
 
-```
-
-
-# 汇总
-
-```
-查看字符编码：
-show create database test;
-show create table students;
--------------------------------
-修改字符编码:
-alter database 数据库名 character set utf8; #修改数据库编码
-alter table 表名 character set utf8; #修改表的编码
-alter table 表名 change 字段名 字段名 类型 character set utf8; #更改表中某一字段的属性
-例:
-alter table students change name name varchar(30) character set utf8 not null;
--------------------------------
-create database test charset=utf8;
--------------------------------
-create table students(
-id int unsigned primary key auto_increment not null,
-num int unsigned not null,
-name varchar(20) not null,
-age int unsigned not null,
-sex enum("男","女","保密") default "保密"
-);
--------------------------------
-insert into students(num,name,age,sex) values(1001,"李白",20,"男");
--------------------------------
-alter table students add cls_id int not null; #表中增加新字段
-update students set cls_id=1 where name='李白'; #更改表中某一个字段的值
--------------------------------
-select name as "姓名",age from students;
-select s.name from students as s;
--------------------------------
-and
-or
-not
->
-<
->=
-<=
-!=
-<> #不等于
-between and
-not between and
-in ()
-not in ()
-like
-not like
-like '李%'
-like '李__'
-is null
--------------------------------
-(asc 升序, desc 降序)
-select * from students where(age between 18 and 35) order by age asc;
--------------------------------
-聚合函数:
-max(age)
-min(age)
-sum(age)
-count(*)
-round(avg(age), 2) #保留两位小数
-avg(age)
--------------------------------
-select sex, count(*) from students group by sex;
--------------------------------
-(group by 可以与 having 联合使用)
-select sex, avg(age) from students group by sex having avg(age)>10;
--------------------------------
-(limit放在语句最后)
-select * from students limit 0,2; #从第0+1条数据开始,读取2条数据
--------------------------------
-条件筛选语句:
-group by ... having ...
-inner join ... on ...
-where ...
--------------------------------
-连接查询:
-1) inner join ... on
-select students.name,classes.name from students inner join classes on students.cls_id=classes.id;
-select s.name,c.name from students as s inner join classes as c on s.cls_id=c.id;
-select s.name,s.age,c.name from students as s inner join classes as c on s.cls_id=c.id order by s.age asc;
-
-2) left join ... on #左边的表不管在右边的表中是否找到数据，都显示
-select * from students left join classes on students.cls_id=classes.id;
-
-3) right join ... on #右边的表不管在左边的表中是否找到数据，都显示
-select * from classes right join students on students.cls_id=classes.id;
--------------------------------
-子查询:
-select * from students where age>(select avg(age) from students);
-select * from students where cls_id in (select id from classes);
--------------------------------
-从sql文件中导入数据:
-source 具体地址/test.sql;
-
-==========================
-import MySQLdb
-
-db = MySQLdb.connect(host=,port=,user=,passwd=,db=,charset="utf8")
-cursor = db.cursor()
-sql = """SQL语句"""
-param = ''
-
-try:
-    cursor.execute(sql, param)
-    db.commit()
-except:
-    db.rollback()
-
-data = cursor.fetchone()
-
-db.close()
-
-接收返回结果行的函数:
-cursor.fetchall()
-cursor.fetchone()
-cursor.fetchmany(size)
-
-Mac下忘记mysql密码: https://baijiahao.baidu.com/s?id=1575944821928606&wfr=spider&for=pc
-
-
-==========================
-ERROR 2002 (HY000): Can't content to local MySQL server through socket '/var mysql 启动不了
-解决方法:
-ps -A | grep -i mysql kill 列出来的进程
-service mysql start
 ```
 
 
