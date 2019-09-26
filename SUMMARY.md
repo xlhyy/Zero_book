@@ -39,6 +39,7 @@
     * [hashlib](python_lib/hashlib.md)
 
 * 数据库
+    * [常识](database/note.md)
     * [mysql](database/mysql.md)
     * [redis](database/redis.md)
 

@@ -1,6 +1,41 @@
 # redis
 
 
+## Redis简介
+
+```
+1.Redis是一款可基于内存也可持久化的一款数据库，key-value数据库
+
+2.Redis的优势
+    Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。
+    Redis支持数据的备份，即master-slave模式的数据备份。
+    性能极高,官方benchmark测试在50个并发执行100000个请求测试中,Redis能读的速度是110000次/s,写的速度是81000次/s。
+    丰富的数据类型，Redis支持Strings, Lists, Hashes, Sets 及 Sorted Sets 数据类型操作。
+    原子性，Redis的所有操作都是原子性的，同时Redis还支持对几个操作合后的原子性执行。
+    丰富的特性，Redis还支持publish/subscribe(订阅)等特性。
+
+3.Redis的数据类型
+(1) string（字符串）
+    string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象。
+    string类型是Redis最基本的数据类型，一个redis中字符串value最多可以是512M。
+
+(2) hash（哈希）
+    hash是一个键值对集合。
+    hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。
+
+(3) list（列表）
+    Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素导列表的头部（左边）或者尾部（右边）。
+    它的底层实际是个链表
+
+(4) set（集合）
+    Redis的Set是string类型的无序集合。它是通过HashTable实现的。
+
+(5) zset(有序集合)
+    Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。不同的是每个元素都会关联一个double类型的分数。
+    redis正是通过分数来为集合中的成员进行从小到大的排序。zset的成员是唯一的,但分数(score)却可以重复。
+```
+
+
 ## redis可视化
 
 ```
@@ -16,38 +51,55 @@ sudo snap install redis-desktop-manager
 (原因: 试想，两个并发操作，一个是更新操作，另一个是查询操作，更新操作删除缓存后，查询操作没有命中缓存，先把老数据读出来后放到缓存中，然后更新操作更新了数据库。于是，在缓存中的数据还是老的数据，导致缓存中的数据是脏的，而且还一直这样脏下去了。)
 ```
 
+## 启动redis
+
+```
+(1) 指定端口启动
+redis-server (--port xx)
+
+(2) 指定配置文件启动
+redis-server xxx.conf
+```
+
 
 ## 清空数据库
 
 ```
-r.flushall()
+r.flushall()                                    # (返回值: True或False)
 ```
+
 
 ## keys相关
 
 ```
-del key [key ...]
-****dump key (导出key的值)
-exists key [key ...]
-expire key seconds
+del key [key ...]                               # 删除key(返回值: 1:成功 0:失败)
+
+exists key [key ...]                            # key是否存在(返回值: True或False)
+
+type key                                        # 获取key的存储类型(返回值: key的类型)
+
+move key db                                     # key转移到指定db(返回值: True或False)
+
+keys pattern                                    # 匹配key 例: r.keys('*') (返回值: key列表)
+
+randomkey                                       # 随机获取一个key(返回值: key)
+
+expire key seconds                              # 给key设置过期时间(返回值: True或False)
 expireat key timestamp
 pexpire key milliseconds
 pexpireat key milliseconds-timestamp
+persist key                                     # 移除key过期时间(返回值: True或False)
+ttl key                                         # 获取key的有效秒数(返回值: 秒数)
+pttl key                                        # 获取key的有效毫秒数(返回值: 毫秒数)
 
-keys pattern
+rename key newkey                               # 重命名一个key，当旧key和新key相同，或者旧key不存在时，返回一个错误。当新key已经存在时，rename命令将覆盖旧值(返回值: True或False)
+renamenx key newkey                             # 重命名一个key，新的key必须是不存在的key(返回值: True或False)
+
 ****migrate host key destination-db timeout
-move key db
+****dump key (导出key的值)
 ****object
-persist key (移除key过期时间)
-
-pttl key (获取key的有效毫秒数)
-randomkey (返回一个随机的key)
-rename key newkey
-renamenx key newkey (重命名一个key，新的key必须是不存在的key)
 ****restore
 ****sort
-ttl key (获取key的有效时间)
-type key (获取key的存储类型)
 ****wait
 ****scan
 ```
@@ -101,137 +153,158 @@ Out[55]: False
 ```
 
 
-## list
+## set
 
 ```
-blpop key [key ...] timeout
-brpop key [key ...] timeout
-brpoplpush source destination (弹出一个列表的值，将它推到另一个列表，并返回它或阻塞)
-rpoplpush source destination (弹出一个列表的值，将它推到另一个列表,并返回它或无返回)
-lindex key index
-linsert key before/after value	(r.linsert('list1','before','3',0)  在列表中值为'3'的元素前插入元素0)
-llen key
-lpop key
-lpush key value [value ...]
-lpushx key value (当队列存在时，从队列左边入队一个元素)
-lrange key start stop
-lrem key count value	(r.lrem('list1','a',5) 此时count值为5)
-"""
-COUNT的值可以是以下几种：
-1) count > 0 : 从表头开始向表尾搜索，移除与 VALUE 相等的元素，数量为 COUNT 。
-2) count < 0 : 从表尾开始向表头搜索，移除与 VALUE 相等的元素，数量为 COUNT 的绝对值。
-3) count = 0 : 移除表中所有与 VALUE 相等的值。
-"""
-lset key index value (相当于修改指定key中index位置的value)
-ltrim key start stop (修剪到指定范围内的清单)
-rpop key
-rpush key value [value ...]
-rpushx key value (当队列存在时，从队列右边入队一个元素)
+scard key                               # 查看key中有几个成员(返回值: key中元素个数)
 
-In [167]: r.flushall()
-Out[167]: True
+sadd key member [member ...]            # 向key添加元素(返回值: 1:成功, 0:失败)
+srandmember key [count]                 # 从key里面随机获取一个元素(返回值: 获取的元素值)
+spop key [count]                        # 从key删除一个元素(返回值: 删除的元素值)
+srem key member [member ...]            # 从key删除指定元素(返回值: 1:成功, 0:失败)
 
-In [168]: r.lpush('lk1',1)
-Out[168]: 1L
+sdiff key [key ...]                     # 获得第一个key中存在，其他key中不存在的元素(返回值: 元素集合)
+sdiffstore destination key [key ...]    # 将第一个集合中存在其他集合中不存在的元素存储到指定的集合中，如果指定的集合已经存在，则将其覆盖(返回值: 差异元素个数)
+sinter key [key ...]                    # 获得交集(返回值: 元素集合)
+sinterstore destination key [key ...]   # 将给定集合之间的交集存储在指定的集合中。如果指定的集合已经存在，则将其覆盖(返回值: 元素个数)
+sunion key [key ...]                    # 获得并集(返回值: 元素集合)
+sunionstore destination key [key ...]   # 将给定集合之间的并集存储在指定的集合中。如果指定的集合已经存在，则将其覆盖(返回值: 元素个数)
 
-In [169]: r.lpush('lk1',2)
-Out[169]: 2L
+sismember key member                    # 元素是否是key的成员(返回值: True或False)
+smembers key                            # 获取集合里面的所有元素(返回值: 元素集合)
 
-In [170]: r.lpush('lk1',3)
-Out[170]: 3L
+smove source destination member         # 移动元素(返回值: True或False)
 
-In [171]: r.llen('lk1')
-Out[171]: 3
+****sscan
+```
 
-In [172]: r.lpush('lk2',4)
-Out[172]: 1L
+```
+In [8]: r.flushall()
+Out[8]: True
 
-In [173]: r.lpush('lk2',5)
-Out[173]: 2L
+In [9]: r.keys()
+Out[9]: []
 
-In [174]: r.lindex('lk1',2)
-Out[174]: '1'
+In [10]: r.sadd('sk1',4)
+Out[10]: 1
 
-In [175]: r.lpop('lk2')
-Out[175]: '5'
+In [11]: r.sadd('sk1',5)
+Out[11]: 1
 
-In [176]: r.lpop('lk2')
-Out[176]: '4'
+In [12]: r.smembers('sk1')
+Out[12]: {'4', '5'}
 
-In [177]: r.lpop('lk2')
+In [13]: r.sismember('sk1',5)
+Out[13]: True
 
-In [178]: r.lrange('lk1',0,-1)
-Out[178]: ['3', '2', '1']
+In [14]: r.sismember('sk1',3)
+Out[14]: False
 
-In [179]: r.lpushx('lk1',4)
-Out[179]: 4
+In [15]: r.scard('sk1')
+Out[15]: 2
 
-In [180]: r.lrange('lk1',0,-1)
-Out[180]: ['4', '3', '2', '1']
+In [17]: r.spop('sk1')
+Out[17]: '4'
 
-In [181]: r.lrem('lk1',2,1)
-Out[181]: 1L
+In [18]: r.spop('sk1')
+Out[18]: '5'
 
-In [182]: r.lrange('lk1',0,-1)
-Out[182]: ['4', '3', '1']
+In [19]: r.sadd('sk1',1)
+Out[19]: 1
 
-In [183]: r.lset('lk1',0,5)
-Out[183]: True
+In [20]: r.sadd('sk1',2)
+Out[20]: 1
 
-In [184]: r.lrange('lk1',0,-1)
-Out[184]: ['5', '3', '1']
+In [21]: r.smembers('sk1')
+Out[21]: {'1', '2'}
 
-In [185]: r.ltrim('lk1',0,1)
-Out[185]: True
+In [22]: r.smove('sk1','sk2',2)
+Out[22]: True
 
-In [186]: r.lrange('lk1',0,-1)
-Out[186]: ['5', '3']
+In [23]: r.smembers('sk1')
+Out[23]: {'1'}
 
-In [187]: r.rpush('lk1',2)
-Out[187]: 3L
+In [24]: r.smembers('sk2')
+Out[24]: {'2'}
 
-In [188]: r.lrange('lk1',0,-1)
-Out[188]: ['5', '3', '2']
+In [25]: r.sdiff('sk1','sk2')
+Out[25]: {'1'}
 
-In [189]: r.rpushx('lk1',1)
-Out[189]: 4
+In [26]: r.smembers('sk1')
+Out[26]: {'1'}
 
-In [190]: r.lrange('lk1',0,-1)
-Out[190]: ['5', '3', '2', '1']
+In [27]: r.srandmember('sk1',1)
+Out[27]: ['1']
 
-In [191]: r.rpop('lk1')
-Out[191]: '1'
+In [28]: r.smembers('sk1')
+Out[28]: {'1'}
 
-In [192]: r.rpop('lk1')
-Out[192]: '2'
+In [29]: r.srem('sk1', 1)
+Out[29]: 1
+
+In [30]: r.smembers('sk1')
+Out[30]: set()
+
+In [32]: r.sadd('sk1',2)
+Out[32]: 1
+
+In [33]: r.sadd('sk1',3)
+Out[33]: 1
+
+In [34]: r.smembers('sk1')
+Out[34]: {'2', '3'}
+
+In [35]: r.smembers('sk2')
+Out[35]: {'2'}
+
+In [36]: r.sinter('sk1','sk2')
+Out[36]: {'2'}
+
+In [37]: r.sunion('sk1','sk2')
+Out[37]: {'2', '3'}
 ```
 
 
 ## zset
 
 ```
-zadd key score value
-zcard key
-zcount key min max (-inf +inf) (返回分数范围内的成员数量)
-zincrby key score value (score为想要增加的分数，可为正负)	(r.zincrby('zadd1','as',6))
-****zinterstore
+zadd key score value                    # 向key中添加value及score(返回值: 1:成功 0:失败)
+
+zcard key                               # 计算集合中元素的数量(返回值: 数量)
+
+zcount key min max (-inf +inf)          # 返回分数范围内的成员数量(返回值: 数量)
+
+zincrby key score value                 # score为想要增加的分数，可为正负。例: r.zincrby('zk2', 'value22', 10) (返回值: 运算结果值)
+
+zscore key member                       # 获取key中成员的分数。例: r.zscore('zk2', 'value2') (返回值: 分数值)
+
+------------------按排行
+zrange key start stop [withscores]      # 成员按分数值递增的次序获取排行(返回值: ['value1', 'value2', 'value3']或[('value1', 20.0), ('value2', 110.0), ('value3', 400.0)])
+zrevrange key start stop [withscores]   # 除了成员按分数值递减的次序排列这一点外，ZREVRANGE命令的其他方面和ZRANGE命令一样 (返回值: 同上)
+
+------------------按分数
+zrangebyscore key min max [withscores]  # r.zrangebyscore('zk2', 10, 1000, withscores=True) (返回值: 同上)
+zrevrangebyscore key max min            # 成员按分数值递减 例: r.zrevrangebyscore('sk2', 100000, 2, withscores=True) (返回值: 同上)
+
+zrank key member                        # 获取排名，第一名为1，依次类推。例: r.zrank('zk2', 'value22') (返回值: 排行值，如1,2,3)
+zrevrank key value                      # 获取排名，第一名为0，依次类推	(返回值: 排行值，如0,1,2)
+
+zrem key member [member ...]            # 从key中删除value。(返回值: 1:成功 0:失败)
+zremrangebyscore key min max            # 删除分数范围内的成员 (返回值: 1:成功 0:失败)
+zremrangebyrank key start stop          # 删除排名范围内的成员，第一名为0，依次类推 (返回值: 1:成功 0:失败)
+
+
 ****zlexcount key min max (- +) (返回成员之间的成员数量)
-zrange key start stop [withscores]
 ****zrangebylex key min max [limit offset count] (- +) (返回指定成员区间内的成员，按字典正序排列，分数必须相同)
 ****zrevrangebylex key max min [limit offset count] (+ -)
-zrangebyscore key min max [withscores] [limit offset count] ('-inf','+inf') (min max 为score的范围值)
-zrank key member (返回在排序集合成员的索引) (member为value值)
-zrem key member [member ...]
 ****zremrangebylex key min max (- +) (删除名称按字典由低到高排序成员之间所有成员)
-****zremrangebyrank key start stop
-zremrangebyscore key min max (-inf +inf)
-****zrevrange key start stop [withscores] (除了成员按分数值递减的次序排列这一点外，ZREVRANGE命令的其他方面和ZRANGE命令一样)
-zrevrangebyscore key max min (+inf -inf)
-zrevrank key value (返回排名) (第一名为0，依次类推)	(r.zrevrank('zadd1','qwe'))
-zscore key member	(r.zscore('zadd1','zxc'))
+
+****zinterstore
 ****zunionstore
 ****zscan
+```
 
+```
 In [89]: r.flushall()
 Out[89]: True
 
@@ -299,38 +372,176 @@ Out[116]: 80.0
 ```
 
 
-## string
+## hash
 
 ```
-append key value (追加一个值到key上)
+hkeys key                                       # 查看该键所有field (返回值: 指定key中由field组成的列表。如: ['f1', 'f2', 'f3'])
+
+hvals key                                       # 获取key中所有的value (返回值: 由value组成的列表，如: ['6', '16', '4'])
+
+hlen key                                        # 指定key中field的个数 (返回值: 个数)
+
+hset key field value                            # 为key设置field及value (返回值: 1和0都为成功，区别是1为field不存在时的返回值，0为field存在时的返回值)
+
+hget key field                                  # 获取key中指定field的value值 (返回值: value)
+hmget key field [field ...]                     # 取指定key中一个或多个field中的value (返回值: 由value值组成的列表)
+hgetall key                                     # 获取key中的所有field (返回值: 由field和value为键值对组成的字典，如: {'f1': '3', 'f2': '4'})
+
+hdel key field [field ...]                      # 删除key中的指定field (返回值: 删除field的个数，如: r.hdel('hk1', 'f1', 'f2', 'f3'))
+
+hexists key field                               # key中的field是否存在 (返回值: True或False)
+
+hincrby key field increment                     # 增/减指定key的指定field中的value值，increment为整数 (返回值: 运算后的value值)
+hincrbyfloat key field increment                # 用法与hincrby相同，但是increment可为小数 (返回值: 同上)
+
+
+hsetnx key field value                          # 为哈希表中不存在的的字段赋值。(返回值: 1为成功，0为失败)
+如果哈希表不存在，一个新的哈希表被创建并进行HSET操作。
+如果字段已经存在于哈希表中，操作无效。
+
+hstrlen key field                               # 获取指定field中value的长度 (返回值: 长度)
+In [198]: r.hset('hk1', 'f1', 6)
+Out[198]: 1L
+In [199]: r.hset('hk1', 'f2', 16)
+Out[199]: 1L
+In [200]: r.hstrlen('hk1', 'f1')
+Out[200]: 1
+In [201]: r.hstrlen('hk1', 'f2')
+Out[201]: 2
+
+
+***hmset key field value [field value ...]
+***hscan key cursor [MATCH pattern] [COUNT count]
+```
+
+
+```
+In [63]: r.flushall()
+Out[63]: True
+
+In [64]: r.hset('hk1','f1',1)
+Out[64]: 1L
+
+In [65]: r.hset('hk1','f1',2)
+Out[65]: 0L
+
+In [66]: r.hget('hk1','f1')
+Out[66]: '2'
+
+In [67]: r.hset('hk1','f1',3)
+Out[67]: 0L
+
+In [68]: r.hget('hk1','f1')
+Out[68]: '3'
+
+In [69]: r.hget('hk1','f1')
+Out[69]: '3'
+
+In [70]: r.hexists('hk1','f1')
+Out[70]: True
+
+In [71]: r.hgetall('hk1')
+Out[71]: {'f1': '3'}
+
+In [72]: r.hset('hk1','f2',4)
+Out[72]: 1L
+
+In [73]: r.hgetall('hk1')
+Out[73]: {'f1': '3', 'f2': '4'}
+
+In [74]: r.hkeys('hk1')
+Out[74]: ['f1', 'f2']
+
+In [75]: r.hlen('hk1')
+Out[75]: 2
+
+In [76]: r.hmget('hk1','f1','f2')
+Out[76]: ['3', '4']
+
+In [77]: r.hmget('hk1','f1')
+Out[77]: ['3']
+
+In [78]: r.hvals('hk1')
+Out[78]: ['3', '4']
+
+In [79]: r.hstrlen('hk1','f1')
+Out[79]: 1
+
+In [80]: r.hsetnx('hk1','f3',2)
+Out[80]: 1L
+
+In [81]: r.hincrby('hk1','f3')
+Out[81]: 3L
+
+In [82]: r.hget('hk1','f3')
+Out[82]: '3'
+
+In [83]: r.hincrbyfloat('hk1','f3')
+Out[83]: 4.0
+
+In [84]: r.hget('hk1','f3')
+Out[84]: '4'
+
+In [85]: r.hdel('hk1','f2')
+Out[85]: 1
+
+In [86]: r.hlen('hk1')
+Out[86]: 2
+
+In [87]: r.hdel('hk1','f1')
+Out[87]: 1
+
+In [88]: r.hlen('hk1')
+Out[88]: 1
+```
+
+
+## string (value值无论是什么，都会变为字符串)
+
+```
+getset key value                                        # 设置一个key的value，并获取设置前的值。(返回值: 设置前的值)
+
+get key                                                 # 指定key中的value值 (返回值: value值)
+set key value [ex seconds] [px milliseconds] [nx|xx]    # 例: r.set('test', 100, ex=10) (返回值: True或False，若加期限则返回期限时间)
+参数:
+EX second       : 设置键的过期时间为 second 秒。 SET key value EX second 效果等同于 SETEX key second value 。
+PX millisecond  : 设置键的过期时间为 millisecond 毫秒。 SET key value PX millisecond 效果等同于 PSETEX key millisecondvalue 。
+NX              : 只在键不存在时，才对键进行设置操作。 SET key value NX 效果等同于 SETNX key value 。
+XX              : 只在键已经存在时，才对键进行设置操作。
+
+mset key value [key value ...]                          # key存在覆盖其值，key不存在添加key及其value。例: r.mset(**{'str1':1,'str3':2}) (返回值: True或False)
+mget key [key ...]                                      # 指定key中的value值 (返回值: value值组成的列表)
+
+setrange key offset value                               # 替换字符串指定位置的字符。例: r.setrange('test', 0, 'h') (返回值: 结果字符串长度)
+getrange key start end                                  # 获取存储在key上的值的一个子字符串 (返回值: 结果字符串)
+
+setnx key value                                         # key存在无影响，key不存在添加key及其value (返回值: True或False)
+msetnx key value [key value ...]                        # key存在无影响，key不存在添加key及其value。例: r.msetnx(**{'str1':1,'str3':2}) (返回值: True或False)
+
+setex key seconds value                                 # 为键设置时限，单位秒 (返回值: True或False)
+
+strlen key                                              # 获取字符串长度 (返回值: 字符串长度)
+
+append key value                                        # 追加一个值到key上，无论key存在与否。(返回值: 结果字符串长度)
+
+decr key                                                # 整数原子减1 (返回值: 结果值)
+incr key                                                # 整数原子加1操作 (返回值: 结果值)
+incrby key increment                                    # 整数原子增加一个整数 (返回值: 结果值)
+incrbyfloat key increment                               # 原子增加一个浮点数 (返回值: 结果值)
+
+
 ****bitcount key [start end] (统计字符串起始位置的字节数)
 ****bitfield
 ****bitop
 ****bitops
-decr key (整数原子减1)
-****decrby key decrement (原子减指定的整数)
-get key
-****getbit key offset
-getrange key start end (获取存储在key上的值的一个子字符串)
-getset key value (设置一个key的value，并获取设置前的值)
-incr key (原子加1操作)
-incrby key increment (原子增加一个整数)
-incrbyfloat key increment (原子增加一个浮点数)
-mget key [key ...]
-mset key value [key value ...] ( r.mset(**{'str1':1,'str2':2}) )
-"""
-In [75]: r.mset({'key2': 'haha', 'key3': 'hehe'})
-Out[75]: True
-"""
-msetnx key value [key value ...] ( r.msetnx(**{'str1':1,'str3':2}) ) (key存在无影响，key不存在添加key及其value)
-psetex key milliseconds value (毫秒)
-setex key seconds value (秒)
-set key value [ex seconds] [px milliseconds] [nx|xx]
 ****setbit key offset value
-setnx key value (设置键值，只有当该键不存在时)
-****setrange key offset value
-strlen key
+****getbit key offset
+****decrby key decrement (原子减指定的整数)
+****psetex key milliseconds value (毫秒)
+```
 
+
+```
 In [118]: r.flushall()
 Out[118]: True
 
@@ -422,207 +633,120 @@ Out[152]: ['strk2', 'strk3', 'strk1']
 ```
 
 
-## hash
+## list
 
 ```
-hdel key field [field ...]
-hexists key field
-hget key field
-hgetall key
-hincrby key field increment
-hincrbyfloat key field increment
-hkeys key (查看该键所有field)
-hlen key
-hmget key field [field ...]
-***hmset key field value [field value ...]
-hset key field value
-hsetnx key field value (设置hash的一个字段，只有当这个字段不存在时有效)
-hstrlen key field
-hvals key (获取hash的所有值)
-****hscan key cursor [MATCH pattern] [COUNT count]
+lrange key start stop                       # 获取列表指定范围内的值 (返回值: 结果列表)
 
-In [63]: r.flushall()
-Out[63]: True
+lpush key value [value ...]                 # 从队列左边入队一个元素。例:r.lpush('lk1', 3, 4) (返回值: 列表长度)
+lpushx key value                            # 当队列存在时，从队列左边入队一个元素 (返回值: 若key不存在，则返回0；若key存在，则返回列表长度)
 
-In [64]: r.hset('hk1','f1',1)
-Out[64]: 1L
+rpush key value [value ...]                 # 从队列右边入队一个元素 (返回值: 同lpush)
+rpushx key value                            # 当队列存在时，从队列右边入队一个元素 (返回值: 同lpushx)
 
-In [65]: r.hset('hk1','f1',2)
-Out[65]: 0L
+llen key                                    # 获取指定key的value值长度 (返回值: 列表长度)
 
-In [66]: r.hget('hk1','f1')
-Out[66]: '2'
+lindex key index                            # 获取value中指定index位置的值 (返回值: value值)
 
-In [67]: r.hset('hk1','f1',3)
-Out[67]: 0L
+ltrim key start stop                        # 修剪到指定范围内的清单，包含start及stop位置的值 (返回值: True或False)
 
-In [68]: r.hget('hk1','f1')
-Out[68]: '3'
+lset key index value                        # 修改指定key中index位置的值 (返回值: True或False)
 
-In [69]: r.hget('hk1','f1')
-Out[69]: '3'
+linsert key before/after value              # r.linsert('list1','before','3',0) 在列表中值为'3'的元素前插入元素0。若列表有多个相同值，则对左数第一个做操作 (返回值: 列表长度)
 
-In [70]: r.hexists('hk1','f1')
-Out[70]: True
+lpop key                                    # 删除列表最左侧元素 (返回值: 列表最左侧的元素值)
+rpop key
+rpoplpush source destination                # 从原列表最右侧弹出一个列表的元素值，将它推到另一个列表的最左侧,并返回该元素值或无返回)
 
-In [71]: r.hgetall('hk1')
-Out[71]: {'f1': '3'}
+blpop key [key ...] timeout                 # 移出列表左侧第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。(返回值: 元素值或None)
+brpop key [key ...] timeout                 # 移出列表右侧第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。(返回值: 元素值或None)
+brpoplpush source destination timeout       # 弹出一个列表的值，将它推到另一个列表，并返回它或阻塞。例: r.brpoplpush('lk1', 'lk2', 10) (返回值: 元素值或None)
 
-In [72]: r.hset('hk1','f2',4)
-Out[72]: 1L
-
-In [73]: r.hgetall('hk1')
-Out[73]: {'f1': '3', 'f2': '4'}
-
-In [74]: r.hkeys('hk1')
-Out[74]: ['f1', 'f2']
-
-In [75]: r.hlen('hk1')
-Out[75]: 2
-
-In [76]: r.hmget('hk1','f1','f2')
-Out[76]: ['3', '4']
-
-In [77]: r.hmget('hk1','f1')
-Out[77]: ['3']
-
-In [78]: r.hvals('hk1')
-Out[78]: ['3', '4']
-
-In [79]: r.hstrlen('hk1','f1')
-Out[79]: 1
-
-In [80]: r.hsetnx('hk1','f3',2)
-Out[80]: 1L
-
-In [81]: r.hincrby('hk1','f3')
-Out[81]: 3L
-
-In [82]: r.hget('hk1','f3')
-Out[82]: '3'
-
-In [83]: r.hincrbyfloat('hk1','f3')
-Out[83]: 4.0
-
-In [84]: r.hget('hk1','f3')
-Out[84]: '4'
-
-In [85]: r.hdel('hk1','f2')
-Out[85]: 1
-
-In [86]: r.hlen('hk1')
-Out[86]: 2
-
-In [87]: r.hdel('hk1','f1')
-Out[87]: 1
-
-In [88]: r.hlen('hk1')
-Out[88]: 1
+lrem key count value                        # 例: r.lrem('list1','a',5) 此时count值为5) (返回值: 1:成功 0:失败)
+COUNT的值可以是以下几种：
+1) count > 0 : 从表头开始向表尾搜索，移除与 VALUE 相等的元素，数量为 COUNT 。
+2) count < 0 : 从表尾开始向表头搜索，移除与 VALUE 相等的元素，数量为 COUNT 的绝对值。
+3) count = 0 : 移除表中所有与 VALUE 相等的值。
 ```
 
 
-## set
-
 ```
-sadd key member [member ...]  向key添加元素
-scard key  查看key中有几个成员
-sdiff key [key ...] (获得第一个key中存在，其他key中不存在的元素)
-sdiffstore destination key [key ...] (取第一个key中存在，其他key中不存在的元素，放到destination中)
-sinter key [key ...]    (交集)
-sinterstore destination key [key ...]   (将给定集合之间的交集存储在指定的集合中。如果指定的集合已经存在，则将其覆盖。)
-sismember key member
-smembers key (获取集合里面的所有元素)
-smove source destination member
-spop key [count]
-srandmember key [count] (从集合里面随机获取一个元素)
-srem key member [member ...]
-sunion key [key ...] 获得并集
-sunionstore destination key [key ...]
-****sscan
+In [167]: r.flushall()
+Out[167]: True
 
-In [8]: r.flushall()
-Out[8]: True
+In [168]: r.lpush('lk1',1)
+Out[168]: 1L
 
-In [9]: r.keys()
-Out[9]: []
+In [169]: r.lpush('lk1',2)
+Out[169]: 2L
 
-In [10]: r.sadd('sk1',4)
-Out[10]: 1
+In [170]: r.lpush('lk1',3)
+Out[170]: 3L
 
-In [11]: r.sadd('sk1',5)
-Out[11]: 1
+In [171]: r.llen('lk1')
+Out[171]: 3
 
-In [12]: r.smembers('sk1')
-Out[12]: {'4', '5'}
+In [172]: r.lpush('lk2',4)
+Out[172]: 1L
 
-In [13]: r.sismember('sk1',5)
-Out[13]: True
+In [173]: r.lpush('lk2',5)
+Out[173]: 2L
 
-In [14]: r.sismember('sk1',3)
-Out[14]: False
+In [174]: r.lindex('lk1',2)
+Out[174]: '1'
 
-In [15]: r.scard('sk1')
-Out[15]: 2
+In [175]: r.lpop('lk2')
+Out[175]: '5'
 
-In [17]: r.spop('sk1')
-Out[17]: '4'
+In [176]: r.lpop('lk2')
+Out[176]: '4'
 
-In [18]: r.spop('sk1')
-Out[18]: '5'
+In [177]: r.lpop('lk2')
 
-In [19]: r.sadd('sk1',1)
-Out[19]: 1
+In [178]: r.lrange('lk1',0,-1)
+Out[178]: ['3', '2', '1']
 
-In [20]: r.sadd('sk1',2)
-Out[20]: 1
+In [179]: r.lpushx('lk1',4)
+Out[179]: 4
 
-In [21]: r.smembers('sk1')
-Out[21]: {'1', '2'}
+In [180]: r.lrange('lk1',0,-1)
+Out[180]: ['4', '3', '2', '1']
 
-In [22]: r.smove('sk1','sk2',2)
-Out[22]: True
+In [181]: r.lrem('lk1',2,1)
+Out[181]: 1L
 
-In [23]: r.smembers('sk1')
-Out[23]: {'1'}
+In [182]: r.lrange('lk1',0,-1)
+Out[182]: ['4', '3', '1']
 
-In [24]: r.smembers('sk2')
-Out[24]: {'2'}
+In [183]: r.lset('lk1',0,5)
+Out[183]: True
 
-In [25]: r.sdiff('sk1','sk2')
-Out[25]: {'1'}
+In [184]: r.lrange('lk1',0,-1)
+Out[184]: ['5', '3', '1']
 
-In [26]: r.smembers('sk1')
-Out[26]: {'1'}
+In [185]: r.ltrim('lk1',0,1)
+Out[185]: True
 
-In [27]: r.srandmember('sk1',1)
-Out[27]: ['1']
+In [186]: r.lrange('lk1',0,-1)
+Out[186]: ['5', '3']
 
-In [28]: r.smembers('sk1')
-Out[28]: {'1'}
+In [187]: r.rpush('lk1',2)
+Out[187]: 3L
 
-In [29]: r.srem('sk1', 1)
-Out[29]: 1
+In [188]: r.lrange('lk1',0,-1)
+Out[188]: ['5', '3', '2']
 
-In [30]: r.smembers('sk1')
-Out[30]: set()
+In [189]: r.rpushx('lk1',1)
+Out[189]: 4
 
-In [32]: r.sadd('sk1',2)
-Out[32]: 1
+In [190]: r.lrange('lk1',0,-1)
+Out[190]: ['5', '3', '2', '1']
 
-In [33]: r.sadd('sk1',3)
-Out[33]: 1
+In [191]: r.rpop('lk1')
+Out[191]: '1'
 
-In [34]: r.smembers('sk1')
-Out[34]: {'2', '3'}
-
-In [35]: r.smembers('sk2')
-Out[35]: {'2'}
-
-In [36]: r.sinter('sk1','sk2')
-Out[36]: {'2'}
-
-In [37]: r.sunion('sk1','sk2')
-Out[37]: {'2', '3'}
+In [192]: r.rpop('lk1')
+Out[192]: '2'
 ```
 
 
@@ -692,16 +816,148 @@ def withpipe(r):
 ## 项目实例
 
 ```
-import redis
 def make_redis_client(redis_config):
     try:
-	if cmp(redis.VERSION, (2,10,1)) >= 0:
-	    pool = redis.BlockingConnectionPool(retry_on_timeout=True, **redis_config)
-	else:
-	    pool = redis.BlockingConnectionPool(**redis_config)
+        if cmp(redis.VERSION, (2, 10, 1)) >= 0:
+            pool = redis.BlockingConnectionPool(retry_on_timeout=True, **redis_config)
+        else:
+            pool = redis.BlockingConnectionPool(**redis_config)
     except:
-	pool = redis.BlockingConnectionPool(**redis_config)
+        pool = redis.BlockingConnectionPool(**redis_config)
+
     redis_client = redis.Redis(connection_pool=pool)
 
     return redis_client
+```
+
+
+## 发布订阅
+
+```
+1.什么是发布订阅？
+    Redis 发布订阅(pub/sub)是一种消息通信模式：发送者(pub)通过频道发送消息，订阅者(sub)通过频道接收消息。
+
+2.使用场景
+    广播、群聊、博客博主推送博文，订阅者同时接收到博文更新的消息、直播。
+
+3.实现原理
+    发送者(pub)通过频道发送消息，订阅者(sub)通过频道接收消息。
+
+4.操作命令
+(1)订阅一个或多个频道
+    subscribe channel channel
+
+(2)订阅多个匹配频道（需要正则表达式）
+    psubscribe channel*
+
+(3)发布订阅
+    publish channel message
+
+(4)取消订阅（客户端无法模拟取消订阅，因为客户端在订阅之后一直在等待接收消息，没法进行取消订阅操作）
+    unsubscribe channel
+```
+
+
+## Redis事务
+
+```
+1.Redis 事务可以一次执行多个命令
+2.事务操作命令
+(1)开启事务
+    MULTI
+    
+(2)执行事务
+    EXEC
+
+(3)取消事务（回滚）
+    DISCARD
+
+(4)监视key，如果在事务执行之前这个(或这些)key被其他命令所改动，那么事务将被打断
+    WATCH key key2...
+
+(5)取消监视
+    UNWATCH
+```
+
+
+## Redis安全
+
+```
+1.密码设置
+(1) 设置密码
+    CONFIG set requirepass 密码
+(2) 取消密码
+    CONFIG set requirepass ""
+(3) 输入密码
+    AUTH 密码
+(4) 查看redis的密码状况
+    CONFIG get requirepass
+
+2.数据的备份以及恢复（数据的导入与导出）
+(1) 数据备份，会在服务端目录下生成dump.rdb文档
+    SAVE
+(2) 将生成的dump.rdb文档替换回路径，然后重启服务
+```
+
+
+## redis实际应用场景
+
+```
+1.排行榜
+    使用原理：使用zset数据类型记录分数和实体，使用zrange通过分数进行排行显示
+    漏洞：如果实体重名则无法存入到zset中，因为zset数据不能有重复数据
+
+2.计数
+    使用原理：使用string数据类型，值存计数，然后使用incr进行数值自增，实现下载量或浏览次数
+
+3.消息队列
+    使用原理：使用list数据类型与lpush-rpop模拟队列，遇到阻塞状态使用brpop
+    解决：生产者消费者模式、订阅和发布模式
+
+知识点补充：
+(1) 生产者消费者模式：
+    生产者生产数据到缓冲区中，消费者从缓冲区中取数据。
+    如果缓冲区已经满了，则生产者线程阻塞；
+    如果缓冲区为空，那么消费者线程阻塞。
+```
+
+
+## 主从配置
+
+```
+主从复制：http://blog.itpub.net/31545684/viewspace-2213629/
+主从复制和哨兵：https://www.cnblogs.com/leeSmall/p/8398401.html
+```
+
+```
+1.作用
+    (1) 主从复制：主数据库将数据备份到从数据库中，保证数据一致性
+    (2) 读写分离：主数据库可以进行写和读，然后从数据库进行读取，不能擅自更改数据库中的数据
+    应用实例：分布式系统
+
+2.原理
+    (1) 当一个从数据库启动时，会向主数据库发送sync（同步请求）命令，
+    (2) 主数据库接收到sync命令后会开始在后台保存快照（执行rdb操作），并将保存期间接收到的命令缓存起来
+    (3) 当快照完成后，redis会将快照文件和所有缓存的命令发送给从数据库。
+    (4) 从数据库收到后，会载入快照文件并执行收到的缓存的命令。
+
+3.步骤
+    (1) 在从机目录下打开配置文件，写slaveof <masterip> <masterport>
+    (2) 打开从机服务端，自动连接主机
+    (3) 打开从机客户端，查看数据是否与主机一致
+
+4.哨兵作用——实现自动主从机切换
+    (1) 监听Master状态（是否正常运行）
+    (2) 如果Master运行异常，从全部从机中随机选择一个从机作为主机，并将其他从机改变从属目标，并且哨兵的监视对象变为现在的主机。
+    (3) 如果原主机恢复正常运行，原主机将会变成从机。
+
+5.哨兵配置（自动主从切换）
+    (1) 主数据库目录中创建一个sentinel.conf配置文档
+    (2) 配置文档中输入sentinel monitor 主机名 主机IP 主机端口号 投票数
+    (3) 打开主机服务端，打开从机服务端
+    (4) 打开一个窗口运行哨兵 redis-server sentinel.conf --sentinel
+    (5) 关闭主数据库服务端，测试结果
+
+6.注意
+    主从配置使用哨兵时，无论数据库是主数据库还是从数据库，都要在目录下配置哨兵文件，并将哨兵监视IP指向自身
 ```

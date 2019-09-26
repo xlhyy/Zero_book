@@ -271,9 +271,9 @@ char(长度),长度写多少，字符串就要写多长。
 例：
 
 
-		（4）SAVEPOINT identifier; SAVEPOINT允许在事物中创建一个保存点，一个事务可以有多个SAVEPOINT；
+		（4）SAVEPOINT identifier; SAVEPOINT允许在事物中创建一个保存点(例: savepoint my_savepoint;)，一个事务可以有多个SAVEPOINT；
 		（5）RELEASE SAVEPOINT identifier; 删除一个事务的保存点，当没有指定的保存点时，执行该语句会抛出一个异常；
-		（6）ROLLBACK TO identifier; 把事务回滚到标记点（保存点）；
+		（6）ROLLBACK TO savepoint identifier; 把事务回滚到标记点（保存点）；
 		（7）SET TRANSACTION; 用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。
 ```
 

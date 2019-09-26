@@ -488,3 +488,85 @@ kaiqigu@bogon:~|⇒  mysql.server restart
 Starting MySQL
 .. SUCCESS! 
 ```
+
+## ER模型
+
+```
+1.Entry——实体（表） Relationship——关系
+
+2.关系分三种类型：
+    （1）一对一 		    1:1 			例子：一夫一妻制
+    （2）一对多（多对一）	1:n(n:1)	    例子：皇帝的后宫
+    （3）多对多 		    m:n 		    例子：学生选课
+    
+3.ER图
+    三要素：实体（矩形）、关系（菱形）、属性（椭圆）
+
+4.作图步骤
+（1）确定所有的实体集合；
+（2）选择实体集应包含的属性；
+（3）确定实体集之间的联系；
+（4）确定联系的类型，在用线将表示联系的菱形框联系到实体集时，在线旁注明是1或n或m来表示联系的类型。
+```
+
+
+## 事务
+
+```
+1.事务是什么？
+MySQL事务主要用于处理操作量大，复杂度高的数据。
+
+
+2.事务的特点：
+在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。
+事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。
+事务用来管理 insert,update,delete 语句。
+
+
+3.四大特性：
+（1）原子性：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。
+（2）一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。
+（3）隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。
+（4）持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
+
+
+4.操作事务:
+（1）开启事务：BEGIN;或者 START  TRANSACTION;
+（2）提交事务：COMMIT;
+（3）回滚事务（撤销事务）：ROLLBACK;
+（4）SAVEPOINT identifier; SAVEPOINT允许在事物中创建一个保存点(例: savepoint my_savepoint;)，一个事务可以有多个SAVEPOINT；
+（5）RELEASE SAVEPOINT identifier; 删除一个事务的保存点，当没有指定的保存点时，执行该语句会抛出一个异常；
+（6）ROLLBACK TO savepoint identifier; 把事务回滚到标记点（保存点）；
+（7）SET TRANSACTION; 用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。
+
+例：
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into students(name, age, cls_id) values('haha1', 2, 2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> savepoint my_123;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into students(name, age, cls_id) values('haha2', 2, 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> rollback to savepoint my_123;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from students;
++----+-------+------+--------+
+| id | name  | age  | cls_id |
++----+-------+------+--------+
+|  1 | haha1 |    2 |      2 |
++----+-------+------+--------+
+3 rows in set (0.00 sec)
+```
+
+
+## 索引
+
+```
+https://www.jianshu.com/p/0d6c828d3c70
+```
