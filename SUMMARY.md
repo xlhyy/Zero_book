@@ -141,10 +141,6 @@
         * [javascript](program/web_front/javascript.md)
         * [jquery](program/web_front/jquery.md)
 
-
-* 配置
-    * [vim配置](kv/vim配置/vim_conf.txt)
-
 * 闲的
     * [free_style](interface/free_style.md)
     * [代码注释](interface/annotate.md)
@@ -162,6 +158,9 @@
         * [正则表达式](liaoxuefeng/8_regular_expression.md)
         * [函数](liaoxuefeng/9_func.md)
         * [生成器/迭代器/装饰器](liaoxuefeng/10_tools.md)
+
+* 计算机相关
+    * [计算机组装](images/internet/note.md)
 
 * way
     * [my way](interface/way.md)
