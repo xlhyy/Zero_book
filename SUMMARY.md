@@ -162,5 +162,8 @@
 * 计算机相关
     * [计算机组装](images/internet/note.md)
 
+* 地理
+    * [中国地理常识](some_knownledge/chinese_geography.md)
+
 * way
     * [my way](interface/way.md)

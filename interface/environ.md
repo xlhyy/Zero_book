@@ -314,3 +314,13 @@ curl -L http://install.ohmyz.sh | sh
 ->在～/.bashrc中添加一句话: export LC_ALL=C
 ->apt-get install language-pack-zh-hans
 ```
+
+
+## 查看python解释器位置
+
+```
+In [2]: import sys
+
+In [3]: sys.executable
+Out[3]: '/usr/local/opt/python@2/bin/python2.7'
+```
