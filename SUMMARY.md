@@ -94,7 +94,7 @@
         * [算术运算](program/shell/2_operate.md)
         * [逻辑运算符](program/shell/3_logicsign.md)
         * [改变颜色](program/shell/4_color.md)
-        * [执行命令的三种方式](program/shell/5_execute.md)
+        * [从命令输出中提取信息的两种方式](program/shell/5_execute.md)
         * [echo](program/shell/6_echo.md)
         * [执行其他shell脚本](program/shell/7_othershell.md)
         * [结构](program/shell/8_do_choose.md)

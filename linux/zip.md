@@ -34,6 +34,7 @@ unzip test.zip
 解压1: gunzip FileName.gz
 解压2: gzip -d FileName.gz
 压缩: gzip FileName
+不解压查看内容: zcat FileName.gz
 
 3) .tar.gz和.tgz
 解压: tar zxcf FileName.tar.gz

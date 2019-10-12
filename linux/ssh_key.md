@@ -26,5 +26,5 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub admin@192.168.1.44
 - 各用户公钥在远程服务器的位置
 
 ```
-用户会把别人的公钥放在家目录的.ssh/authorized_keys文件中。
+用户会把别人的公钥放在家目录的.ssh目录下的authorized_keys或known_hosts文件中。
 ```

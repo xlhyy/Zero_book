@@ -4,9 +4,13 @@
 - 以隐藏方式读取用户输入
 
 ```
+-s 选项可以避免在read命令中输入的数据出现在显示器上 (实际上，数据会被显示，只是read命令会将文本颜色设成跟背景色一样)
+```
+
+```
 #!/bin/bash
 
-read -s -p "Enter your password: " pass	# -s选项可以避免在read命令中输入的数据出现在显示器上(实际上，数据会被显示，只是read命令会将文本颜色设成跟背景色一样)
+read -s -p "Enter your password: " pass
 echo
 echo "Is your password really $pass? "
 ```
@@ -15,83 +19,88 @@ echo "Is your password really $pass? "
 - 读取用户输入
 
 ```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
-<<EXAMPLE1
-echo -n "Enter your name: "	# -n输入不换行
+echo -n "enter your name: "
 read name
-echo "Hello $name, welcome to my program."
-EXAMPLE1
+echo "hello ${name}!"
 
-<<COMMENT
-⇒  ./11-获取用户输入.sh   
-Enter your name: li
-Hello li, welcome to my program.
-COMMENT
 
-# ---------------------------
+kaiqigu@bogon:~/dododo/test|⇒  ./tt.sh 
+enter your name: li
+hello li!
+```
 
-<<EXAMPLE2
-read -p "Please enter your age: " age	# -p允许直接在read命令行指定提示符
-days=$[ $age * 365 ]
-echo "That makes you over $days days old! "
-EXAMPLE2
+```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
+#!/bin/bash
 
-<<COMMENT
-⇒  ./11-获取用户输入.sh 
-Please enter your age: 10
-That makes you over 3650 days old! 
-COMMENT
+read -p "enter your name:" first last
+echo "checking data for ${last}, ${first} ..."
 
-# ---------------------------
 
-<<EXAMPLE3
-read -p "Enter your name: " first last
-echo "Checking data for $last, $first..."
-EXAMPLE3
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+enter your name:1 2
+checking data for 2, 1 ...
+```
 
-<<COMMENT
-⇒  ./11-获取用户输入.sh
-Enter your name: li1 li2  
-Checking data for li2, li1...
-COMMENT
+```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
+#!/bin/bash
 
-# ---------------------------
-
-<<EXAMPLE4
-# 也可以在read命令行中不指定变量。如果是这样，read命令会将它收到的任何数据都放进特殊环境变量REPLY中。
 read -p "Enter your name: "
-echo
-echo Hello $REPLY, welcome to my program.
-EXAMPLE4
+echo Hello $REPLY!
 
-<<COMMENT
-⇒  ./11-获取用户输入.sh    
-Enter your name: 123
 
-Hello 123, welcome to my program.
-COMMENT
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+Enter your name: 123 2131 12313
+Hello 123 2131 12313!
+```
 
-# ---------------------------
+```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
+#!/bin/bash
 
-read -n1 -p "Do you want to continue [Y/N]? " answer	# -n(字符个数)
+read -n1 -p "Do you want to continue [Y/N]? " answer	# -n(限制字符个数)，当达到默认字符个数时，默认按回车
 case $answer in
 	Y | y) echo
-	       echo "fine, continue on ..." ;;
+	       echo "continue ..." ;;
 	N | n) echo
-	       echo OK, goodbye!
+	       echo "goodbye ~"
 	       exit ;;
 esac
-echo "This is the end of the script"
 
-<<COMMENT
-⇒  ./11-获取用户输入.sh
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
 Do you want to continue [Y/N]? y
-fine, continue on ...
-This is the end of the script
+continue ...
 
-⇒  ./11-获取用户输入.sh
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
 Do you want to continue [Y/N]? n
-OK, goodbye!
-COMMENT
+goodbye ~
+```
+
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
+#!/bin/bash
+
+read -p "do you want to continue [y/n]? " answer    # 没用-n限制字符个数时，需要按回车确认选择
+
+case ${answer} in
+	y | Y) echo "continue ...";;
+	n | N) echo "goodbye ~";exit;;
+esac
+
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+do you want to continue [y/n]? y
+continue ...
+
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+do you want to continue [y/n]? n
+goodbye ~
 ```

@@ -5,44 +5,47 @@
 ```
 #!/bin/bash
 
-function hello_world()
+function func1()
 {
-	echo 'hello world func'
-	echo "$1" "$2"
+	echo "this is func1"
+	echo $1 $2
 	return 1
 }
 
-hello()
+function func2()
 {
-	echo 'hello func'
+	echo "this is func2"
 }
 
-# 直接用函数名调用hello函数
-hello
-result="$?"
-echo "$result"
 
-echo '----------'
-# 使用[函数名 函数参数]来传递参数
-hello_world 1 2
-result="$?"
-echo "$result"
+# 1.直接用函数名调用函数
+func2
+echo $?
 
-echo '----------'
-# 使用[FUN=`函数名 函数参数`]来直接调用
-FUN=`hello_world 'a' 'b'`
-result="$?"
-echo "$result"
-echo "$FUN" # 当给FUN赋值`函数 参数`时，执行echo "$FUN"，相当于直接执行函数 参数，以此来调用函数
+echo "-----------------"
 
-# hello func
-# 0
-#
-# hello world func
-# 1 2
-# 1
-#
-# 1
-# hello world func
-# a b
+# 2.函数传参
+func1 1 2
+echo $?
+
+echo "-----------------"
+
+# 3.将函数赋值给变量
+func=`func1 1 2`
+echo ${func}	# 当给func赋值时，执行echo，相当于直接执行函数，以此来调用函数
+echo $?
+```
+
+
+```
+结果:
+this is func2
+0
+-----------------
+this is func1
+1 2
+1
+-----------------
+this is func1 1 2
+0
 ```

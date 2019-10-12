@@ -6,8 +6,23 @@
 ```
 # echo -n 不换行输出
 
-echo -n 123
-echo 456
+kaiqigu@bogon:~/dododo/test|⇒  echo -n 123;echo 456
+123456
+
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
+#!/bin/bash
+
+echo "aaa"
+echo "bbb"
+
+echo -n "aaa"
+echo "bbb"
+kaiqigu@bogon:~/dododo/test|⇒  ./tt.sh 
+aaa
+bbb
+aaabbb
+
+注意: 此处使用sh执行则无法实现，直接执行可执行文件可以实现。
 ```
 
 
@@ -28,4 +43,11 @@ echo 456
 
 echo -e "a\bdddd"
 echo -e "a\ndddd"
+```
+
+### 输出特殊字符需要用\符号转义
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  echo "\"hello\""
+"hello"
 ```

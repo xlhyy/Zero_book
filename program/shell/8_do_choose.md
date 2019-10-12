@@ -4,36 +4,61 @@
 - if
 
 ```
+# 下面这两种判断方法都可以
+# if test "$VAR" -eq 10
+# if [ ${VAR} -eq 10 ]      # 此处空格格式有要求
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+10
+true
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+1
+false
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
 read VAR
 
-# 下面这两种判断方法都可以，使用[]注意左右加空格
-#if test "$VAR" -eq 10
-if [ "$VAR" -eq 10 ]
+if [ ${VAR} -eq 10 ]
 then
-	echo 'true'
+    echo "true"
 else
-	echo 'false'
+    echo "false"
 fi
 ```
 
 - case
 
 ```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+1
+ubuntu
+
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+2
+red cat
+
+
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+3
+other
+
+
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
-read NAME
-# 格式有点复杂，一定要注意
-case "$NAME" in
-	1)
-		echo 'Ubuntu'
+read name
+
+case ${name} in
+    1)
+	    echo "ubuntu"
 		;;
 	2)
-		echo 'Red Hat'
+		echo "red cat"
 		;;
-	*)
-		echo 'Other'
+	3)
+		echo "other"
 		;;
 esac
 ```
@@ -41,60 +66,82 @@ esac
 - for
 
 ```
+注意: 此处对空格形式无硬性要求
+for((i=1;i<=3;i++))
+```
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+1
+2
+3
+hello
+1
+2
+
+
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
-# 普通for循环
-# 此处可以有空格，也可以没有空格
-#for ((i = 1; i <= 3; i++))
-for((i=1;i<=3;i++))
+for i in 1 2 3 "hello"
 do
-	echo $i
+    echo ${i}
 done
 
-# VAR依次代表每个元素
-for VAR in 1 2 3
+
+for ((i=1; i<3; i++))
 do
-	echo $VAR
+    echo ${i}
 done
 ```
 
 - while
 
 ```
-#!/bin/bash
+# 注意:此处空格有格式要求
+# while [ ${var} -lt 10 ]
 
-VAR=1
-
-# 如果VAR小于10，就打印出来
-# 注意:此处必须有空格
 # -eq 等于
 # -ne 不等于
 # -gt 大于
 # -lt 小于
 # -ge 大于等于
 # -le 小于等于
+# 注意: 此处不能用<，>等。
 
-while [ $VAR -lt 10 ]
+
+#!/bin/bash
+
+var=1
+
+while [ ${var} -lt 10 ]
 do
-	echo $VAR
-	# VAR自增1
-	VAR=$["$VAR"+1]
+	echo ${var}
+	var=`expr ${var} + 1`
 done
 ```
 
 - until
 
 ```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+0
+1
+2
+3
+4
+5
+
+
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
 i=0
 
-# i大于5时，循环结束
-# 注意:此处必须有空格
-until [[ "$i" -gt 5 ]]
+until [[ ${i} -gt 5 ]]      # 对空格有格式要求
 do
-	echo "$i"
-	i=$["$i"+1]
+	echo ${i}
+	i=`expr ${i} + 1`
 done
 ```
 
@@ -107,11 +154,11 @@ for VAR in 1 2 3
 do
 	# 如果VAR等于2就跳出循环
 	# 判断条件中有[条件]的形式时，必须要有空格
-	if [ "$VAR" -eq 2 ]
+	if [ ${VAR} -eq 2 ]
 	then
 		break
 	fi
-	echo "$VAR"
+	echo ${VAR}
 done
 ```
 
@@ -123,11 +170,11 @@ done
 for VAR in 1 2 3
 do
 	# 如果VAR等于2，就跳过，直接进入下一次VAR=3的循环
-	if [ "$VAR" -eq 2 ]
+	if [ ${VAR} -eq 2 ]
 	then
 		continue
 	fi
-	echo "$VAR"
+	echo ${VAR}
 done
 ```
 
@@ -135,44 +182,41 @@ done
 - =与-eq 及 test命令
 
 ```
+=用于比较字符串 =和-eq用于比较整数
+```
+
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+3
+var is 3
+-2
+字符串不相等
+./new_dir目录存在
+
+
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
-# =用于比较字符串 =和-eq用于比较整数
+read var
+echo "var is ${var}"
 
-echo 'hello shell'
+echo `expr ${var} - 5`
 
-# 读入变量
-read VAR
-echo "VAR is $VAR"
-
-# 计算变量(注意这种写法$[表达式]:用于计算)
-echo $[$VAR-5]
-
-# 测试字符串
-if test 'hello' = 'helloworld'
+if test "hello" = "helloworld"
 then
-	echo '字符串相等！'
+	echo "字符串相等"
 else
-	echo '字符串不相等！'
+	echo "字符串不相等"
 fi
 
-# 测试整数
-if test $VAR = 10
-then
-	echo '两个数相等！'
-else
-	echo '两个数不相等！'
-fi
-
-# 测试目录
 new_dir=./new_dir
 if test -d ./new_dir
 then
-	echo "$new_dir是一个目录"
+	echo "${new_dir}目录存在"
 else
-	echo "$new_dir不是个目录"
+	echo "${new_dir}目录不存在"
 fi
 
-# 退出
 exit
 ```

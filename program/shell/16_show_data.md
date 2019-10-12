@@ -12,225 +12,247 @@
 - 重定向错误
 
 ```
-#!/bin/bash
+kaiqigu@bogon:~/dododo/sfile|⇒  ls -al a1.sh a2.sh a3.sh
+ls: a3.sh: No such file or directory
+-rw-r--r--  1 kaiqigu  staff  215 Oct 11 10:09 a1.sh
+-rw-r--r--  1 kaiqigu  staff   98 Oct 11 10:45 a2.sh
 
-<<COMMENT
-⇒  ls -al badfile 2> test4
-⇒  cat test4 
-ls: 无法访问'badfile': 没有那个文件或目录
 
-⇒  ls -al test badtest test2 2> test5
--rw-r--r-- 1 kaiqigu kaiqigu 231 10月  9 10:43 test2
-⇒  cat test5
-ls: 无法访问'test': 没有那个文件或目录
-ls: 无法访问'badtest': 没有那个文件或目录
+kaiqigu@bogon:~/dododo/sfile|⇒  ls -al a1.sh a2.sh a3.sh 2> err_info 
+-rw-r--r--  1 kaiqigu  staff  215 Oct 11 10:09 a1.sh
+-rw-r--r--  1 kaiqigu  staff   98 Oct 11 10:45 a2.sh
 
-    该命令生成的任何错误信息都会保存在输出文件中。用这种方法，shell会只重定向错误信息，而非普通数据。
-    ls命令的正常STDOUT输出仍然会发送到默认的STDOUT文件描述符，也就是显示器。由于该命令将文件描述符2的输出(STDERR)重定向到了一个输出文件，shell会将生成的所有错误信息直接发送到指定的重定向文件中。
-COMMENT
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat err_info 
+ls: a3.sh: No such file or directory
 ```
 
 - 重定向错误和输出
 
 ```
+kaiqigu@bogon:~/dododo/sfile|⇒  ls -al a1.sh a2.sh a3.sh 2> err_info2 1> show_info2
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat err_info2 
+ls: a3.sh: No such file or directory
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat show_info2 
+-rw-r--r--  1 kaiqigu  staff  215 Oct 11 10:09 a1.sh
+-rw-r--r--  1 kaiqigu  staff   98 Oct 11 10:45 a2.sh
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  ls -al a1.sh a2.sh a3.sh &> data_info2      
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat data_info2 
+ls: a3.sh: No such file or directory
+-rw-r--r--  1 kaiqigu  staff  215 Oct 11 10:09 a1.sh
+-rw-r--r--  1 kaiqigu  staff   98 Oct 11 10:45 a2.sh
+```
+
+```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b1.sh    
 #!/bin/bash
 
-<<COMMENT
-⇒  ls -al test test2 test3 badtest 2> test6 1> test7
-⇒  cat test6
-ls: 无法访问'test': 没有那个文件或目录
-ls: 无法访问'badtest': 没有那个文件或目录
-⇒  cat test7
--rw-r--r-- 1 kaiqigu kaiqigu 231 10月  9 10:43 test2
--rw-r--r-- 1 kaiqigu kaiqigu   0 10月  9 10:49 test3
+exec 3> b1_3_out
 
-⇒  ls -al test test2 test3 badtest &> test7
-⇒  cat test7
-ls: 无法访问'test': 没有那个文件或目录
-ls: 无法访问'badtest': 没有那个文件或目录
--rw-r--r-- 1 kaiqigu kaiqigu 231 10月  9 10:43 test2
--rw-r--r-- 1 kaiqigu kaiqigu   0 10月  9 10:49 test3
-COMMENT
+echo "content 1."
+echo "content 2." >&3
+echo "content 3."
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b1.sh 
+content 1.
+content 3.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b1_3_out 
+content 2.
 ```
 
 ```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b2.sh 
 #!/bin/bash
 
-exec 3>test13out
-
-echo "This should display on the monitor"
-echo "and this should be stored in the file" >&3
-echo "Then this should be back on the monitor"
-
-<<COMMENT
-⇒  ./01-创建输出文件描述符.sh 
-This should display on the monitor
-Then this should be back on the monitor
-
-⇒  cat test13out 
-and this should be stored in the file
-COMMENT
-```
-
-```
-#!/bin/bash
-
+# 下面两条不等于3> b2_out，而是相互独立的
 exec 3>&1
-exec 1>test14out
+exec 1> b2_out
 
-echo "This should store in the output file"
-echo "along with this line."
+echo "content 1."
 
-exec 1>&3	# 在向STDOUT(现在指向一个文件)发送一些输出之后，脚本将STDOUT重定向到文件描述符3的当前位置(现在仍然是显示器)。这意味着STDOUT又指向了它原来的位置。
-		# 这是一种在脚本中临时重定向输出，然后恢复默认输出设置的常用方法。
+exec 1>&3  # 这是一种在脚本中临时重定向输出，然后恢复默认输出设置的常用方法。
 
-echo "Now things should be back to normal"
+echo "content 2."
 
-<<COMMENT
-⇒  ./02-重定向文件描述符.sh 
-Now things should be back to normal
 
-⇒  cat test14out 
-This should store in the output file
-along with this line.
-COMMENT
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b2.sh 
+content 2.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b2_out 
+content 1.
 ```
 
 
 - 重定向输入
 
 ```
-kaiqigu@bogon:~/test|⇒  cat testfile 
-This is the first line.
-This is a test line
-ine.
-This is the third line.
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b3.sh  
+#!/bin/bash
 
-kaiqigu@bogon:~/test|⇒  cat test.sh 
-#!/bin/sh
+filename=$1
 
-exec 0< testfile
+exec 0< ${filename}
 
 while read line
 do
-    echo "Read: $line"
+	echo "read: ${line}."
 done
 
-kaiqigu@bogon:~/test|⇒  sh test.sh 
-Read: This is the first line.
-Read: This is a test line
-Read: ine.
-Read: This is the third line.
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test 
+content1
+content2
+content3
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b3.sh test 
+read: content1.
+read: content2.
+read: content3.
 ```
 
 ```
-kaiqigu@bogon:~/test|⇒  cat testfile 
-This is the first line.
-This is a test line
-ine.
-This is the third line.
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b4.sh 
+#!/bin/bash
 
-kaiqigu@bogon:~/test|⇒  cat test.sh 
-#!/bin/sh
+filename=$1
 
-exec 0< testfile
+exec 3< ${filename}
 
-while read line <&0
+while read line <&3
 do
-    echo "Read: $line"
+	echo "read: ${line}"
 done
 
-kaiqigu@bogon:~/test|⇒  sh test.sh 
-Read: This is the first line.
-Read: This is a test line
-Read: ine.
-Read: This is the third line.
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test 
+content1
+content2
+content3
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b4.sh test 
+read: content1
+read: content2
+read: content3
 ```
 
 
 ## 创建读写文件描述符
 
 ```
+用同一个文件描述符对同一个文件进行读写
+由于是对同一个文件进行数据读写，shell会维护一个内部指针，指明在文件中的当前位置。任何读或写都会从文件指针上次的位置开始。
+```
+
+```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b5.sh 
 #!/bin/bash
 
-# 用同一个文件描述符对同一个文件进行读写
+filename=$1
 
-# 由于是对同一个文件进行数据读写，shell会维护一个内部指针，指明在文件中的当前位置。任何读或写都会从文件指针上次的位置开始。
+exec 3<> ${filename}
 
-exec 3<> testfile
 read line <&3
 
-echo "Read: $line"
-echo "This is a test line" >&3
+echo "read: ${line}"
+echo "this is a test line." >&3
 
-<<COMMENT
-⇒  cat testfile 
-This is the first line.
-This is the second line.
-This is the third line.
 
-⇒  ./04-创建读写文件描述符.sh 
-Read: This is the first line.
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test2 
+this is the first line.
+this is the second line.
+this is the third line.
 
-⇒  cat testfile 
-This is the first line.
-This is a test line
-ine.
-This is the third line.
-COMMENT
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b5.sh test2 
+read: this is the first line.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test2 
+this is the first line.
+this is a test line.
+ne.
+this is the third line.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test3 
+this is the first line.
+this line.
+this is the third line.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b5.sh test3
+read: this is the first line.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat test3 
+this is the first line.
+this is a test line.
+e third line.
 ```
 
 ## 关闭文件描述符
 
 ```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b6.sh 
 #!/bin/bash
 
-exec 3> test17file
+exec 3> b6_out
 
-echo "This is a test line of data" >&3
+echo "test line." >&3
 
 exec 3>&-	# 关闭文件描述符3
 
-echo "This won't work" >&3
+echo "test line2." >&3
 
-<<COMMENT
-⇒  ./05-关闭文件描述符.sh 
-./05-关闭文件描述符.sh: 行 9: 3: 错误的文件描述符
-COMMENT
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b6.sh 
+b6.sh: line 9: 3: Bad file descriptor
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b6_out 
+test line.
 ```
 
 ```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b7.sh 
 #!/bin/bash
 
-exec 3> test17file
-echo "This is a test line of data" >&3
+exec 3> b7_out
+echo "this is a test line." >&3
 exec 3>&-
 
-cat test17file
+cat b7_out
 
-exec 3> test17file	# 会覆盖已有文件的内容
-echo "This'll be bad" >&3
+exec 3> b7_out	# 会覆盖已有文件的内容
+echo "new line." >&3
 
-<<COMMENT
-⇒  ./05-关闭文件描述符2.sh
-This is a test line of data
 
-⇒  cat test17file 
-This'll be bad
-COMMENT
+kaiqigu@bogon:~/dododo/sfile|⇒  sh b7.sh 
+this is a test line.
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  cat b7_out 
+new line.
 ```
 
 
 ## 阻止命令输出
 
 ```
-#!/bin/bash
-
-# 将STDERR重定向到一个叫null文件的特殊文件。
-# 应用举例: 当不想显示脚本输出时使用
-
-<<COMMENT
-ls -al > /dev/null
-ls -al badfile test16 2> /dev/null
-COMMENT
+ls -al > /dev/null                      # 当不想显示脚本输出时使用
+ls -al badfile test16 2> /dev/null      # 不显示错误信息
 ```

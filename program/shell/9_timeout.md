@@ -2,23 +2,34 @@
 
 
 ```
+kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh 
 #!/bin/bash
 
-if read -t 5 -p "Please enter your name: " name
+read -p "enter something: " something
+echo ${something}
+
+if read -t 5 -p "please enter your name: " name
 then
-	echo "Hello $name, welcome to my script"
+    echo "hello ${name}!"
 else
-	echo
-	echo "Sorry, too slow! "
+    echo "sorry, timeout!"
 fi
-
-<<COMMENT
-⇒  ./12-超时.sh
-Please enter your name: li
-Hello li, welcome to my script
-
-⇒  ./12-超时.sh 
-Please enter your name: li
-Sorry, too slow! 
-COMMENT
 ```
+
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh 
+enter something: 123
+123
+please enter your name: sorry, timeout!
+```
+
+
+```
+kaiqigu@bogon:~/dododo/test|⇒  sh tt.sh
+enter something: 123
+123
+please enter your name: li
+hello li!
+```
+

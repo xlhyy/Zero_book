@@ -7,7 +7,7 @@
 ln -s 目标地址 软链接地址(例:/usr/bin/tools)
 例:
 sudo ln -s /home/kaiqigu/下载/TIM-x86_64.AppImage /usr/bin/tim
-sudo ln -s /Users/kaiqigu/my_tools/tools.sh /usr/local/bin/qwe
+sudo ln -s /Users/kaiqigu/my_tools/tools.sh /usr/local/bin/tools
 ```
 
 

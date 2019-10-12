@@ -385,7 +385,7 @@ hset key field value                            # 为key设置field及value (返
 
 hget key field                                  # 获取key中指定field的value值 (返回值: value)
 hmget key field [field ...]                     # 取指定key中一个或多个field中的value (返回值: 由value值组成的列表)
-hgetall key                                     # 获取key中的所有field (返回值: 由field和value为键值对组成的字典，如: {'f1': '3', 'f2': '4'})
+hgetall key                                     # 获取key中的所有field:value键值对 (返回值: 由field和value为键值对组成的字典，如: {'f1': '3', 'f2': '4'})
 
 hdel key field [field ...]                      # 删除key中的指定field (返回值: 删除field的个数，如: r.hdel('hk1', 'f1', 'f2', 'f3'))
 
@@ -501,7 +501,7 @@ Out[88]: 1
 ```
 getset key value                                        # 设置一个key的value，并获取设置前的值。(返回值: 设置前的值)
 
-get key                                                 # 指定key中的value值 (返回值: value值)
+get key                                                 # 获取指定key中的value值 (返回值: value值)
 set key value [ex seconds] [px milliseconds] [nx|xx]    # 例: r.set('test', 100, ex=10) (返回值: True或False，若加期限则返回期限时间)
 参数:
 EX second       : 设置键的过期时间为 second 秒。 SET key value EX second 效果等同于 SETEX key second value 。

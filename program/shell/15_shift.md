@@ -1,18 +1,18 @@
-# shift移动变量
+# shift移动参数
 
 
 ```
+kaiqigu@bogon:~/dododo/sfile|⇒  cat a2.sh 
 #!/bin/bash
 
-<<COMMENT
-⇒  ./07-shift移动变量.sh a b c d
-
-The original parameters: a b c d
-Here's the new first parameter: c
-COMMENT
-
-echo
-echo "The original parameters: $*"
+echo "all params: $*"
+echo "old first param: $1"
 shift 2
-echo "Here's the new first parameter: $1"
+echo "new first param: $1"
+
+
+kaiqigu@bogon:~/dododo/sfile|⇒  sh a2.sh a b c d
+all params: a b c d
+old first param: a
+new first param: c
 ```
