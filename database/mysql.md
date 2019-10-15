@@ -354,10 +354,10 @@ import MySQLdb
 db = MySQLdb.connect(host=,port=,user=,passwd=,db=,charset="utf8")
 cursor = db.cursor()
 sql = """SQL语句"""
-param = ''
+param = ['', ...]
 
 try:
-    cursor.execute(sql, param)
+    cursor.execute(sql % param)
     db.commit()
 except:
     db.rollback()
