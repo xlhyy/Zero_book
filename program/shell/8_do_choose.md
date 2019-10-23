@@ -138,7 +138,7 @@ kaiqigu@bogon:~/dododo/test|⇒  cat tt.sh
 
 i=0
 
-until [[ ${i} -gt 5 ]]      # 对空格有格式要求
+until [ ${i} -gt 5 ]      # 对空格有格式要求
 do
 	echo ${i}
 	i=`expr ${i} + 1`
@@ -183,6 +183,9 @@ done
 
 ```
 =用于比较字符串 =和-eq用于比较整数
+注意:
+    =与==在只用if不用test的比较时, 没有区别。
+    如果使用test则只能用=或-eq, 不能用==。
 ```
 
 
@@ -209,6 +212,15 @@ then
 else
 	echo "字符串不相等"
 fi
+
+
+if [[ "hello" = "helloworld" ]]
+then
+	echo "字符串相等"
+else
+	echo "字符串不相等"
+fi
+
 
 new_dir=./new_dir
 if test -d ./new_dir
