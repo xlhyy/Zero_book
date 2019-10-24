@@ -35,12 +35,14 @@ docker run hello-world                              # 使用该镜像创建一�
 docker run -it centos [命令行命令]
 docker run --name mydocker -it --rm centos [命令行命令]
 docker run -d centos /bin/sh -c "while true;do echo hello centos; sleep 1;done"
+docker run -d -p 9000:5000 training/webapp python app.py
     参数:
         --name: 给容器定义一个名称
         -i: 让容器的标准输入保持打开(交互式操作)
         -t: 让docker分配一个伪终端
         -rm: 容器退出后将其删除。也可以不指定参数，手动docker rm，使用-rm可以避免浪费空间
         -d: 后台运行容器
+        -p: 指定端口映射
 
 
 docker rmi imageID                                  # 删除docker镜像
@@ -61,6 +63,7 @@ docker attach CONTAINER_ID      # 容器进入后台后，再次进入容器进�
 
 docker commit CONTAINER_ID 新镜像名字    # 创建新的自定义镜像
 docker container ls -a                  # 查看容器记录
+docker container ls                     # 查看正在运行的容器
 
 docker port CONTAINER_ID        # 查看指定容器的端口映射
 docker top CONTAINER_ID         # 查看容器内的进程
