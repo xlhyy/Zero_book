@@ -4,5 +4,7 @@
 
 ```
 sudo pip install lolcat
-例: cat xx.txt | lolcat
+例:
+    cat xx.txt | lolcat
+    lolcat xx.txt
 ```

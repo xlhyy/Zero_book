@@ -16,17 +16,16 @@
 ```
 
 ```
-熟悉shell编程
-熟悉linux系统操作
+----------------熟悉shell编程
+----------------熟悉linux系统操作
 熟悉python语言 (框架:tornado, django, flask)
 熟悉c语言
-熟悉mysql, redis数据库操作
-熟悉git, svn版本管理工具
-熟悉nginx, supervisor配置及应用
+----------------熟悉mysql, redis数据库操作
+----------------熟悉git, svn版本管理工具
+----------------熟悉nginx, supervisor配置及应用
 熟悉html, css, js编程
 了解java语言
-了解常用算法
-了解常用数据结构
-了解docker技术
-使用markdown编写接口文档
+----------------了解常用算法
+----------------了解docker技术
+----------------使用markdown编写接口文档
 ```

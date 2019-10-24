@@ -16,7 +16,7 @@ linux下.tar.gz/.gz/.zip解压
 tar zxvf test.tar.gz
 tar xzvf test.tar.gz -C testdir/
 2)
-gzip -b test.gz
+gzip -d test.gz
 zcat test.gz > test
 3)
 unzip test.zip

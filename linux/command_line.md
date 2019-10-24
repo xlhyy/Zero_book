@@ -22,6 +22,8 @@ ctrl+y:粘贴或者恢复上次的删除(对ctrl+d不适用)
 ctrl+z:把当前进程转到后台运行，使用’ fg ‘命令恢复。比如top -d1 然后ctrl+z ，到后台，然后fg,重新恢复
 ctrl+c:杀死当前进程。
 ctrl+d:退出当前 Shell。
-ctrl+l:清屏，相当于clear。
+ctrl+l:清屏，相当于clear。(仍可以向上翻历史记录)
+command+k:清屏。(不可以向上翻历史记录)
+
 ctrl+r:搜索之前打过的命令。会有一个提示，根据你输入的关键字进行搜索bash的history
 ```
