@@ -29,3 +29,7 @@
 了解docker技术
 使用markdown编写接口文档
 ```
+
+- 面试题
+
+[python面试题总结](https://www.zhihu.com/question/54513391)

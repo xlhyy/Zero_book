@@ -37,6 +37,7 @@
     * [base64](python_lib/base64.md)
     * [常用内建模块](python_lib/collections.md)
     * [hashlib](python_lib/hashlib.md)
+    * [chardet查看字符串编码格式](python_lib/chardet.md)
 
 * 数据库
     * [常识](database/note.md)
