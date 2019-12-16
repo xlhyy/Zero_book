@@ -174,3 +174,6 @@
 
 * way
     * [my way](interface/way.md)
+    
+* 消息队列
+    * [kafka](mq/kafka.md)
