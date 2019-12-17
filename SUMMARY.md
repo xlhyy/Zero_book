@@ -177,3 +177,6 @@
     
 * 消息队列
     * [kafka](mq/kafka.md)
+
+* 分布式
+    * [zookeeper](mq/zookeeper.md)
