@@ -1,6 +1,10 @@
 # kafka
 
-* kafka: [消息队列-kafka](https://www.cnblogs.com/laojiao/p/9573016.html)
+* [消息队列-kafka](https://www.cnblogs.com/laojiao/p/9573016.html)
+* [kafka下载地址](http://kafka.apache.org) (注意: 要下载Binary downloads里面的)
+* [kafka安装及部署](https://blog.csdn.net/lemonZhaoTao/article/details/84455588)
+* [kafka与zookeeper](https://blog.csdn.net/weixin_38750084/article/details/82944759)
+* [kafka的producer/consumer/broker](https://blog.csdn.net/u010020099/article/details/82290403)
 
 
 ## 为什么使用消息队列
@@ -210,4 +214,13 @@ topic数量对吞吐量的影响:
 不过现在确实越来越多的公司，会去用RocketMQ，确实很不错，但是我提醒一下自己想好社区万一突然黄掉的风险，对自己公司技术实力有绝对自信的，我推荐用RocketMQ，否则回去老老实实用RabbitMQ吧，人是活跃开源社区，绝对不会黄。
 所以中小型公司，技术实力较为一般，技术挑战不是特别高，用RabbitMQ是不错的选择；大型公司，基础架构研发实力较强，用RocketMQ是很好的选择。
 如果是大数据领域的实时计算、日志采集等场景，用Kafka是业内标准的，绝对没问题，社区活跃度很高，绝对不会黄，何况几乎是全世界这个领域的事实性规范。
+```
+
+
+## kafka常用命令
+
+```
+./kafka-server-start.sh ../config/server.properties 
+./kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic test
+./kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test
 ```

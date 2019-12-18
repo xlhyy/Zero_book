@@ -120,6 +120,14 @@ Zookeeper的核心是原子广播，这个机制保证了各个Server之间的�
 
 ```
 Zookeeper节点部署越多，服务的可靠性越高，建议部署奇数个节点，因为zookeeper集群是以宕机个数过半才会让整个集群宕机的。
+
+并不是Zookeeper的机器越多越好，因为在选举的时候如果机器很多，选举肯定是很繁忙的。(个人经验)
+```
+
+```
+机器数量：
+生产集群小于100台，Zookeeper部署7台。
+生产集群大于100台，Zookeeper部署7台或9台。
 ```
 
 
@@ -166,6 +174,7 @@ pip install kazoo
 
 ## 实例
 
-* [zookeeper实例](https://www.cnblogs.com/bethal/p/5459020.html)
+* [zookeeper实例 1](https://blog.csdn.net/lemonZhaoTao/article/details/80369207)
+* [zookeeper实例 2](https://www.cnblogs.com/bethal/p/5459020.html)
 * [python操作zookeeper 1](https://www.cnblogs.com/xiao987334176/p/10103619.html)
 * [python操作zookeeper 2](https://blog.51cto.com/chenx1242/2053627)

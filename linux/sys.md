@@ -1,7 +1,15 @@
 # 系统相关
 
 
--  查看系统位数:(linux及mac)
+- 查看命令所在位置
+
+```
+⇒  which nginx
+/usr/local/bin/nginx
+```
+
+
+- 查看系统位数:(linux及mac)
 
 ```
 kaiqigu@bogon:~|⇒  getconf LONG_BIT
