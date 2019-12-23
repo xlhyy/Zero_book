@@ -411,9 +411,9 @@ mysql> select user,host from user;
 
 
 (3) 执行
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 或
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 ```
 
 
@@ -569,4 +569,49 @@ mysql> select * from students;
 
 ```
 https://www.jianshu.com/p/0d6c828d3c70
+```
+
+
+## Ubuntu安装mysql未提示输入密码，安装后修改mysql默认密码
+
+```
+mysql默认密码为空
+但是使用mysql -uroot -p 命令连接mysql时，报错
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' 
+此时修改root的默认密码即可
+
+1.进入到etc/mysql 目录下，查看debian.cnf文件
+2.找到用户名，密码 ，使用此账号登录mysql
+3.修改root用户的的密码
+4.修改完密码，需要重启mysql
+    /etc/init.d/mysql restart
+5.再次登录
+    mysql -u root -p 密码
+    就ok了
+```
+
+
+## mysql卸载及重装
+
+```
+首先删除mysql:
+sudo apt-get remove mysql-*
+
+然后清理残留的数据
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+它会跳出一个对话框，你选择yes就好了
+
+然后安装mysql
+sudo apt-get install mysql-client mysql-server 
+安装的时候会提示要设置root密码，如果你没有在卸载的时候去清理残留数据是不会提示你去设置root密码的
+
+检查mysql是不是在运行
+sudo service mysql status 
+一般安装完成之后都是会自动运行的。
+
+如果没有运行你可以
+sudo service mysql start 
+
+查看端口
+sudo netstat -tap | grep mysql 
 ```
