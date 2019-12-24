@@ -31,7 +31,7 @@ gitbook serve
 sudo apt-get install nodejs
 
 查看是否成功:
-node -V
+node -v
 
 安装npm:
 sudo apt-get install npm
@@ -40,7 +40,7 @@ sudo apt-get install npm
 sudo npm install -g gitbook-cli
 
 查看是否成功：
-gitbook -V
+gitbook -v
 
 在文件夹内:
 gitbook install

@@ -332,3 +332,18 @@ Out[3]: '/usr/local/opt/python@2/bin/python2.7'
 python2 -m pip install numpy     # 使用Python2的pip下载了numpy
 python3 -m pip install numpy     # 使用了python3的pip下载了numpy模块
 ```
+
+```
+一、利用pip将一些模块安装到指定的版本
+sudo pip2 install 模块名
+sudo pip3 install 模块名
+
+二、查看pip的版本：
+pip2 -V或python2 -m pip -V
+pip3 -V或python3 -m pip -V
+
+三、卸载pip安装的模块
+sudo pip2 uninstall 模块名
+sudo pip3 uninstall 模块名
+```
+
