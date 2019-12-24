@@ -324,3 +324,11 @@ In [2]: import sys
 In [3]: sys.executable
 Out[3]: '/usr/local/opt/python@2/bin/python2.7'
 ```
+
+
+# 解决python2与python3的pip冲突问题
+
+```
+python2 -m pip install numpy     # 使用Python2的pip下载了numpy
+python3 -m pip install numpy     # 使用了python3的pip下载了numpy模块
+```

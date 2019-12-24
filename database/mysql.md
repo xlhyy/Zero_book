@@ -615,3 +615,36 @@ sudo service mysql start
 查看端口
 sudo netstat -tap | grep mysql 
 ```
+
+
+## django.core.exceptions.ImproperlyConfigured: mysqlclient 1.3.3 or newer is required; you have 0.7.11.None
+
+```
+解决办法：
+找到Python安装路劲下的Python36-32\Lib\site-packages\django\db\backends\mysql\base.py文件
+将文件中的如下代码注释
+if version < (1, 3, 3):
+    raise ImproperlyConfigured("mysqlclient 1.3.3 or newer is required; you have %s" % Database.__version__)
+```
+
+
+## AttributeError: 'str' object has no attribute 'decode'
+
+```
+python3下列代码会报上边的错
+print("Response:", resp.text.decode('unicode_escape'))
+
+问题原因：
+python3里面，字符串要先encode手动指定其为某一编码的字节码之后，才能decode解码。
+
+解决办法：
+print("Response:", resp.text.encode('utf-8').decode('unicode_escape'))
+中间加上.encode('utf-8')即可。
+```
+
+
+## File "/home/ubuntu/.local/lib/python3.6/site-packages/django/db/backends/mysql/operations.py", line 146, in last_executed_query   query = query.decode(errors='replace')  AttributeError: 'str' object has no attribute 'decode'
+
+```
+
+```
