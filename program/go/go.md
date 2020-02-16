@@ -267,7 +267,7 @@ switch var1 {
         ...
 }
 
-switch语句中的表达式是可选的，可以省略。如果表达式被省略，则认为switch为true，并对每个case表达式求值，为真则执行相应的代码块。
+switch语句中的表达式是可选的，可以省略。如果表达式被省略，则认为switch为true，并对每个case表达式求值，为真则执行相应的代码块,然后跳过剩下的case。
 例子:
 package main
 
@@ -284,9 +284,14 @@ func main() {
         fmt.Println("num is greater than 51 and less than 100")
     case num >= 101:
         fmt.Println("num is greater than 100")
+    case num >= 51 && num <= 100:
+        fmt.Println("num is greater than 51")
     }
 
 }
+
+
+num is greater than 51 and less than 100
 ```
 
 ```
@@ -322,12 +327,14 @@ func main() {
 
 }
 
+
 nil
 ```
 
 ```
 fallthrough
-使用fallthrough回强制执行后面的case语句，fallthrough不会判断下一条case的表达式结果是否为true。
+使用fallthrough回强制执行后面的case语句，fallthrough不会判断下一条case的表达式结果是否为true，而是直接执行（即默认为true直接执行）。
+之后继续执行，遇到为false时停止case的判断。
 
 例子:
 package main
@@ -382,11 +389,17 @@ func main() {
 	sum := 1
 	for sum <= 10 {
 		sum += sum
+		fmt.Println(sum)
 	}
-	fmt.Println(sum)
+	fmt.Println("result: ", sum)
 }
 
+
+2
+4
+8
 16
+result:  16
 -------------------------------
 for xxx; xxx; xxx {}
 
@@ -421,7 +434,9 @@ for key, value := range oldMap {
 break
 continue
 goto
+```
 
+```
 例子：
 package main
 
@@ -436,7 +451,7 @@ func main() {
 		if a == 5 {
 			// 跳过迭代
 			a += 1
-			goto LOOP
+			goto LOOP  //此时作用同continue
 		}
 		fmt.Println(a)
 		a ++
@@ -701,7 +716,7 @@ import (
 )
 
 func main() {
-	var b [3] int
+	var b [3]int
 	for i:=0; i<3; i++ {
 		b[i] = i
 	}
@@ -847,7 +862,7 @@ import (
 )
 
 func main() {
-	var a int=1
+	var a int = 1
 	var p *int
 
 	p = &a
@@ -882,6 +897,7 @@ import (
 func main() {
 	var p1 *int
 	fmt.Println(p1)
+	
 	if p1 == nil {
 		fmt.Println("p1是空指针")
 	} else {
@@ -893,6 +909,7 @@ func main() {
 	p2 = &a
 	fmt.Println(p2)
 	fmt.Println(*p2)
+	
 	if p2 == nil {
 		fmt.Println("p2是空指针")
 	} else {
@@ -1023,8 +1040,6 @@ func swap(x *int, y *int) {
 
 ## 结构体
 
-### 基础知识
-
 ```
 Go语言中数组可以存储同一类型的数据，但在结构体中可以为不同项定义不同的数据类型。
 结构体是由一系列具有相同类型或不同类型的数据构成的数据集合。
@@ -1039,7 +1054,7 @@ type struct_variable_type struct {
     member definition
 }
 
-一旦定义了结构体类型，就能用于变量的声明，愈发格式如下：
+一旦定义了结构体类型，就能用于变量的声明，语法格式如下：
 variable_name := structure_variable_type {value1, value2, ...}
 或
 variable_name := structure_variable_type {key1: value1, key2: value2, ...}
@@ -1092,6 +1107,8 @@ li
 ### 结构体作为函数参数
 
 ```
+实例：
+
 package main
 
 import (
@@ -1106,7 +1123,7 @@ type Books struct {
 
 func main() {
 	var book Books
-	book = Books {"Python", "li", 1}
+	book = Books{"Python", "li", 1}
 	printBook(book)
 }
 
@@ -1319,7 +1336,7 @@ func printSlice(x []int) {
 len=0 cap=0 slice=[]
 len=1 cap=1 slice=[0]
 len=2 cap=2 slice=[0 1]
-len=5 cap=6 slice=[0 1 2 3 4]
+len=5 cap=6 slice=[0 1 2 3 4]  //注释：此时为6而不是5，是因为在追加时切片的容量增大了
 len=5 cap=12 slice=[0 1 2 3 4]
 ```
 
@@ -1811,7 +1828,7 @@ qqq
 ```
 通道(channel)是用来传递数据的一个数据结构。
 通道可用于两个goroutine之间通过传递一个指定类型的值来同步运行和通讯。
-操作符<-用于指定通道的方向，发送或接受。如果未指定方向，则为双向通道。
+操作符<-用于指定通道的方向，发送或接受。
 
 ch <- v  //把v发送到通道ch
 v := <-ch  //从ch接收数据并把值赋给v
