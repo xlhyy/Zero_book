@@ -1,28 +1,33 @@
-# python重要知识点
-
-## 语言特点
-
-### 1. 解释型语言
+## 利用python搭建一个局域网文件共享服务器(支持上传和下载)
 
 ```
-编译型：源程序集中转换为机器指令，然后由机器执行。
-解释型：逐条读取，逐条转换，逐条执行。
+https://www.jianshu.com/p/c17347a07666
 ```
 
-```
-2、动态语言
-静态语言：变量的数据类型需事先声明，并且不能修改。
-动态语言：不需要事先声明变量的类型，而且变量的数据类型可以被修改。
-```
+### 下载功能
 
 ```
-3、面向对象
-封装：通过方法限制属性的访问，提高属性的安全性
-继承：非静态属性和方法可以被继承和重写。但是静态属性和方法可以被继承，但是没有被重写（overwrite）而是被隐藏，即调用的都是父类的属性和方法。
-多态：指允许不同的实例对象对同一消息做出不同响应（方法重写）。
+进入目录
 
-4、跨平台
-python解释器可以在大部分平台运行。
+Python2.x的使用
+python -m SimpleHTTPServer 8888
 
-5、语法简洁
+Python3.x使用
+python -m http.server 8888
+```
+
+
+## nginx设置目录权限
+
+```
+https://blog.csdn.net/professorphp/article/details/81699916
+```
+
+### 设置密码
+
+```
+sudo vi /etc/nginx/htpasswd.user
+sudo chmod 777 htpasswd.user
+sudo apt install apache2-utils
+htpasswd -bc htpasswd.user admin 123
 ```
