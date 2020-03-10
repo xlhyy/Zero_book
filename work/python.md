@@ -26,6 +26,10 @@ https://blog.csdn.net/professorphp/article/details/81699916
 ### 设置密码
 
 ```
+https://blog.csdn.net/qq_42996081/article/details/82114639
+```
+
+```
 sudo vi /etc/nginx/htpasswd.user
 sudo chmod 777 htpasswd.user
 sudo apt install apache2-utils
