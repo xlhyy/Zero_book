@@ -24,6 +24,16 @@ gitbook build
 gitbook serve
 ```
 
+```
+新建gitbook项目流程：
+
+github创建一个带有README.md的项目；
+本地创建文件夹然后拉代码；
+gitbook build;
+创建SUMMARY.md文件;
+gitbook serve运行项目;
+```
+
 - linux安装gitbook
 
 ```
