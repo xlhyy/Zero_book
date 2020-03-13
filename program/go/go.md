@@ -1,5 +1,10 @@
 # Go
 
+##  Sublime text搭建Go语言开发环境
+
+```
+https://blog.csdn.net/u012855229/article/details/72642735
+```
 
 ## 语言类型
 
